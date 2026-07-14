@@ -18,7 +18,7 @@ const emit = defineEmits<{
   (e: 'continuar'): void
 }>()
 
-const senha = ref(import.meta.env.DEV ? '1234' : '')
+const senha = ref('1234')
 const touched = ref(false)
 const feedback = ref('')
 

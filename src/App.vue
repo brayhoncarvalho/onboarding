@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, watchEffect } from 'vue'
+
+const menuOpen = ref(false)
+const closeMenu = () => { menuOpen.value = false }
 import HeroSection from './components/HeroSection.vue'
 import SimuladorSection from './components/SimuladorSection.vue'
 import ComoFuncionaSection from './components/ComoFuncionaSection.vue'
@@ -202,10 +205,21 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
             <a href="#footer">Ajuda</a>
           </nav>
           <button class="landing-nav__cta" type="button" @click="goToProposta">Simular grátis</button>
-          <button class="landing-nav__btn" aria-label="Menu" aria-expanded="false">
-            <span></span>
-            <span></span>
+          <button class="landing-nav__btn" :aria-label="menuOpen ? 'Fechar menu' : 'Abrir menu'" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen">
+            <span :class="{ 'is-open-top': menuOpen }"></span>
+            <span :class="{ 'is-open-mid': menuOpen }"></span>
           </button>
+        </div>
+
+        <!-- Menu mobile drawer -->
+        <div v-if="menuOpen" class="landing-nav__drawer" role="dialog" aria-label="Menu de navegação">
+          <nav class="landing-nav__drawer-links" aria-label="Navegação mobile">
+            <a href="#simulador" @click="closeMenu">Empréstimo</a>
+            <a href="#como-funciona" @click="closeMenu">Como funciona</a>
+            <a href="#beneficios" @click="closeMenu">Segurança</a>
+            <a href="#footer" @click="closeMenu">Ajuda</a>
+          </nav>
+          <button class="landing-nav__drawer-cta" type="button" @click="closeMenu(); goToProposta()">Simular grátis</button>
         </div>
       </header>
 
@@ -418,6 +432,59 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
   width: 18px;
   border-radius: 2px;
   background: #063b3e;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.landing-nav__btn span.is-open-top  { transform: translateY(3px) rotate(45deg); }
+.landing-nav__btn span.is-open-mid  { transform: translateY(-3px) rotate(-45deg); }
+
+/* ── Mobile drawer ── */
+.landing-nav__drawer {
+  background: #fafcfc;
+  border-top: 1px solid #e3edec;
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.landing-nav__drawer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-nav__drawer-links a {
+  padding: 14px 4px;
+  border-bottom: 1px solid #f0f7f7;
+  color: #0b2528;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.landing-nav__drawer-links a:last-child { border-bottom: none; }
+.landing-nav__drawer-links a:active { color: #063b3e; }
+
+.landing-nav__drawer-cta {
+  margin-top: 16px;
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 999px;
+  background: #063b3e;
+  color: #ffffff;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.landing-nav__drawer-cta:hover { background: #052c2f; }
+
+@media (min-width: 1024px) {
+  .landing-nav__drawer { display: none; }
 }
 
 .landing-above-fold {

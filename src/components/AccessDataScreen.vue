@@ -10,7 +10,7 @@ const emit = defineEmits<{
   (e: 'enviar', payload: { email: string; celular: string; canal: 'email' | 'celular' }): void
 }>()
 
-const IS_DEV_PREFILL = import.meta.env.DEV
+const IS_DEV_PREFILL = true
 
 const email = ref(IS_DEV_PREFILL ? 'brayhon@gmail.com' : '')
 const celular = ref(IS_DEV_PREFILL ? maskPhone('11954489531') : '')

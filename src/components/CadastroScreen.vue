@@ -49,7 +49,7 @@ const valorEmprestimoError = computed(() => {
   if (!submitted.value && !touched.value.valorEmprestimo) return undefined
   const centavos = parseInt(onlyDigits(valorEmprestimo.value), 10)
   if (!centavos) return 'Valor do empréstimo é obrigatório.'
-  if (centavos < 100000) return 'Valor mínimo: R$ 1.000,00.'
+  if (centavos < 25000) return 'Valor mínimo: R$ 250,00.'
   if (centavos > 20000000) return 'Valor máximo: R$ 200.000,00.'
   return undefined
 })

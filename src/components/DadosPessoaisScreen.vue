@@ -8,7 +8,7 @@ const emit = defineEmits<{
   (e: 'continuar'): void
 }>()
 
-const IS_DEV_PREFILL = import.meta.env.DEV
+const IS_DEV_PREFILL = true
 
 const sexo            = ref(IS_DEV_PREFILL ? 'masculino'           : '')
 const estadoCivil     = ref(IS_DEV_PREFILL ? 'solteiro'            : '')

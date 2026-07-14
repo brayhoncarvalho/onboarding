@@ -13,7 +13,7 @@ const props = withDefaults(
   { valorInicial: 0 }
 )
 
-const IS_DEV_PREFILL = import.meta.env.DEV
+const IS_DEV_PREFILL = true
 
 // Pré-preencher valor com o da simulação, se informado; caso contrário, usar mock de dev
 const valorInicialFormatado = props.valorInicial > 0
@@ -112,7 +112,7 @@ function validateField(field: keyof typeof errors) {
     touched.valorEmprestimo = true
     const centavos = parseInt(onlyDigits(valorEmprestimo.value), 10)
     if (!centavos) errors.valorEmprestimo = 'Valor do empréstimo é obrigatório.'
-    else if (centavos < 100000) errors.valorEmprestimo = 'Valor mínimo: R$ 1.000,00.'
+    else if (centavos < 25000) errors.valorEmprestimo = 'Valor mínimo: R$ 250,00.'
     else if (centavos > 20000000) errors.valorEmprestimo = 'Valor máximo: R$ 200.000,00.'
     else errors.valorEmprestimo = ''
   } else if (field === 'motivoEmprestimo') {

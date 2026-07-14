@@ -1,0 +1,49 @@
+{
+  "name": "figma-landing-test",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run src/utils/__tests__",
+    "test:a11y": "vitest run src/components/__tests__/a11y.spec.ts",
+    "lint": "eslint src --ext .vue,.ts,.js",
+    "lint:gate": "eslint src --ext .vue,.ts,.js --quiet",
+    "validate:design": "node scripts/validate-design.mjs",
+    "validate": "node scripts/validate-pipeline.mjs",
+    "figma:check": "node ../copilot-config/scripts/figma-check.mjs",
+    "figma:sync": "node ../copilot-config/scripts/figma-sync.mjs",
+    "figma:audit": "node ../copilot-config/scripts/figma-fidelity-audit.mjs",
+    "figma:export-tokens": "node scripts/export-tokens-for-figma.mjs",
+    "figma:prepare-import": "node scripts/prepare-figma-import.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "screenshots:ci": "node scripts/screenshots.mjs --base-url=http://127.0.0.1:4173 --fail-on-error"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@lucide/vue": "^1.23.0",
+    "@tabler/icons-vue": "^3.44.0",
+    "date-fns": "^4.1.0",
+    "vue": "^3.5.13",
+    "vue-i18n": "^11.1.2"
+  },
+  "devDependencies": {
+    "@testing-library/vue": "^8.1.0",
+    "@typescript-eslint/parser": "^8.34.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^9.0.0",
+    "eslint-plugin-vue": "^9.25.0",
+    "jest-axe": "^9.0.0",
+    "jsdom": "^26.1.0",
+    "playwright": "^1.60.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.11",
+    "vitest": "^4.1.5"
+  }
+}

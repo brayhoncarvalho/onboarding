@@ -1,0 +1,53 @@
+/* ── Google Fonts — Premium layout ── */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Roboto:wght@300;400;500;700&family=Red+Hat+Display:wght@400;600;700&display=swap');
+
+/* ── Dock Design System tokens ── */
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  background: #ffffff;
+  color: #0f1420;
+  font-size: 14px;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* ── Utilitários globais DS ── */
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-brand-secondary { color: var(--color-secondary-500); }
+.bg-surface { background: var(--color-bg-surface); }
+.bg-page { background: var(--color-bg-page); }
+
+/* ── Focus ring global DS ── */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}

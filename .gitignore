@@ -3,11 +3,32 @@ dist/
 figma-import/
 screenshots/
 tokens/
+
+# Secrets
 .env
 .env.*
 !.env.example
+
+# Figma raw data
 figma-node-data.json
 figma-node-*.json
 figma-cadastro-node.json
 figma-dados-pessoais.json
 figma-login-node.json
+
+# Editor
+.vscode/
+
+# Design / docs internos
+DESIGN_SYSTEM.md
+.instructions.md
+fluxocdci.md
+template-dock.md
+dock.yaml
+dock-ds.config.json
+
+# Scripts utilitários Figma/screenshots
+scripts/
+
+# Artefatos binários soltos
+src/components/*.zip

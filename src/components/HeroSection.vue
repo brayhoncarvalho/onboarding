@@ -131,8 +131,8 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(250, 252, 252, 0.43) 0%, rgba(250, 252, 252, 0.60) 100%),
-    linear-gradient(90deg, rgba(250, 252, 252, 0.65) 0%, rgba(250, 252, 252, 0.34) 58%, rgba(250, 252, 252, 0.47) 100%);
+    linear-gradient(180deg, rgba(250, 252, 252, 0.72) 0%, rgba(250, 252, 252, 0.86) 100%),
+    linear-gradient(90deg, rgba(250, 252, 252, 0.88) 0%, rgba(250, 252, 252, 0.55) 58%, rgba(250, 252, 252, 0.78) 100%);
   pointer-events: none;
 }
 
@@ -142,7 +142,7 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   object-fit: cover;
   display: block;
   object-position: center 28%;
-  filter: saturate(0.68) contrast(0.82) brightness(0.90);
+  filter: saturate(0.45) contrast(0.78) brightness(0.95);
 }
 
 @media (min-width: 480px) {
@@ -192,13 +192,13 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   .hero__image {
     object-fit: contain;
     object-position: center bottom;
-    filter: saturate(0.60) contrast(0.84) brightness(0.90);
+    filter: saturate(0.38) contrast(0.75) brightness(0.96);
   }
 
   .hero__media::after {
     background:
-      linear-gradient(180deg, rgba(250, 252, 252, 0.56) 0%, rgba(250, 252, 252, 0.70) 80%),
-      linear-gradient(90deg, rgba(250, 252, 252, 0.74) 0%, rgba(250, 252, 252, 0.32) 58%, rgba(250, 252, 252, 0.60) 100%);
+      linear-gradient(180deg, rgba(250, 252, 252, 0.78) 0%, rgba(250, 252, 252, 0.90) 80%),
+      linear-gradient(90deg, rgba(250, 252, 252, 0.92) 0%, rgba(250, 252, 252, 0.58) 58%, rgba(250, 252, 252, 0.82) 100%);
   }
 }
 </style>

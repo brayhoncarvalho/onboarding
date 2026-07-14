@@ -236,7 +236,7 @@ const handleEnviar = () => {
   background: #ffffff;
   color: #3c4c4d;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -245,7 +245,7 @@ const handleEnviar = () => {
 
 .proposal-main {
   flex: 1;
-  padding: 24px 20px 56px;
+  padding: 32px 20px 64px;
 }
 
 .proposal-main__inner {
@@ -256,11 +256,11 @@ const handleEnviar = () => {
 /* Stepper */
 .proposal-steps {
   list-style: none;
-  margin: 0 0 32px;
+  margin: 0 0 40px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 6px;
+  gap: 4px;
 }
 
 .proposal-steps__item {
@@ -290,9 +290,9 @@ const handleEnviar = () => {
   border-radius: 50%;
   border: 1.5px solid #d5e4e2;
   background: #ffffff;
-  color: #8aa0a0;
+  color: #607374;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -300,17 +300,18 @@ const handleEnviar = () => {
 }
 
 .proposal-steps__label {
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 9px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   color: #9aabac;
-  line-height: 1.3;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .proposal-steps__item.is-done .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
 .proposal-steps__item.is-done .proposal-steps__label { color: #0fa3a3; }
-.proposal-steps__item.is-active .proposal-steps__mark { background: #ffffff; border: 2px solid #063b3e; color: #063b3e; }
+.proposal-steps__item.is-active .proposal-steps__mark { background: #ffffff; border: 1.5px solid #063b3e; color: #063b3e; box-shadow: 0 0 0 3px #dff3f1; }
 .proposal-steps__item.is-active .proposal-steps__label { color: #063b3e; }
 
 /* Títulos */
@@ -326,7 +327,7 @@ const handleEnviar = () => {
 
 .ad-subtitle {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: #5b6b6c;
   margin: 0 0 28px;
   line-height: 1.55;
@@ -350,7 +351,7 @@ const handleEnviar = () => {
 
 .proposal-field label {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #0b2528;
 }
@@ -360,7 +361,7 @@ const handleEnviar = () => {
   border: 1.5px solid #d5e4e2;
   border-radius: 12px;
   padding: 0 16px;
-  font-size: 15px;
+  font-size: 16px;
   font-family: 'Instrument Sans', sans-serif;
   color: #0b2528;
   background: #ffffff;
@@ -374,7 +375,7 @@ const handleEnviar = () => {
 
 .field-error {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: #dc3545;
   margin: 2px 0 0;
 }
@@ -384,7 +385,7 @@ const handleEnviar = () => {
 
 .ad-channel-legend {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #0b2528;
   margin-bottom: 14px;
@@ -429,7 +430,7 @@ const handleEnviar = () => {
 
 .ad-channel-text {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: #3c4c4d;
 }
 
@@ -456,8 +457,8 @@ const handleEnviar = () => {
   justify-content: center;
   gap: 8px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
-  color: #8aa0a0;
+  font-size: 16px;
+  color: #607374;
   margin: 0;
 }
 
@@ -467,7 +468,7 @@ const handleEnviar = () => {
   border-radius: 50%;
   background: #dff3f1;
   color: #0fa3a3;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -488,9 +489,10 @@ const handleEnviar = () => {
 @media (min-width: 640px) {
   .proposal-header__inner { height: 72px; }
   .proposal-header__logo { height: 26px; }
-  .proposal-main { padding: 36px 32px 72px; }
-  .proposal-steps { margin-bottom: 40px; gap: 12px; }
-  .proposal-steps__label { font-size: 10px; }
+  .proposal-main { padding: 40px 32px 80px; }
+  .proposal-steps { margin-bottom: 48px; gap: 12px; }
+  .proposal-steps__mark { width: 30px; height: 30px; }
+  .proposal-steps__label { font-size: 13px; }
   .ad-title { font-size: 34px; }
   .proposal-form { padding: 36px 40px; border-radius: 24px; }
 }

@@ -120,7 +120,7 @@
 
 .como-funciona__step-desc {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #5c5c5c;
   line-height: 1.55;
   margin: 0;

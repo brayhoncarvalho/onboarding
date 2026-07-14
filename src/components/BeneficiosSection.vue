@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <section class="beneficios" id="beneficios">
 
     <!-- Cards de benefícios -->
@@ -232,7 +232,7 @@ const toggleFaq = (id: number) => {
 
 .beneficios__card-desc {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   color: #5b6b6c;
   text-align: left;
@@ -293,7 +293,7 @@ const toggleFaq = (id: number) => {
 .beneficios__seguranca-text {
   margin: 0;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.72);
 }
@@ -323,7 +323,7 @@ const toggleFaq = (id: number) => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -338,7 +338,7 @@ const toggleFaq = (id: number) => {
 .beneficios__seguranca-item small {
   margin: 0;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.66);
 }
 
@@ -407,12 +407,13 @@ const toggleFaq = (id: number) => {
   padding: 0 40px 20px 4px;
   color: #5b6b6c;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
 .beneficios__cta-final {
   margin-top: 56px;
+  margin-bottom: 30px;
   background: linear-gradient(135deg, #063b3e 0%, #0a5457 100%);
   border-radius: 24px;
   padding: 32px 24px;
@@ -433,7 +434,7 @@ const toggleFaq = (id: number) => {
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .beneficios__lower {
@@ -460,7 +461,7 @@ const toggleFaq = (id: number) => {
   display: inline-flex;
   align-items: center;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
 }
 

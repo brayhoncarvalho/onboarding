@@ -316,7 +316,7 @@ const handleProximo = () => {
 
             <!-- Nota patrimônio -->
             <div class="dp-note">
-              <p class="dp-note__text"><strong>1.</strong> Informe o valor em R$ de todos os bens e direitos que você possui. Essa informação é requerida pelo Banco Central de todos os bancos que realizem empréstimos a pessoas físicas.</p>
+              <p class="dp-note__text">1. Informe o valor em R$ de todos os bens e direitos que você possui. Essa informação é requerida pelo Banco Central de todos os bancos que realizem empréstimos a pessoas físicas.</p>
               <button type="button" class="dp-note__toggle" @click="patrimonioExpanded = !patrimonioExpanded" :aria-expanded="patrimonioExpanded">
                 {{ patrimonioExpanded ? 'Mostrar menos' : 'Por que preciso informar?' }}
               </button>
@@ -440,14 +440,14 @@ const handleProximo = () => {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 18px; border: 1.5px solid #e3edec; border-radius: 999px;
   background: transparent; color: #0b2528;
-  font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500;
+  font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500;
   cursor: pointer; transition: background 0.15s;
 }
 .proposal-header__back:hover { background: #f0f7f7; }
 
 /* ── Main ── */
 .proposal-main { flex: 1; padding: 32px 20px 64px; }
-.proposal-main__inner { max-width: 720px; margin: 0 auto; }
+.proposal-main__inner { max-width: 640px; margin: 0 auto; }
 
 /* ── Stepper ── */
 .proposal-steps {
@@ -466,16 +466,16 @@ const handleProximo = () => {
 .proposal-steps__item.is-done::after  { background: #063b3e; }
 .proposal-steps__mark {
   width: 28px; height: 28px; border-radius: 999px;
-  border: 1.5px solid #d5e4e2; background: #ffffff; color: #8aa0a0;
+  border: 1.5px solid #d5e4e2; background: #ffffff; color: #607374;
   display: inline-flex; align-items: center; justify-content: center;
-  font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 700;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700;
   position: relative; z-index: 1;
 }
 .proposal-steps__item.is-done  .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
 .proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
 .proposal-steps__label {
-  font-family: 'Bricolage Grotesque', sans-serif; font-size: 9px; font-weight: 600;
-  color: #8aa0a0; text-align: center; line-height: 1.2; letter-spacing: 0.03em;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 600;
+  color: #607374; text-align: center; line-height: 1.2; letter-spacing: 0.03em;
 }
 .proposal-steps__item.is-active .proposal-steps__label { color: #0b2528; }
 .proposal-steps__item.is-done  .proposal-steps__label { color: #5b6b6c; }
@@ -486,7 +486,7 @@ const handleProximo = () => {
   color: #0b2528; margin: 0 0 6px;
 }
 .dp-subtitle {
-  font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #5b6b6c;
+  font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c;
   margin: 0 0 28px; line-height: 1.5;
 }
 
@@ -498,13 +498,13 @@ const handleProximo = () => {
 
 /* ── Section title ── */
 .dp-section-title {
-  font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px; font-weight: 700;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700;
   color: #0b2528; letter-spacing: 0.06em; text-transform: uppercase;
   padding-bottom: 10px; border-bottom: 1.5px solid #e3edec; margin-bottom: 20px;
 }
 .dp-section-title--mt { margin-top: 32px; }
 .dp-section-desc {
-  font-family: 'Instrument Sans', sans-serif; font-size: 13px; color: #5b6b6c;
+  font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c;
   margin: -12px 0 16px;
 }
 
@@ -516,11 +516,11 @@ const handleProximo = () => {
 /* ── Field ── */
 .proposal-field { display: flex; flex-direction: column; gap: 6px; }
 .proposal-field label {
-  font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500; color: #0b2528;
+  font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; color: #0b2528;
 }
 .proposal-input {
   height: 50px; border: 1.5px solid #d5e4e2; border-radius: 12px;
-  padding: 0 14px; font-family: 'Instrument Sans', sans-serif; font-size: 15px;
+  padding: 0 14px; font-family: 'Instrument Sans', sans-serif; font-size: 16px;
   color: #0b2528; background: #ffffff; outline: none; transition: border-color 0.15s;
 }
 .proposal-input:focus { border-color: #063b3e; }
@@ -530,7 +530,7 @@ const handleProximo = () => {
 .dp-select-wrap { position: relative; }
 .proposal-select {
   width: 100%; height: 50px; border: 1.5px solid #d5e4e2; border-radius: 12px;
-  padding: 0 36px 0 14px; font-family: 'Instrument Sans', sans-serif; font-size: 15px;
+  padding: 0 36px 0 14px; font-family: 'Instrument Sans', sans-serif; font-size: 16px;
   color: #0b2528; background: #ffffff; outline: none; appearance: none;
   transition: border-color 0.15s; cursor: pointer;
 }
@@ -542,27 +542,27 @@ const handleProximo = () => {
 }
 
 /* ── Error ── */
-.field-error { font-family: 'Instrument Sans', sans-serif; font-size: 12px; color: #dc3545; margin: 0; }
+.field-error { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #dc3545; margin: 0; }
 
 /* ── Patrimônio note ── */
 .dp-note {
   background: #f5fafa; border: 1px solid #e3edec; border-radius: 12px;
-  padding: 14px 16px; margin-bottom: 4px;
+  padding: 14px 16px; margin-top: 20px; margin-bottom: 4px;
 }
-.dp-note__text { font-family: 'Instrument Sans', sans-serif; font-size: 12px; color: #5b6b6c; margin: 0 0 6px; line-height: 1.55; }
+.dp-note__text { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c; margin: 0 0 6px; line-height: 1.55; }
 .dp-note__toggle {
   background: none; border: none; padding: 0; cursor: pointer;
-  font-family: 'Instrument Sans', sans-serif; font-size: 12px; font-weight: 600;
+  font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 600;
   color: #063b3e; text-decoration: underline; text-underline-offset: 2px;
 }
-.dp-note__expanded { font-family: 'Instrument Sans', sans-serif; font-size: 11px; color: #5b6b6c; margin: 10px 0 0; line-height: 1.6; text-align: justify; }
+.dp-note__expanded { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c; margin: 10px 0 0; line-height: 1.6; text-align: justify; }
 
 /* ── Actions ── */
 .dp-actions { display: flex; gap: 12px; margin-top: 32px; }
 .dp-btn-back {
   flex: 0 0 140px; height: 52px; border: 1.5px solid #e3edec; border-radius: 999px;
   background: transparent; color: #0b2528;
-  font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 600;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 600;
   cursor: pointer; transition: background 0.15s;
 }
 .dp-btn-back:hover { background: #f0f7f7; }
@@ -577,7 +577,7 @@ const handleProximo = () => {
 /* ── Safe note ── */
 .proposal-safe {
   display: flex; align-items: center; justify-content: center; gap: 6px;
-  font-family: 'Instrument Sans', sans-serif; font-size: 11px; color: #8aa0a0;
+  font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #607374;
   margin: 16px 0 0;
 }
 
@@ -592,8 +592,9 @@ const handleProximo = () => {
   .proposal-header__inner { height: 72px; }
   .proposal-header__logo { height: 26px; }
   .proposal-main { padding: 40px 32px 80px; }
-  .proposal-steps { margin-bottom: 48px; }
-  .proposal-steps__label { font-size: 10px; }
+  .proposal-steps { margin-bottom: 48px; gap: 12px; }
+  .proposal-steps__mark { width: 30px; height: 30px; }
+  .proposal-steps__label { font-size: 13px; }
   .dp-title { font-size: 32px; }
   .proposal-form { padding: 36px 40px; border-radius: 24px; }
 }

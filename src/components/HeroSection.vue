@@ -1,15 +1,11 @@
 ﻿<template>
   <section class="hero" id="simulador">
     <div class="hero__body">
-      <div class="hero__media">
-        <img src="/assets/landing-hero.png" alt="Pessoa usando tablet" class="hero__image" />
-      </div>
-
       <div class="hero__content">
-        <h1 class="hero__title">Crédito na conta, sem enrolação.</h1>
+        <h1 class="hero__title">Feito de pessoas, para pessoas.
+          Empréstimo Online, Rápido e Seguro.</h1>
         <p class="hero__subtitle">
-          Simule em poucos minutos, contrate 100% online e acompanhe seu pedido com transparência, do início ao fim.
-          Sem letras miúdas, sem surpresas.
+          Faça sua simulação online e conheça as opções de crédito disponíveis para você.
         </p>
 
         <div class="hero__cta-row">
@@ -28,13 +24,10 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
 <style scoped>
 .hero {
   position: relative;
-  background: #fafcfc;
 }
 
 .hero__body {
   position: relative;
-  overflow: hidden;
-  border-radius: 28px;
   min-height: 520px;
   width: 100%;
   max-width: 680px;
@@ -42,7 +35,6 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
 
 .hero__content {
   position: relative;
-  z-index: 2;
   padding: 24px 20px;
   max-width: 640px;
 }
@@ -99,7 +91,7 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   align-items: center;
   gap: 8px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   color: #2e4446;
 }
@@ -110,39 +102,11 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   border-radius: 50%;
   background: #dff3f1;
   color: #0fa3a3;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.hero__media {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  background: #e6efee;
-}
-
-.hero__media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(250, 252, 252, 0.62) 0%, rgba(250, 252, 252, 0.76) 100%),
-    linear-gradient(90deg, rgba(250, 252, 252, 0.78) 0%, rgba(250, 252, 252, 0.42) 58%, rgba(250, 252, 252, 0.68) 100%);
-  pointer-events: none;
-}
-
-.hero__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  object-position: center 28%;
-  filter: saturate(0.45) contrast(0.78) brightness(0.95);
 }
 
 @media (min-width: 480px) {
@@ -157,8 +121,6 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
     max-width: 100%;
     min-height: var(--landing-column-height, 620px);
   }
-
-  .hero__content { padding: 124px 42px; }
 
   .hero__title {
     font-size: 64px;
@@ -185,20 +147,6 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
     font-size: 17px;
   }
 
-  .hero__media {
-    background: #dde8e7;
-  }
-
-  .hero__image {
-    object-fit: contain;
-    object-position: center bottom;
-    filter: saturate(0.38) contrast(0.75) brightness(0.96);
-  }
-
-  .hero__media::after {
-    background:
-      linear-gradient(180deg, rgba(250, 252, 252, 0.68) 0%, rgba(250, 252, 252, 0.82) 80%),
-      linear-gradient(90deg, rgba(250, 252, 252, 0.82) 0%, rgba(250, 252, 252, 0.44) 58%, rgba(250, 252, 252, 0.72) 100%);
-  }
+  .hero__content { padding: 124px 42px; }
 }
 </style>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { computed } from 'vue'
 import AuthHeader from './AuthHeader.vue'
 
@@ -73,22 +73,22 @@ const campos = computed(() => [
 .proposal-steps__item { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 2px; }
 .proposal-steps__item:not(:last-child)::after { content: ""; position: absolute; top: 14px; left: calc(50% + 18px); right: calc(-50% + 18px); height: 1.5px; background: #e3edec; }
 .proposal-steps__item.is-done::after { background: #063b3e; }
-.proposal-steps__mark { width: 28px; height: 28px; border-radius: 999px; border: 1.5px solid #d5e4e2; background: #ffffff; color: #8aa0a0; display: inline-flex; align-items: center; justify-content: center; font-family: "Bricolage Grotesque", sans-serif; font-size: 12px; font-weight: 700; position: relative; z-index: 1; }
+.proposal-steps__mark { width: 28px; height: 28px; border-radius: 999px; border: 1.5px solid #d5e4e2; background: #ffffff; color: #607374; display: inline-flex; align-items: center; justify-content: center; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; position: relative; z-index: 1; }
 .proposal-steps__item.is-done .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
 .proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
-.proposal-steps__label { font-family: "Bricolage Grotesque", sans-serif; font-size: 9px; font-weight: 600; color: #8aa0a0; text-align: center; line-height: 1.2; letter-spacing: 0.03em; }
+.proposal-steps__label { font-family: "Bricolage Grotesque", sans-serif; font-size: 15px; font-weight: 600; color: #607374; text-align: center; line-height: 1.2; letter-spacing: 0.03em; }
 .proposal-steps__item.is-active .proposal-steps__label { color: #0b2528; }
 .proposal-steps__item.is-done .proposal-steps__label { color: #5b6b6c; }
 .rv-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: #0b2528; margin: 0 0 6px; }
-.rv-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #5b6b6c; margin: 0 0 28px; }
+.rv-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; margin: 0 0 28px; }
 .proposal-form { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; }
 .rv-fields { display: flex; flex-direction: column; }
 .rv-field { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border: 1px solid #e3edec; gap: 12px; margin-top: -1px; background: #ffffff; }
 .rv-field:first-child { border-radius: 12px 12px 0 0; margin-top: 0; }
 .rv-field:last-child { border-radius: 0 0 12px 12px; }
-.rv-field__label { font-family: "Instrument Sans", sans-serif; font-size: 14px; font-weight: 500; color: #5b6b6c; flex-shrink: 0; }
-.rv-field__value { font-family: "Bricolage Grotesque", sans-serif; font-size: 15px; font-weight: 700; color: #063b3e; text-align: right; word-break: break-word; }
-.rv-disclaimer { font-family: "Instrument Sans", sans-serif; font-size: 13px; color: #8aa0a0; line-height: 1.55; margin: 0; }
+.rv-field__label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; color: #5b6b6c; flex-shrink: 0; }
+.rv-field__value { font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; color: #063b3e; text-align: right; word-break: break-word; }
+.rv-disclaimer { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #607374; line-height: 1.55; margin: 0; }
 .proposal-submit { width: 100%; height: 52px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
 .proposal-submit:hover { background: #0fc5c5; }
 @media (min-width: 640px) { .proposal-main { padding: 40px 32px 80px; } .rv-title { font-size: 32px; } .proposal-form { padding: 36px 40px; border-radius: 24px; } }

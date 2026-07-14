@@ -1,11 +1,15 @@
-<template>
+﻿<template>
   <footer class="landing-footer">
     <div class="landing-footer__body" id="footer">
       <div class="landing-footer__body-inner">
         <div class="landing-footer__row">
           <div>
             <img src="/assets/dock-logo-color.png" alt="Dock" class="landing-footer__logo" />
-            <p class="landing-footer__meta">Instituição de pagamento regulada pelo Banco Central do Brasil.</p>
+                  <br>
+                  <p class="landing-footer__copyright">
+                    © 2026 DOCK TECH —
+                    Av. Tamboré, 267, Alphaville, Barueri - SP — CEP 06460-000
+                  </p>
           </div>
 
           <div class="landing-footer__navs" aria-label="Links do rodapé">
@@ -23,12 +27,6 @@
           </div>
         </div>
 
-        <hr class="landing-footer__divider" />
-
-        <p class="landing-footer__copyright">
-          © 2026 DOCK INSTITUIÇÃO DE PAGAMENTO S.A. — CNPJ 13.370.835/0001-85 —
-          Av. Tamboré, 267, Alphaville, Barueri - SP — CEP 06460-000
-        </p>
       </div>
     </div>
   </footer>
@@ -66,9 +64,9 @@
   margin: 0;
   max-width: 320px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
-  color: #8aa0a0;
+  color: #607374;
 }
 
 .landing-footer__divider {
@@ -91,7 +89,7 @@
 .landing-footer__nav-group p {
   margin: 0 0 2px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   color: #0b2528;
   letter-spacing: 0.04em;
@@ -100,7 +98,7 @@
 .landing-footer__nav-group a {
   text-decoration: none;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #5b6b6c;
 }
 
@@ -110,9 +108,9 @@
 
 .landing-footer__copyright {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
-  color: #8aa0a0;
+  color: #607374;
   line-height: 1.7;
   margin: 0;
 }

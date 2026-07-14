@@ -22,7 +22,6 @@ interface DocState {
   error: string
 }
 
-// Documentos pré-preenchidos como já enviados (mock)
 const makeDoc = (mockName = ''): DocState => ({
   file: null,
   status: mockName ? 'done' : 'idle',
@@ -31,10 +30,8 @@ const makeDoc = (mockName = ''): DocState => ({
   error: '',
 })
 
-const comprovante = ref<DocState>(makeDoc('comprovante_residencia.pdf'))
-const selfie      = ref<DocState>(makeDoc('selfie_Brayhon.jpg'))
-const docFrente   = ref<DocState>(makeDoc('rg_frente.jpg'))
-const docVerso    = ref<DocState>(makeDoc('rg_verso.jpg'))
+const docFrente = ref<DocState>(makeDoc('rg_frente.jpg'))
+const docVerso  = ref<DocState>(makeDoc('rg_verso.jpg'))
 
 const handleFileSelect = (doc: ReturnType<typeof ref<DocState>>, e: Event) => {
   const input = e.target as HTMLInputElement
@@ -58,8 +55,7 @@ const removeDoc = (doc: ReturnType<typeof ref<DocState>>) => {
   doc.value = makeDoc()
 }
 
-// Valida se os documentos obrigatórios foram anexados
-const errors = ref<Record<string, string>>({ comprovante: '', selfie: '', docFrente: '' })
+const errors = ref<Record<string, string>>({ docFrente: '' })
 const submitted = ref(false)
 
 // -- Etapa de seleção do tipo de documento ------------------
@@ -76,9 +72,7 @@ const tipoDocHint = computed(() =>
 const proceedToUpload = () => { if (tipoDoc.value) step.value = 'upload' }
 
 const validate = (): boolean => {
-  errors.value.comprovante = comprovante.value.status === 'idle' ? 'Anexe o comprovante de residência.' : ''
-  errors.value.selfie      = selfie.value.status === 'idle'      ? 'Anexe a selfie.'                    : ''
-  errors.value.docFrente   = docFrente.value.status === 'idle'   ? 'Anexe a frente do documento.'        : ''
+  errors.value.docFrente = docFrente.value.status === 'idle' ? 'Anexe a frente do documento.' : ''
   return !Object.values(errors.value).some(e => e !== '')
 }
 
@@ -87,7 +81,6 @@ const handleProximo = () => {
   if (!validate()) return
   emit('continuar')
 }
-
 </script>
 
 <template>
@@ -151,68 +144,6 @@ const handleProximo = () => {
 
         <!-- Passo 2: Upload dos documentos -->
         <div v-if="step === 'upload'" class="proposal-form">
-
-          <!-- Comprovante de Residência -->
-          <div class="doc-card" :class="{ 'doc-card--error': submitted && errors.comprovante }">
-            <div class="doc-card__header">
-              <svg class="doc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              <div>
-                <p class="doc-card__name">Comprovante de Residência</p>
-                <p class="doc-card__hint">Conta de luz, água, gás ou telefone com menos de 3 meses.</p>
-              </div>
-            </div>
-            <div v-if="comprovante.status !== 'idle'" class="doc-card__preview-area">
-              <img v-if="comprovante.preview" :src="comprovante.preview" alt="Comprovante" class="doc-card__preview-img" />
-              <div v-else class="doc-card__file-name">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00d8d8" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                <span>{{ comprovante.file?.name ?? comprovante.mockName }}</span>
-              </div>
-              <button type="button" class="doc-card__remove" @click="removeDoc(comprovante)" aria-label="Remover comprovante">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </button>
-            </div>
-            <label v-if="comprovante.status === 'idle'" class="doc-card__btn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-              Anexar documento
-              <input type="file" accept="image/*,application/pdf" class="doc-sr-only" @change="handleFileSelect(comprovante, $event)" />
-            </label>
-            <label v-else class="doc-card__change-link">
-              Trocar arquivo
-              <input type="file" accept="image/*,application/pdf" class="doc-sr-only" @change="handleFileSelect(comprovante, $event)" />
-            </label>
-            <p v-if="submitted && errors.comprovante" class="field-error" role="alert">{{ errors.comprovante }}</p>
-          </div>
-
-          <!-- Selfie -->
-          <div class="doc-card" :class="{ 'doc-card--error': submitted && errors.selfie }">
-            <div class="doc-card__header">
-              <svg class="doc-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              <div>
-                <p class="doc-card__name">Selfie</p>
-                <p class="doc-card__hint">Foto de rosto nítida, boa iluminação, sem óculos.</p>
-              </div>
-            </div>
-            <div v-if="selfie.status !== 'idle'" class="doc-card__preview-area">
-              <img v-if="selfie.preview" :src="selfie.preview" alt="Selfie" class="doc-card__preview-img" />
-              <div v-else class="doc-card__file-name">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00d8d8" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                <span>{{ selfie.file?.name ?? selfie.mockName }}</span>
-              </div>
-              <button type="button" class="doc-card__remove" @click="removeDoc(selfie)" aria-label="Remover selfie">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </button>
-            </div>
-            <label v-if="selfie.status === 'idle'" class="doc-card__btn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-              Anexar selfie
-              <input type="file" accept="image/*" capture="user" class="doc-sr-only" @change="handleFileSelect(selfie, $event)" />
-            </label>
-            <label v-else class="doc-card__change-link">
-              Trocar arquivo
-              <input type="file" accept="image/*" capture="user" class="doc-sr-only" @change="handleFileSelect(selfie, $event)" />
-            </label>
-            <p v-if="submitted && errors.selfie" class="field-error" role="alert">{{ errors.selfie }}</p>
-          </div>
 
           <!-- Documento de identificação -->
           <div class="doc-card" :class="{ 'doc-card--error': submitted && errors.docFrente }">
@@ -288,25 +219,25 @@ const handleProximo = () => {
 .proposal-header { position: sticky; top: 0; z-index: 10; background: #fafcfc; border-bottom: 1px solid #e3edec; }
 .proposal-header__inner { max-width: 1024px; margin: 0 auto; padding: 0 20px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
 .proposal-header__logo { height: 24px; width: auto; }
-.proposal-header__back { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border: 1.5px solid #e3edec; border-radius: 999px; background: transparent; color: #0b2528; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+.proposal-header__back { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border: 1.5px solid #e3edec; border-radius: 999px; background: transparent; color: #0b2528; font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
 .proposal-header__back:hover { background: #f0f7f7; }
 
 .proposal-main { flex: 1; padding: 32px 20px 64px; }
-.proposal-main__inner { max-width: 680px; margin: 0 auto; }
+.proposal-main__inner { max-width: 640px; margin: 0 auto; }
 
 .proposal-steps { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
 .proposal-steps__item { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 2px; }
 .proposal-steps__item:not(:last-child)::after { content: ''; position: absolute; top: 14px; left: calc(50% + 18px); right: calc(-50% + 18px); height: 1.5px; background: #e3edec; }
 .proposal-steps__item.is-done::after { background: #063b3e; }
-.proposal-steps__mark { width: 28px; height: 28px; border-radius: 999px; border: 1.5px solid #d5e4e2; background: #ffffff; color: #8aa0a0; display: inline-flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; font-weight: 700; position: relative; z-index: 1; }
+.proposal-steps__mark { width: 28px; height: 28px; border-radius: 999px; border: 1.5px solid #d5e4e2; background: #ffffff; color: #607374; display: inline-flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; position: relative; z-index: 1; }
 .proposal-steps__item.is-done  .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
 .proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
-.proposal-steps__label { font-family: 'Bricolage Grotesque', sans-serif; font-size: 9px; font-weight: 600; color: #8aa0a0; text-align: center; line-height: 1.2; letter-spacing: 0.03em; }
+.proposal-steps__label { font-family: 'Bricolage Grotesque', sans-serif; font-size: 11px; font-weight: 600; color: #607374; text-align: center; line-height: 1.2; letter-spacing: 0.03em; }
 .proposal-steps__item.is-active .proposal-steps__label { color: #0b2528; }
 .proposal-steps__item.is-done  .proposal-steps__label { color: #5b6b6c; }
 
 .ed-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 700; color: #0b2528; margin: 0 0 6px; }
-.ed-subtitle { font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #5b6b6c; margin: 0 0 28px; line-height: 1.5; }
+.ed-subtitle { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c; margin: 0 0 28px; line-height: 1.5; }
 
 .proposal-form { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; }
 
@@ -315,29 +246,29 @@ const handleProximo = () => {
 .doc-card--error { border-color: #dc3545; }
 .doc-card__header { display: flex; align-items: flex-start; gap: 12px; }
 .doc-card__icon { width: 28px; height: 28px; flex-shrink: 0; color: #00d8d8; }
-.doc-card__name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px; font-weight: 700; color: #0b2528; margin: 0; }
-.doc-card__hint { font-family: 'Instrument Sans', sans-serif; font-size: 12px; color: #5b6b6c; margin: 3px 0 0; }
-.doc-card__sub-label { font-family: 'Instrument Sans', sans-serif; font-size: 12px; font-weight: 600; color: #5b6b6c; margin: 0; }
+.doc-card__name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; color: #0b2528; margin: 0; }
+.doc-card__hint { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c; margin: 3px 0 0; }
+.doc-card__sub-label { font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 600; color: #5b6b6c; margin: 0; }
 .doc-card__sub-label--mt { margin-top: 8px; }
-.et-optional { font-weight: 400; color: #8aa0a0; }
+.et-optional { font-weight: 400; color: #607374; }
 
 .doc-card__preview-area { display: flex; align-items: center; gap: 10px; background: #f5fafa; border: 1px solid #e3edec; border-radius: 10px; padding: 10px 12px; }
 .doc-card__preview-img { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
-.doc-card__file-name { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; font-family: 'Instrument Sans', sans-serif; font-size: 13px; color: #0b2528; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.doc-card__file-name { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #0b2528; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .doc-card__remove { margin-left: auto; flex-shrink: 0; background: transparent; border: none; cursor: pointer; color: #dc3545; padding: 4px; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
 .doc-card__remove:hover { background: #fee2e2; }
 
-.doc-card__btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1.5px dashed #d5e4e2; border-radius: 10px; background: #f5fafa; color: #063b3e; font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s; align-self: flex-start; }
+.doc-card__btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1.5px dashed #d5e4e2; border-radius: 10px; background: #f5fafa; color: #063b3e; font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.15s; align-self: flex-start; }
 .doc-card__btn:hover { background: #dff3f1; border-color: #063b3e; }
 
-.doc-card__change-link { display: inline-flex; cursor: pointer; font-family: 'Instrument Sans', sans-serif; font-size: 12px; color: #5b6b6c; text-decoration: underline; text-underline-offset: 2px; align-self: flex-start; }
+.doc-card__change-link { display: inline-flex; cursor: pointer; font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c; text-decoration: underline; text-underline-offset: 2px; align-self: flex-start; }
 .doc-card__change-link:hover { color: #00d8d8; }
 .doc-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-.field-error { font-family: 'Instrument Sans', sans-serif; font-size: 12px; color: #dc3545; margin: 0; }
+.field-error { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #dc3545; margin: 0; }
 
 .dp-actions { display: flex; gap: 12px; margin-top: 8px; }
-.dp-btn-back { flex: 0 0 140px; height: 52px; border: 1.5px solid #e3edec; border-radius: 999px; background: transparent; color: #0b2528; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+.dp-btn-back { flex: 0 0 140px; height: 52px; border: 1.5px solid #e3edec; border-radius: 999px; background: transparent; color: #0b2528; font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
 .dp-btn-back:hover { background: #f0f7f7; }
 .proposal-submit { flex: 1; height: 52px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
 .proposal-submit:hover { background: #0fc5c5; }
@@ -345,7 +276,7 @@ const handleProximo = () => {
 
 /* -- Tipo de documento -- */
 .ed-tipo-form { display: flex; flex-direction: column; gap: 20px; }
-.ed-tipo-label { font-family: 'Instrument Sans', sans-serif; font-size: 15px; color: #5b6b6c; margin: 0; }
+.ed-tipo-label { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c; margin: 0; }
 .ed-tipo-form .proposal-submit { width: 100%; flex: none; }
 .doc-type-options { display: flex; flex-direction: column; gap: 12px; }
 .doc-type-option { display: block; cursor: pointer; }
@@ -356,10 +287,10 @@ const handleProximo = () => {
 .doc-type-card__radio-dot { width: 10px; height: 10px; border-radius: 50%; background: #063b3e; }
 .doc-type-card__text { display: flex; flex-direction: column; gap: 2px; }
 .doc-type-card__title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 600; color: #0b2528; margin: 0; }
-.doc-type-card__hint { font-family: 'Instrument Sans', sans-serif; font-size: 13px; color: #8aa0a0; margin: 0; }
+.doc-type-card__hint { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #607374; margin: 0; }
 
-.proposal-safe { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Instrument Sans', sans-serif; font-size: 11px; color: #8aa0a0; margin: 4px 0 0; }
+.proposal-safe { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #607374; margin: 4px 0 0; }
 
 @media (max-width: 639px) { .dp-actions { flex-direction: column-reverse; } .dp-btn-back { flex: none; width: 100%; } .proposal-submit { flex: none; width: 100%; min-height: 52px; } }
-@media (min-width: 640px) { .proposal-header__inner { height: 72px; } .proposal-header__logo { height: 26px; } .proposal-main { padding: 40px 32px 80px; } .proposal-steps { margin-bottom: 48px; } .proposal-steps__label { font-size: 10px; } .ed-title { font-size: 32px; } .proposal-form { padding: 36px 40px; border-radius: 24px; } }
+@media (min-width: 640px) { .proposal-header__inner { height: 72px; } .proposal-header__logo { height: 26px; } .proposal-main { padding: 40px 32px 80px; } .proposal-steps { margin-bottom: 48px; } .proposal-steps__label { font-size: 13px; } .ed-title { font-size: 32px; } .proposal-form { padding: 36px 40px; border-radius: 24px; } }
 </style>

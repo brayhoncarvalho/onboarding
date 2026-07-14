@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import AuthHeader from './AuthHeader.vue'
 
 const emit = defineEmits<{
@@ -60,15 +60,15 @@ const emprestimos: Emprestimo[] = [
 .ac-card__body { padding: 20px 24px; display: flex; flex-direction: column; gap: 4px; }
 .ac-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 12px; }
 .ac-row--top { align-items: flex-start; }
-.ac-row__label { font-family: "Instrument Sans", sans-serif; font-size: 14px; font-weight: 600; color: #00d8d8; flex-shrink: 0; }
-.ac-row__value { font-family: "Instrument Sans", sans-serif; font-size: 14px; color: #5b6b6c; text-align: right; }
+.ac-row__label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 600; color: #00d8d8; flex-shrink: 0; }
+.ac-row__value { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; text-align: right; }
 .ac-row__divider { border: none; border-top: 1px solid #e3edec; margin: 0; }
 .ac-actions { padding-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
-.ac-btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border: none; border-radius: 999px; cursor: pointer; font-family: "Bricolage Grotesque", sans-serif; font-size: 14px; font-weight: 600; color: #ffffff; transition: background 0.15s; }
+.ac-btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border: none; border-radius: 999px; cursor: pointer; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 600; color: #ffffff; transition: background 0.15s; }
 .ac-btn--dark { background: #444746; }
 .ac-btn--dark:hover { background: #333534; }
 .ac-btn__circle { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; flex-shrink: 0; }
-.proposal-submit--inline { height: 42px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: "Bricolage Grotesque", sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; padding: 0 20px; transition: background 0.15s; }
+.proposal-submit--inline { height: 42px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; padding: 0 20px; transition: background 0.15s; }
 .proposal-submit--inline:hover { background: #0fc5c5; }
 @media (min-width: 640px) { .proposal-main { padding: 40px 32px 80px; } .aii-title { font-size: 32px; } }
 </style>

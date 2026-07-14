@@ -189,7 +189,7 @@ const decrementar = () => {
   background: #dff3f1;
   color: #0a7c7c;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -205,7 +205,7 @@ const decrementar = () => {
 .simulador__label {
   margin: 4px 0 0;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #5b6b6c;
 }
@@ -272,8 +272,8 @@ const decrementar = () => {
 
 .simulador__range-footer span {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
-  color: #8aa0a0;
+  font-size: 16px;
+  color: #607374;
 }
 
 .simulador__range {
@@ -348,7 +348,7 @@ const decrementar = () => {
   background: #ffffff;
   color: #0b2528;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.1s ease, color 0.1s ease;
@@ -375,7 +375,7 @@ const decrementar = () => {
 
 .simulador__result-label {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   color: #5b6b6c;
   margin: 0 0 2px;
 }
@@ -390,14 +390,14 @@ const decrementar = () => {
 
 .simulador__taxa-label {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   color: #5b6b6c;
   margin: 0 0 2px;
 }
 
 .simulador__taxa-value {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #0b2528;
   margin: 0;
@@ -429,9 +429,9 @@ const decrementar = () => {
 
 .simulador__disclaimer {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
-  color: #8aa0a0;
+  color: #607374;
   text-align: center;
   line-height: 1.5;
   padding: 0;

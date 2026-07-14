@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { ref, computed } from 'vue'
 import AuthHeader from './AuthHeader.vue'
 
@@ -26,7 +26,6 @@ const props = withDefaults(
 )
 
 const concordo = ref(false)
-const zoom = ref(100)
 
 const installmentCount = computed(() => props.prazo)
 
@@ -60,26 +59,21 @@ const parcelas = computed(() =>
         <p class="ct-subtitle">Leia atentamente antes de assinar.</p>
 
         <div class="ct-viewer">
-          <div class="ct-toolbar" role="toolbar" aria-label="Controles de visualização">
-            <button type="button" class="ct-zoom-btn" :disabled="zoom <= 70" @click="zoom = Math.max(70, zoom - 10)" aria-label="Diminuir zoom">−</button>
-            <span class="ct-zoom-label" aria-live="polite">{{ zoom }}%</span>
-            <button type="button" class="ct-zoom-btn" :disabled="zoom >= 150" @click="zoom = Math.min(150, zoom + 10)" aria-label="Aumentar zoom">+</button>
-          </div>
           <div class="ct-doc-scroll" tabindex="0" aria-label="Contrato de Crédito Pessoal" role="document">
-            <div class="ct-doc" :style="{ fontSize: (zoom / 100) + 'rem' }">
+            <div class="ct-doc">
               <h2 class="ct-doc__title">CONTRATO DE CRÉDITO PESSOAL</h2>
               <p class="ct-doc__section-title">PARTES CONTRATANTES</p>
-              <p class="ct-doc__text"><strong>CONTRATANTE:</strong> Brayhon Oliveira Carvalho, CPF 412.456.508-90, residente em Palmas – TO.</p>
-              <p class="ct-doc__text"><strong>CONTRATADA:</strong> Dock Instituição de Pagamentos S.A., CNPJ 13.370.835/0001-85, com sede em São Paulo – SP.</p>
+              <p class="ct-doc__text">CONTRATANTE: Brayhon Oliveira Carvalho, CPF 412.456.508-90, residente em Palmas – TO.</p>
+              <p class="ct-doc__text">CONTRATADA: Dock Instituição de Pagamentos S.A., CNPJ 13.370.835/0001-85, com sede em São Paulo – SP.</p>
 
               <p class="ct-doc__section-title">CONDIÇÕES FINANCEIRAS</p>
               <table class="ct-doc__table" aria-label="Resumo das condições financeiras">
                 <tbody>
                   <tr><td>Valor liberado</td><td>{{ props.valor }}</td></tr>
-                  <tr><td>Número de parcelas</td><td>{{ props.prazo }}x</td></tr>
+                  <tr><td>Número de parcelas</td><td>{{ props.prazo }} meses</td></tr>
                   <tr><td>Valor da parcela</td><td>{{ props.parcela }}</td></tr>
-                  <tr><td>Taxa nominal mensal</td><td>{{ props.taxaNominalMensal }} a.m.</td></tr>
-                  <tr><td>Taxa nominal anual</td><td>{{ props.taxaNominalAnual }} a.a.</td></tr>
+                  <tr><td>Taxa nominal mensal</td><td>{{ props.taxaNominalMensal }}</td></tr>
+                  <tr><td>Taxa nominal anual</td><td>{{ props.taxaNominalAnual }}</td></tr>
                   <tr><td>Primeiro vencimento</td><td>23/01/2026</td></tr>
                   <tr><td>TAC</td><td>R$ 0,00</td></tr>
                   <tr><td>IOF</td><td>Incluso nas parcelas</td></tr>
@@ -134,38 +128,33 @@ const parcelas = computed(() =>
 .proposal-steps__item { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 2px; }
 .proposal-steps__item:not(:last-child)::after { content: ""; position: absolute; top: 14px; left: calc(50% + 18px); right: calc(-50% + 18px); height: 1.5px; background: #e3edec; }
 .proposal-steps__item.is-done::after { background: #063b3e; }
-.proposal-steps__mark { width: 28px; height: 28px; border-radius: 999px; border: 1.5px solid #d5e4e2; background: #ffffff; color: #8aa0a0; display: inline-flex; align-items: center; justify-content: center; font-family: "Bricolage Grotesque", sans-serif; font-size: 12px; font-weight: 700; position: relative; z-index: 1; }
+.proposal-steps__mark { width: 28px; height: 28px; border-radius: 999px; border: 1.5px solid #d5e4e2; background: #ffffff; color: #607374; display: inline-flex; align-items: center; justify-content: center; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; position: relative; z-index: 1; }
 .proposal-steps__item.is-done .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
 .proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
-.proposal-steps__label { font-family: "Bricolage Grotesque", sans-serif; font-size: 9px; font-weight: 600; color: #8aa0a0; text-align: center; line-height: 1.2; letter-spacing: 0.03em; }
+.proposal-steps__label { font-family: "Bricolage Grotesque", sans-serif; font-size: 11px; font-weight: 600; color: #607374; text-align: center; line-height: 1.2; letter-spacing: 0.03em; }
 .proposal-steps__item.is-active .proposal-steps__label { color: #0b2528; }
 .proposal-steps__item.is-done .proposal-steps__label { color: #5b6b6c; }
 .ct-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: #0b2528; margin: 0 0 6px; }
-.ct-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #5b6b6c; margin: 0 0 24px; }
+.ct-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; margin: 0 0 24px; }
 .ct-viewer { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); overflow: hidden; margin-bottom: 24px; }
-.ct-toolbar { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid #e3edec; background: #fafcfc; }
-.ct-zoom-btn { width: 32px; height: 32px; border: 1.5px solid #e3edec; border-radius: 8px; background: #ffffff; cursor: pointer; font-size: 18px; font-weight: 700; color: #063b3e; display: inline-flex; align-items: center; justify-content: center; transition: background 0.15s; }
-.ct-zoom-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-.ct-zoom-btn:not(:disabled):hover { background: #dff3f1; }
-.ct-zoom-label { font-family: "Instrument Sans", sans-serif; font-size: 13px; color: #5b6b6c; min-width: 36px; text-align: center; }
 .ct-doc-scroll { max-height: 480px; overflow-y: auto; padding: 24px 24px 16px; }
 .ct-doc-scroll:focus { outline: 2px solid #00d8d8; outline-offset: -2px; }
-.ct-doc__title { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.1em; font-weight: 700; color: #0b2528; text-align: center; margin: 0 0 20px; }
-.ct-doc__section-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 0.85em; font-weight: 700; color: #063b3e; text-transform: uppercase; letter-spacing: 0.07em; margin: 20px 0 8px; }
-.ct-doc__text { font-family: "Instrument Sans", sans-serif; font-size: 0.875em; color: #3a4f50; line-height: 1.6; margin: 0 0 8px; }
-.ct-doc__table { width: 100%; border-collapse: collapse; font-family: "Instrument Sans", sans-serif; font-size: 0.8em; margin-bottom: 8px; }
-.ct-doc__table td, .ct-doc__table th { padding: 6px 10px; border: 1px solid #e3edec; color: #3a4f50; }
+.ct-doc__title { font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; font-weight: 700; color: #0b2528; text-align: center; margin: 0 0 20px; }
+.ct-doc__section-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; color: #063b3e; text-transform: uppercase; letter-spacing: 0.07em; margin: 20px 0 8px; }
+.ct-doc__text { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #3a4f50; line-height: 1.6; margin: 0 0 8px; }
+.ct-doc__table { width: 100%; border-collapse: collapse; font-family: "Instrument Sans", sans-serif; font-size: 16px; margin-bottom: 8px; }
+.ct-doc__table td, .ct-doc__table th { padding: 8px 12px; border: 1px solid #e3edec; color: #3a4f50; }
 .ct-doc__table th { background: #f0f7f7; font-weight: 600; color: #063b3e; }
-.ct-doc__table--full { font-size: 0.75em; }
+.ct-doc__table--full { font-size: 16px; }
 .ct-doc__sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
 .ct-doc__sig-line { height: 1px; background: #b0c4c4; margin-bottom: 8px; }
-.ct-doc__sig p { font-family: "Instrument Sans", sans-serif; font-size: 0.78em; color: #5b6b6c; margin: 0; }
+.ct-doc__sig p { font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #5b6b6c; margin: 0; }
 .proposal-form { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); padding: 28px 24px; }
 .ct-bottom { display: flex; flex-direction: column; gap: 20px; }
-.ct-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-family: "Instrument Sans", sans-serif; font-size: 14px; color: #3a4f50; line-height: 1.5; }
+.ct-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #3a4f50; line-height: 1.5; }
 .ct-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; accent-color: #063b3e; cursor: pointer; }
 .proposal-submit { width: 100%; height: 52px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
 .proposal-submit:hover:not(:disabled) { background: #0fc5c5; }
 .proposal-submit:disabled { opacity: 0.45; cursor: not-allowed; }
-@media (min-width: 640px) { .proposal-main { padding: 40px 32px 80px; } .ct-title { font-size: 32px; } }
+@media (min-width: 640px) { .proposal-main { padding: 40px 32px 80px; } .proposal-steps { margin-bottom: 48px; gap: 12px; } .proposal-steps__mark { width: 30px; height: 30px; } .proposal-steps__label { font-size: 13px; } .ct-title { font-size: 32px; } .proposal-form { padding: 36px 40px; border-radius: 24px; } }
 </style>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { ref, reactive, nextTick, withDefaults, defineProps } from 'vue'
 import { maskCPF, maskCurrencyBRL, onlyDigits } from '../utils/masks'
 import { validateCPF, validateDate, validateName } from '../utils/validators'
@@ -302,7 +302,7 @@ function handleSubmit() {
               <label class="proposal-check">
                 <input v-model="aceitouTermos1" type="checkbox" />
                 <span>
-                  Autorizo o <strong>compartilhamento</strong> dos meus dados cadastrais com o Banco BM,
+                  Autorizo o compartilhamento dos meus dados cadastrais com o Banco Dock,
                   bem como a consulta prévia de minhas informações cadastrais nos órgãos de proteção ao crédito
                   (Boavista, Serasa, SPC Brasil, por exemplo) e no Sistema de informações de Crédito do Banco Central
                   do Brasil (SCR), com o objetivo de possibilitar uma análise de crédito adequada.
@@ -366,25 +366,25 @@ function handleSubmit() {
 .proposal-header__back {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 16px;
+  gap: 6px;
+  padding: 8px 18px;
   border: 1.5px solid #e3edec;
   border-radius: 999px;
-  background: #ffffff;
-  color: #3c4c4d;
+  background: transparent;
+  color: #0b2528;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.15s;
 }
 
 .proposal-header__back:hover {
-  background: #f2f8f8;
+  background: #f0f7f7;
 }
 
 .proposal-main {
-  padding: 24px 20px 56px;
+  padding: 32px 20px 64px;
 }
 
 .proposal-main__inner {
@@ -394,11 +394,11 @@ function handleSubmit() {
 
 .proposal-steps {
   list-style: none;
-  margin: 0 0 32px;
+  margin: 0 0 40px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 6px;
+  gap: 4px;
 }
 
 .proposal-steps__item {
@@ -432,9 +432,9 @@ function handleSubmit() {
   border-radius: 50%;
   border: 1.5px solid #d5e4e2;
   background: #ffffff;
-  color: #8aa0a0;
+  color: #607374;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -442,12 +442,12 @@ function handleSubmit() {
 }
 
 .proposal-steps__label {
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 9px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   color: #9aabac;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .proposal-steps__item.is-active .proposal-steps__mark {
@@ -474,7 +474,7 @@ function handleSubmit() {
   margin: 0 0 24px;
   color: #5b6b6c;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.55;
 }
 
@@ -486,7 +486,7 @@ function handleSubmit() {
   background: #ffffff;
   border: 1px solid #e3edec;
   border-radius: 20px;
-  padding: 22px 18px;
+  padding: 28px 24px;
   box-shadow: 0 12px 40px rgba(6, 59, 62, 0.06);
   display: flex;
   flex-direction: column;
@@ -501,7 +501,7 @@ function handleSubmit() {
 .proposal-field label {
   margin-bottom: 6px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #0b2528;
 }
@@ -522,10 +522,12 @@ function handleSubmit() {
   padding: 0 14px;
   outline: none;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: #0b2528;
   background: #ffffff;
 }
+
+.proposal-input[type="date"] { -webkit-appearance: none; appearance: none; }
 
 .proposal-input:focus-visible {
   border-color: #063b3e;
@@ -539,15 +541,15 @@ function handleSubmit() {
   margin: 6px 0 0;
   color: #dc3545;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
 .proposal-required {
   margin: -4px 0 0;
-  color: #8aa0a0;
+  color: #607374;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -578,7 +580,7 @@ function handleSubmit() {
 .proposal-check span {
   color: #5b6b6c;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.55;
 }
 
@@ -615,9 +617,9 @@ function handleSubmit() {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #8aa0a0;
+  color: #607374;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -627,14 +629,14 @@ function handleSubmit() {
   border-radius: 50%;
   background: #dff3f1;
   color: #0fa3a3;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .proposal-header__inner {
     height: 72px;
     padding: 0 32px;
@@ -645,28 +647,27 @@ function handleSubmit() {
   }
 
   .proposal-header__back {
-    height: 42px;
-    padding: 0 18px;
-    font-size: 14px;
+    padding: 8px 22px;
+    font-size: 16px;
   }
 
   .proposal-main {
-    padding: 44px 32px 72px;
+    padding: 40px 32px 80px;
   }
 
   .proposal-steps {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
     gap: 12px;
   }
 
   .proposal-steps__mark {
     width: 30px;
     height: 30px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .proposal-steps__label {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .proposal-title {
@@ -689,7 +690,7 @@ function handleSubmit() {
   }
 
   .proposal-submit {
-    height: 56px;
+    height: 52px;
     font-size: 17px;
   }
 }

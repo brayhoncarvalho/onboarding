@@ -27,8 +27,9 @@ import ContratoScreen from './components/ContratoScreen.vue'
 import ConclusaoScreen from './components/ConclusaoScreen.vue'
 import MeusDadosScreen from './components/MeusDadosScreen.vue'
 import GmailSimuladorScreen from './components/GmailSimuladorScreen.vue'
+import CapturaSelfieScreen from './components/CapturaSelfieScreen.vue'
 
-type Screen = 'landing' | 'proposta' | 'dados-acesso' | 'senha' | 'proposta-personalizada' | 'dados-pessoais' | 'endereco-telefone' | 'envio-documentos' | 'documentos-status' | 'concluir' | 'area-cliente' | 'area-cliente-2' | 'email-simulacao' | 'revisao' | 'autenticacao-sms' | 'codigo-sms' | 'contrato' | 'conclusao' | 'cadastro' | 'meus-dados'
+type Screen = 'landing' | 'proposta' | 'dados-acesso' | 'senha' | 'proposta-personalizada' | 'dados-pessoais' | 'endereco-telefone' | 'captura-selfie' | 'envio-documentos' | 'documentos-status' | 'concluir' | 'area-cliente' | 'area-cliente-2' | 'email-simulacao' | 'revisao' | 'autenticacao-sms' | 'codigo-sms' | 'contrato' | 'conclusao' | 'cadastro' | 'meus-dados'
 type AccessChannel = 'email' | 'celular'
 
 type AccessPayload = {
@@ -49,7 +50,7 @@ interface OfertaState {
 }
 
 const fallbackScreen: Screen = 'landing'
-const validScreens = new Set<Screen>(['landing', 'proposta', 'dados-acesso', 'senha', 'proposta-personalizada', 'dados-pessoais', 'endereco-telefone', 'envio-documentos', 'documentos-status', 'concluir', 'area-cliente', 'area-cliente-2', 'email-simulacao', 'revisao', 'autenticacao-sms', 'codigo-sms', 'contrato', 'conclusao', 'cadastro', 'meus-dados'])
+const validScreens = new Set<Screen>(['landing', 'proposta', 'dados-acesso', 'senha', 'proposta-personalizada', 'dados-pessoais', 'endereco-telefone', 'captura-selfie', 'envio-documentos', 'documentos-status', 'concluir', 'area-cliente', 'area-cliente-2', 'email-simulacao', 'revisao', 'autenticacao-sms', 'codigo-sms', 'contrato', 'conclusao', 'cadastro', 'meus-dados'])
 const accessPayload = ref<AccessPayload | null>(null)
 
 // Estado da simulação — alimentado pelo SimuladorSection e propagado para as próximas telas
@@ -128,6 +129,10 @@ const goToDadosPessoais = (offer?: OfertaState) => {
 
 const goToEnderecoTelefone = () => {
   setScreen('endereco-telefone')
+}
+
+const goToCapturaSelfie = () => {
+  setScreen('captura-selfie')
 }
 
 const goToEnvioDocumentos = () => {
@@ -269,11 +274,14 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
     <template v-else-if="currentScreen === 'endereco-telefone'">
       <EnderecoTelefoneScreen @voltar="goToDadosPessoais" @continuar="goToEnvioDocumentos" />
     </template>
+    <template v-else-if="currentScreen === 'captura-selfie'">
+      <CapturaSelfieScreen @voltar="goToEnvioDocumentos" @continuar="goToDocumentosStatus" />
+    </template>
     <template v-else-if="currentScreen === 'envio-documentos'">
-      <EnvioDocumentosScreen :initialStep="envioDocStep" @voltar="goToEnderecoTelefone" @continuar="goToDocumentosStatus" />
+      <EnvioDocumentosScreen :initialStep="envioDocStep" @voltar="goToEnderecoTelefone" @continuar="goToCapturaSelfie" />
     </template>
     <template v-else-if="currentScreen === 'documentos-status'">
-      <DocumentosStatusScreen @voltar="goToEnvioDocumentosUpload" @continuar="goToConcluir" />
+      <DocumentosStatusScreen @voltar="goToCapturaSelfie" @continuar="goToConcluir" />
     </template>
     <template v-else-if="currentScreen === 'concluir'">
       <ConcluirScreen @irParaArea="goToAreaCliente" @voltar="goToDocumentosStatus" />
@@ -303,7 +311,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
         :condicoes="propostaCondicoes"
         @gerarContrato="goToRevisao"
         @cancelar="goToLanding"
-        @voltar="goToAreaCliente"
+        @voltar="goToEmailSimulacao"
         @navigate="handleAuthNav"
       />
     </template>
@@ -328,7 +336,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
     <template v-else-if="currentScreen === 'contrato'">
       <ContratoScreen
         :valor="propostaValor"
-        :prazo="propostaPrazo"
+        :prazo="oferta.installments"
         :parcela="propostaParcela"
         :taxaNominalMensal="(oferta.rate * 100).toFixed(2).replace('.', ',') + '% a.m.'"
         :taxaNominalAnual="((Math.pow(1 + oferta.rate, 12) - 1) * 100).toFixed(2).replace('.', ',') + '% a.a.'"

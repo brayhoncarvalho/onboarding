@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { computed, ref } from 'vue'
 
 const emit = defineEmits<{
@@ -238,10 +238,10 @@ const handleContinue = () => {
 }
 
 .proposal-header__inner {
-  max-width: 1240px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 0 20px;
-  height: 72px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -256,31 +256,31 @@ const handleContinue = () => {
 .proposal-header__back {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 42px;
-  padding: 0 18px;
+  gap: 6px;
+  padding: 8px 18px;
   border: 1.5px solid #e3edec;
   border-radius: 999px;
-  background: #ffffff;
-  color: #3c4c4d;
+  background: transparent;
+  color: #0b2528;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.15s;
 }
 
 .proposal-header__back:hover {
-  background: #f4fbfa;
+  background: #f0f7f7;
 }
 
 /* ── Main ── */
 .proposal-main {
   flex: 1;
-  padding: 36px 20px 72px;
+  padding: 32px 20px 64px;
 }
 
 .proposal-main__inner {
-  max-width: 560px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -291,7 +291,7 @@ const handleContinue = () => {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 6px;
+  gap: 4px;
 }
 
 .proposal-steps__item {
@@ -323,9 +323,9 @@ const handleContinue = () => {
   border-radius: 50%;
   border: 1.5px solid #d5e4e2;
   background: #ffffff;
-  color: #8aa0a0;
+  color: #607374;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -333,12 +333,13 @@ const handleContinue = () => {
 }
 
 .proposal-steps__label {
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 9px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   color: #9aabac;
-  line-height: 1.3;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .proposal-steps__item.is-done .proposal-steps__mark {
@@ -353,8 +354,9 @@ const handleContinue = () => {
 
 .proposal-steps__item.is-active .proposal-steps__mark {
   background: #ffffff;
-  border: 2px solid #063b3e;
+  border: 1.5px solid #063b3e;
   color: #063b3e;
+  box-shadow: 0 0 0 3px #dff3f1;
 }
 
 .proposal-steps__item.is-active .proposal-steps__label {
@@ -374,7 +376,7 @@ const handleContinue = () => {
 
 .pp-subtitle {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: #5b6b6c;
   margin: 0 0 28px;
   line-height: 1.55;
@@ -390,7 +392,7 @@ const handleContinue = () => {
 
 .pp-summary {
   border-radius: 20px;
-  padding: 24px 28px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -412,7 +414,7 @@ const handleContinue = () => {
 
 .pp-summary__field-label {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.6);
   margin: 0 0 8px;
@@ -423,12 +425,12 @@ const handleContinue = () => {
 }
 
 .pp-summary__field-label--light {
-  color: #8aa0a0;
+  color: #607374;
   margin-bottom: 8px;
 }
 
 .pp-summary__badge {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   color: #00d8d8;
   background: rgba(0, 216, 216, 0.1);
@@ -451,7 +453,7 @@ const handleContinue = () => {
   border: none;
   border-bottom: 1.5px dashed rgba(0, 216, 216, 0.5);
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 600;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -461,7 +463,7 @@ const handleContinue = () => {
 
 .pp-summary__hint {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.5);
   margin: 8px 0 0;
 }
@@ -480,13 +482,13 @@ const handleContinue = () => {
 }
 
 .pp-summary__rate-suffix {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
 }
 
 .pp-summary__rate-suffix--light {
-  color: #8aa0a0;
+  color: #607374;
 }
 
 /* ── Título das opções ── */
@@ -563,7 +565,7 @@ const handleContinue = () => {
 .pp-offer__rate-label {
   flex: 1;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   color: #5b6b6c;
 }
 
@@ -576,9 +578,9 @@ const handleContinue = () => {
 }
 
 .pp-offer__amount-suffix {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
-  color: #8aa0a0;
+  color: #607374;
 }
 
 /* ── CTA ── */
@@ -603,9 +605,9 @@ const handleContinue = () => {
 /* ── Legal ── */
 .pp-legal {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.6;
-  color: #8aa0a0;
+  color: #607374;
   text-align: center;
   margin: 0;
 }
@@ -626,15 +628,27 @@ const handleContinue = () => {
 /* ── Desktop ── */
 @media (min-width: 640px) {
   .proposal-main {
-    padding: 44px 32px 72px;
+    padding: 40px 32px 80px;
   }
 
   .proposal-main__inner {
-    max-width: 680px;
+    max-width: 640px;
+  }
+
+  .proposal-header__inner { height: 72px; }
+
+  .proposal-steps {
+    margin-bottom: 48px;
+    gap: 12px;
+  }
+
+  .proposal-steps__mark {
+    width: 30px;
+    height: 30px;
   }
 
   .proposal-steps__label {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .pp-title {

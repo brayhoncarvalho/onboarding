@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import AuthHeader from './AuthHeader.vue'
 
 const emit = defineEmits<{
@@ -69,12 +69,12 @@ const emprestimo = {
 .ac-card__body { padding: 20px 24px; }
 .ac-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 12px; }
 .ac-row--top { align-items: flex-start; }
-.ac-row__label { font-family: "Instrument Sans", sans-serif; font-size: 14px; font-weight: 600; color: #00d8d8; flex-shrink: 0; }
-.ac-row__value { font-family: "Instrument Sans", sans-serif; font-size: 14px; color: #5b6b6c; text-align: right; }
+.ac-row__label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 600; color: #00d8d8; flex-shrink: 0; }
+.ac-row__value { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; text-align: right; }
 .ac-row__divider { border: none; border-top: 1px solid #e3edec; margin: 0; }
 .ac-status { display: flex; align-items: center; gap: 8px; }
 .ac-actions { padding-top: 16px; }
-.ac-btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border: none; border-radius: 999px; cursor: pointer; font-family: "Bricolage Grotesque", sans-serif; font-size: 14px; font-weight: 600; color: #ffffff; transition: background 0.15s; }
+.ac-btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border: none; border-radius: 999px; cursor: pointer; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 600; color: #ffffff; transition: background 0.15s; }
 .ac-btn--dark { background: #444746; }
 .ac-btn--dark:hover { background: #333534; }
 .ac-btn__circle { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; flex-shrink: 0; }

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { ref } from 'vue'
 import AuthHeader from './AuthHeader.vue'
 
@@ -49,19 +49,19 @@ const signatario = 'Brayhon Oliveira Carvalho'
 .proposal-main { flex: 1; padding: 32px 20px 64px; }
 .proposal-main__inner { max-width: 520px; margin: 0 auto; }
 .sms-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: #0b2528; margin: 0 0 6px; }
-.sms-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #5b6b6c; margin: 0 0 28px; }
+.sms-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; margin: 0 0 28px; }
 .proposal-form { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; }
-.sms-desc { font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #5b6b6c; line-height: 1.6; margin: 0; }
-.sms-info { background: #f5fafa; border: 1px solid #e3edec; border-radius: 12px; padding: 14px 16px; font-family: "Instrument Sans", sans-serif; font-size: 14px; color: #0b2528; }
+.sms-desc { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; line-height: 1.6; margin: 0; }
+.sms-info { background: #f5fafa; border: 1px solid #e3edec; border-radius: 12px; padding: 14px 16px; font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #0b2528; }
 .sms-fieldset { border: none; padding: 0; margin: 0; }
-.sms-legend { font-family: "Bricolage Grotesque", sans-serif; font-size: 13px; font-weight: 700; color: #0b2528; margin-bottom: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.sms-legend { font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; color: #0b2528; margin-bottom: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
 .sms-radio-row { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 12px 14px; border: 1.5px solid #e3edec; border-radius: 12px; transition: border-color 0.15s; }
 .sms-radio-row:hover { border-color: #063b3e; }
 .sms-radio-input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 .sms-radio-custom { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #d5e4e2; background: #ffffff; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color 0.15s; }
 .sms-radio-custom.is-selected { border-color: #063b3e; }
 .sms-radio-dot { width: 10px; height: 10px; border-radius: 50%; background: #063b3e; }
-.sms-radio-label { font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #0b2528; font-weight: 500; }
+.sms-radio-label { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #0b2528; font-weight: 500; }
 .proposal-submit { width: 100%; height: 52px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
 .proposal-submit:hover:not(:disabled) { background: #0fc5c5; }
 .proposal-submit:disabled { opacity: 0.6; cursor: not-allowed; }

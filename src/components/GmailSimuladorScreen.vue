@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 const emit = defineEmits<{
   (e: 'gerarContrato'): void
   (e: 'voltar'): void
@@ -179,9 +179,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
             <div class="gm-email__footer">
               <div class="gm-email__footer-logo" aria-hidden="true">
                 <img src="/assets/dock-logo-color.png" alt="Dock" class="gm-email__footer-img" />
-                <span>Dock Instituição de Pagamentos S.A.</span>
               </div>
-              <p>CNPJ 13.370.835/0001-85 · São Paulo – SP · Regulada pelo Banco Central do Brasil</p>
               <p>Você está recebendo este e-mail porque possui uma proposta ativa em nosso sistema.</p>
             </div>
 
@@ -249,7 +247,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   border-radius: 50%;
   background: #063b3e;
   color: #00d8d8;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1;
   display: flex; align-items: center; justify-content: center;
@@ -277,7 +275,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   padding: 16px 24px;
   background: #c2e7ff;
   border: none; border-radius: 16px;
-  font-size: 14px; font-weight: 600; color: #001d35;
+  font-size: 16px; font-weight: 600; color: #001d35;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   transition: background 0.15s;
@@ -292,14 +290,14 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   height: 36px;
   border-radius: 0 18px 18px 0;
   cursor: pointer;
-  font-size: 14px; color: #202124;
+  font-size: 16px; color: #202124;
 }
 
 .gm-nav__item--active { background: #d3e3fd; font-weight: 700; color: #1a73e8; }
 
 .gm-badge {
   margin-left: auto;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   color: #202124;
 }
@@ -362,7 +360,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 }
 
 .gm-email__inbox-tag {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 500;
   background: #e8eaed;
   color: #5f6368;
@@ -385,7 +383,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   width: 40px; height: 40px; border-radius: 50%;
   background: #063b3e;
   color: #00d8d8;
-  font-size: 15px; font-weight: 700;
+  font-size: 16px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -399,15 +397,15 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   flex-wrap: wrap;
 }
 
-.gm-email__from-name { font-size: 14px; font-weight: 600; color: #202124; }
-.gm-email__from-email { font-size: 12px; color: #5f6368; }
-.gm-email__date { font-size: 12px; color: #5f6368; margin-left: auto; white-space: nowrap; }
+.gm-email__from-name { font-size: 16px; font-weight: 600; color: #202124; }
+.gm-email__from-email { font-size: 16px; color: #5f6368; }
+.gm-email__date { font-size: 16px; color: #5f6368; margin-left: auto; white-space: nowrap; }
 
 @media (max-width: 639px) {
   .gm-email__date { margin-left: 0; display: block; }
 }
 
-.gm-email__to-row { font-size: 12px; color: #5f6368; margin-top: 2px; }
+.gm-email__to-row { font-size: 16px; color: #5f6368; margin-top: 2px; }
 
 .gm-email__header-actions { display: flex; gap: 4px; flex-shrink: 0; }
 
@@ -444,7 +442,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 }
 
 .gm-email__text {
-  font-size: 15px;
+  font-size: 16px;
   color: #3c4043;
   line-height: 1.65;
   margin: 0 0 20px;
@@ -460,11 +458,11 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 }
 
 .gm-offer-card__label {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #8aa0a0;
+  color: #607374;
   margin: 0 0 14px;
 }
 
@@ -473,11 +471,11 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #3c4043;
 }
 
-.gm-offer-card__row strong { color: #063b3e; font-size: 15px; }
+.gm-offer-card__row strong { color: #063b3e; font-size: 16px; }
 
 .gm-offer-card__divider { height: 1px; background: #e8eaed; }
 
@@ -497,7 +495,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   background: #00d8d8;
   color: #063b3e;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   letter-spacing: 0.01em;
@@ -508,7 +506,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 .gm-email__cta:hover { background: #00c5c5; }
 
 .gm-email__small {
-  font-size: 12px;
+  font-size: 16px;
   color: #80868b;
   line-height: 1.6;
   margin: 0 0 32px;
@@ -524,14 +522,14 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   color: #3c4043;
   margin-bottom: 8px;
 }
 
 .gm-email__footer p {
-  font-size: 11px;
+  font-size: 16px;
   color: #9aa0a6;
   margin: 4px 0;
   line-height: 1.5;

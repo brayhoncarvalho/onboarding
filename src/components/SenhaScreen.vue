@@ -200,7 +200,7 @@ const handleResend = () => {
   background: transparent;
   color: #0b2528;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.15s;
@@ -213,7 +213,7 @@ const handleResend = () => {
   padding: 32px 20px 64px;
 }
 .proposal-main__inner {
-  max-width: 560px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -251,12 +251,12 @@ const handleResend = () => {
   border-radius: 999px;
   border: 1.5px solid #d5e4e2;
   background: #ffffff;
-  color: #8aa0a0;
+  color: #607374;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   position: relative;
   z-index: 1;
@@ -265,9 +265,9 @@ const handleResend = () => {
 .proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
 .proposal-steps__label {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
-  color: #8aa0a0;
+  color: #607374;
   text-align: center;
   line-height: 1.2;
   letter-spacing: 0.03em;
@@ -285,7 +285,7 @@ const handleResend = () => {
 }
 .ss-subtitle {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: #5b6b6c;
   margin: 0 0 28px;
   line-height: 1.5;
@@ -309,7 +309,7 @@ const handleResend = () => {
 }
 .proposal-field label {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   color: #0b2528;
 }
@@ -319,7 +319,7 @@ const handleResend = () => {
   border-radius: 12px;
   padding: 0 14px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: #0b2528;
   background: #ffffff;
   outline: none;
@@ -335,7 +335,7 @@ const handleResend = () => {
 .proposal-input.is-error { border-color: #dc3545; }
 .field-error {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: #dc3545;
   margin: 0;
 }
@@ -371,7 +371,7 @@ const handleResend = () => {
   border: none;
   cursor: pointer;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   color: #0b2528;
   text-decoration: underline;
@@ -381,7 +381,7 @@ const handleResend = () => {
 .ss-resend__btn:hover { color: #00d8d8; }
 .ss-resend__feedback {
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: #5b6b6c;
   margin: 8px 0 0;
   text-align: center;
@@ -394,8 +394,8 @@ const handleResend = () => {
   justify-content: center;
   gap: 6px;
   font-family: 'Instrument Sans', sans-serif;
-  font-size: 11px;
-  color: #8aa0a0;
+  font-size: 16px;
+  color: #607374;
   margin: 0;
 }
 
@@ -404,8 +404,9 @@ const handleResend = () => {
   .proposal-header__inner { height: 72px; }
   .proposal-header__logo { height: 26px; }
   .proposal-main { padding: 40px 32px 80px; }
-  .proposal-steps { margin-bottom: 48px; }
-  .proposal-steps__label { font-size: 10px; }
+  .proposal-steps { margin-bottom: 48px; gap: 12px; }
+  .proposal-steps__mark { width: 30px; height: 30px; }
+  .proposal-steps__label { font-size: 13px; }
   .ss-title { font-size: 32px; }
   .proposal-form { padding: 36px 40px; border-radius: 24px; }
 }

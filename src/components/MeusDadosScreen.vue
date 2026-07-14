@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import AuthHeader from './AuthHeader.vue'
 
 const emit = defineEmits<{
@@ -155,19 +155,19 @@ const emprego = {
 .md-page-header { display: flex; align-items: center; gap: 16px; }
 .md-avatar { width: 52px; height: 52px; border-radius: 50%; background: #063b3e; color: #ffffff; font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .md-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700; color: #0b2528; margin: 0 0 2px; }
-.md-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 14px; color: #5b6b6c; margin: 0; }
+.md-subtitle { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; margin: 0; }
 
 .md-section {}
-.md-section__title { font-family: "Bricolage Grotesque", sans-serif; font-size: 12px; font-weight: 700; color: #8aa0a0; text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 10px; }
+.md-section__title { font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; color: #607374; text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 10px; }
 
 .md-card { background: #ffffff; border: 1px solid #e3edec; border-radius: 16px; box-shadow: 0 4px 16px rgba(6,59,62,0.04); overflow: hidden; }
 .md-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; gap: 12px; }
-.md-row__label { font-family: "Instrument Sans", sans-serif; font-size: 14px; font-weight: 500; color: #5b6b6c; flex-shrink: 0; }
-.md-row__value { font-family: "Instrument Sans", sans-serif; font-size: 14px; color: #0b2528; text-align: right; word-break: break-word; }
+.md-row__label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; color: #5b6b6c; flex-shrink: 0; }
+.md-row__value { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #0b2528; text-align: right; word-break: break-word; }
 .md-row__value--hl { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; color: #063b3e; }
 .md-row__divider { border: none; border-top: 1px solid #f0f6f5; margin: 0; }
 
-.md-notice { font-family: "Instrument Sans", sans-serif; font-size: 13px; color: #8aa0a0; text-align: center; line-height: 1.5; }
+.md-notice { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #607374; text-align: center; line-height: 1.5; }
 
 @media (min-width: 640px) { .md-main { padding: 40px 32px 80px; } .md-title { font-size: 30px; } }
 </style>

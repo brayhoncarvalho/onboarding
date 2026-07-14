@@ -131,8 +131,8 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(250, 252, 252, 0.72) 0%, rgba(250, 252, 252, 0.86) 100%),
-    linear-gradient(90deg, rgba(250, 252, 252, 0.88) 0%, rgba(250, 252, 252, 0.55) 58%, rgba(250, 252, 252, 0.78) 100%);
+    linear-gradient(180deg, rgba(250, 252, 252, 0.62) 0%, rgba(250, 252, 252, 0.76) 100%),
+    linear-gradient(90deg, rgba(250, 252, 252, 0.78) 0%, rgba(250, 252, 252, 0.42) 58%, rgba(250, 252, 252, 0.68) 100%);
   pointer-events: none;
 }
 
@@ -197,8 +197,8 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
 
   .hero__media::after {
     background:
-      linear-gradient(180deg, rgba(250, 252, 252, 0.78) 0%, rgba(250, 252, 252, 0.90) 80%),
-      linear-gradient(90deg, rgba(250, 252, 252, 0.92) 0%, rgba(250, 252, 252, 0.58) 58%, rgba(250, 252, 252, 0.82) 100%);
+      linear-gradient(180deg, rgba(250, 252, 252, 0.68) 0%, rgba(250, 252, 252, 0.82) 80%),
+      linear-gradient(90deg, rgba(250, 252, 252, 0.82) 0%, rgba(250, 252, 252, 0.44) 58%, rgba(250, 252, 252, 0.72) 100%);
   }
 }
 </style>

@@ -35,7 +35,7 @@ function onConfirmar() {
           </div>
           <button type="button" class="proposal-submit" :disabled="codigo.trim().length === 0" @click="onConfirmar">Confirmar</button>
           <button type="button" class="csms-btn-cancel" @click="emit('cancelar')">Cancelar</button>
-          <p class="csms-note">Se nao receber o SMS, toque em "Cancelar", verifique o numero e tente novamente.</p>
+          <p class="csms-note">Se não receber o SMS, toque em “Cancelar”, verifique o número e tente novamente.</p>
         </div>
       </div>
     </main>

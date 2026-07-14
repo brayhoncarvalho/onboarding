@@ -40,7 +40,6 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
       </div>
       <div class="gm-topbar__search">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#5f6368" stroke-width="2"/><line x1="17" y1="17" x2="21" y2="21" stroke="#5f6368" stroke-width="2" stroke-linecap="round"/></svg>
-        <span>Pesquisar e-mail</span>
       </div>
       <div class="gm-topbar__right">
         <div class="gm-avatar-sm">BC</div>
@@ -243,7 +242,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   font-size: 16px;
 }
 
-.gm-topbar__right { margin-left: auto; }
+.gm-topbar__right { margin-left: auto; display: flex; align-items: center; flex-shrink: 0; }
 
 .gm-avatar-sm {
   width: 34px; height: 34px;
@@ -403,6 +402,10 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 .gm-email__from-name { font-size: 14px; font-weight: 600; color: #202124; }
 .gm-email__from-email { font-size: 12px; color: #5f6368; }
 .gm-email__date { font-size: 12px; color: #5f6368; margin-left: auto; white-space: nowrap; }
+
+@media (max-width: 639px) {
+  .gm-email__date { margin-left: 0; display: block; }
+}
 
 .gm-email__to-row { font-size: 12px; color: #5f6368; margin-top: 2px; }
 

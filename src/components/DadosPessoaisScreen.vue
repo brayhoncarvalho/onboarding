@@ -586,6 +586,7 @@ const handleProximo = () => {
   .dp-fields-grid { grid-template-columns: 1fr; }
   .dp-actions { flex-direction: column-reverse; }
   .dp-btn-back { flex: none; width: 100%; }
+  .proposal-submit { flex: none; width: 100%; min-height: 52px; }
 }
 @media (min-width: 640px) {
   .proposal-header__inner { height: 72px; }

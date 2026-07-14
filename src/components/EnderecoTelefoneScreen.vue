@@ -426,6 +426,6 @@ const horariosContato = ['08h às 12h', '12h às 18h', '18h às 21h']
 .proposal-safe { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Instrument Sans', sans-serif; font-size: 11px; color: #8aa0a0; margin: 16px 0 0; }
 
 /* ── Responsive ── */
-@media (max-width: 639px) { .dp-fields-grid { grid-template-columns: 1fr; } .dp-actions { flex-direction: column-reverse; } .dp-btn-back { flex: none; width: 100%; } }
+@media (max-width: 639px) { .dp-fields-grid { grid-template-columns: 1fr; } .dp-actions { flex-direction: column-reverse; } .dp-btn-back { flex: none; width: 100%; } .proposal-submit { flex: none; width: 100%; min-height: 52px; } }
 @media (min-width: 640px) { .proposal-header__inner { height: 72px; } .proposal-header__logo { height: 26px; } .proposal-main { padding: 40px 32px 80px; } .proposal-steps { margin-bottom: 48px; } .proposal-steps__label { font-size: 10px; } .et-title { font-size: 32px; } .proposal-form { padding: 36px 40px; border-radius: 24px; } }
 </style>

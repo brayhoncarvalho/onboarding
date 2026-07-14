@@ -514,6 +514,8 @@ function handleSubmit() {
 
 .proposal-input {
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   height: 50px;
   border: 1.5px solid #d5e4e2;
   border-radius: 12px;

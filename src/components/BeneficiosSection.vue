@@ -48,7 +48,6 @@
         <div>
           <h3 id="seguranca-title" class="beneficios__seguranca-title">Segurança de banco, agilidade de fintech.</h3>
           <p class="beneficios__seguranca-text">
-            A Dock é uma instituição de pagamento regulada pelo Banco Central do Brasil.
             Sua contratação é protegida de ponta a ponta.
           </p>
         </div>

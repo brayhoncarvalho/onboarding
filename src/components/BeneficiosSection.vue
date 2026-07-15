@@ -174,7 +174,7 @@ const toggleFaq = (id: number) => {
 
 .beneficios__title {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 600;
   color: #0b2528;
   margin: 0 0 28px;
@@ -222,7 +222,7 @@ const toggleFaq = (id: number) => {
 
 .beneficios__card-title {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 600;
   color: #0b2528;
   text-align: left;
@@ -283,10 +283,10 @@ const toggleFaq = (id: number) => {
 .beneficios__seguranca-title {
   margin: 0 0 12px;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 600;
   color: #ffffff;
-  line-height: 1.14;
+  line-height: 1.2;
   letter-spacing: -0.03em;
 }
 
@@ -352,7 +352,7 @@ const toggleFaq = (id: number) => {
   margin: 0 0 12px;
   color: #0b2528;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -425,7 +425,7 @@ const toggleFaq = (id: number) => {
   margin: 0 0 8px;
   color: #ffffff;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 600;
   letter-spacing: -0.03em;
 }
@@ -481,8 +481,8 @@ const toggleFaq = (id: number) => {
     padding: 0 40px;
   }
 
-  .beneficios__seguranca-title { font-size: 42px; }
-  .beneficios__seguranca-text { font-size: 17px; }
+  .beneficios__seguranca-title { font-size: 36px; }
+  .beneficios__seguranca-text { font-size: 18px; }
 
   .beneficios__faq {
     padding: 104px 0 0;
@@ -492,9 +492,9 @@ const toggleFaq = (id: number) => {
   }
 
   .beneficios__faq-intro h3 { font-size: 44px; }
-  .beneficios__faq-intro p { font-size: 17px; }
+  .beneficios__faq-intro p { font-size: 18px; }
   .beneficios__faq-btn { padding: 24px 4px; }
-  .beneficios__faq-btn span { font-size: 19px; }
+  .beneficios__faq-btn span { font-size: 18px; }
   .beneficios__faq-answer { font-size: 16px; padding-bottom: 24px; }
 
   .beneficios__cta-final {

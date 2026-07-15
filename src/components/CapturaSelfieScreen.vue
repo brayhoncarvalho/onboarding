@@ -132,79 +132,16 @@ onUnmounted(() => {
                 </svg>
               </div>
 
-              <!-- Detecting: silhueta + scan line -->
+              <!-- Detecting: foto real + overlay de análise + scan line -->
               <div v-else-if="state === 'detecting'" class="cs-viewer__detecting" aria-live="polite">
+                <img src="/assets/avatar-selfie.jpg" alt="" class="cs-viewer__detecting-img" aria-hidden="true" />
+                <div class="cs-viewer__detecting-overlay" aria-hidden="true"></div>
                 <div class="cs-viewer__scan-line"></div>
-                <svg viewBox="0 0 120 150" fill="none" aria-hidden="true">
-                  <ellipse cx="60" cy="175" rx="72" ry="45" fill="rgba(0,216,216,0.1)"/>
-                  <rect x="47" y="118" width="26" height="30" rx="7" fill="rgba(0,216,216,0.12)"/>
-                  <ellipse cx="60" cy="80" rx="42" ry="48" fill="rgba(0,216,216,0.12)"/>
-                  <ellipse cx="60" cy="40" rx="44" ry="28" fill="rgba(0,216,216,0.14)"/>
-                  <ellipse cx="44" cy="76" rx="9" ry="6" fill="rgba(0,216,216,0.2)"/>
-                  <ellipse cx="76" cy="76" rx="9" ry="6" fill="rgba(0,216,216,0.2)"/>
-                  <ellipse cx="60" cy="97" rx="5" ry="4" fill="rgba(0,216,216,0.15)"/>
-                  <path d="M48 110 Q60 118 72 110" stroke="rgba(0,216,216,0.25)" stroke-width="2.5" stroke-linecap="round"/>
-                </svg>
               </div>
 
-              <!-- Captured: ilustração do rosto fotografado -->
+              <!-- Captured: foto real do usuário -->
               <div v-else class="cs-viewer__photo" aria-label="Selfie capturada">
-                <svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <defs>
-                    <radialGradient id="bg-g" cx="50%" cy="38%" r="65%">
-                      <stop offset="0%" stop-color="#c0d8d5"/>
-                      <stop offset="100%" stop-color="#7aa6a4"/>
-                    </radialGradient>
-                    <radialGradient id="skin-g" cx="50%" cy="30%" r="65%">
-                      <stop offset="0%" stop-color="#d8a87a"/>
-                      <stop offset="100%" stop-color="#b8784c"/>
-                    </radialGradient>
-                  </defs>
-                  <!-- Fundo foto -->
-                  <rect width="240" height="300" fill="url(#bg-g)"/>
-                  <!-- Ombros/corpo -->
-                  <ellipse cx="120" cy="328" rx="135" ry="78" fill="#0e3035"/>
-                  <!-- Pescoço -->
-                  <rect x="96" y="238" width="48" height="55" rx="10" fill="#c48a62"/>
-                  <!-- Cabeça -->
-                  <ellipse cx="120" cy="148" rx="72" ry="80" fill="url(#skin-g)"/>
-                  <!-- Cabelo - topo -->
-                  <ellipse cx="120" cy="82" rx="74" ry="52" fill="#1c0e07"/>
-                  <!-- Cabelo - laterais -->
-                  <ellipse cx="50" cy="140" rx="20" ry="56" fill="#1c0e07"/>
-                  <ellipse cx="190" cy="140" rx="20" ry="56" fill="#1c0e07"/>
-                  <!-- Orelhas -->
-                  <ellipse cx="49" cy="152" rx="11" ry="19" fill="#c07850"/>
-                  <ellipse cx="191" cy="152" rx="11" ry="19" fill="#c07850"/>
-                  <!-- Olho esquerdo (da perspectiva do espectador) -->
-                  <ellipse cx="88" cy="142" rx="16" ry="11" fill="white"/>
-                  <circle cx="88" cy="142" r="8" fill="#2e1a0c"/>
-                  <circle cx="88" cy="142" r="4.5" fill="#0a0604"/>
-                  <circle cx="92" cy="138" r="2.5" fill="white" opacity="0.9"/>
-                  <path d="M72 139 Q88 131 104 139" stroke="#1c0e07" stroke-width="1.5" fill="none"/>
-                  <path d="M72 145 Q88 151 104 145" stroke="#b07050" stroke-width="1" fill="none" opacity="0.5"/>
-                  <!-- Olho direito -->
-                  <ellipse cx="152" cy="142" rx="16" ry="11" fill="white"/>
-                  <circle cx="152" cy="142" r="8" fill="#2e1a0c"/>
-                  <circle cx="152" cy="142" r="4.5" fill="#0a0604"/>
-                  <circle cx="156" cy="138" r="2.5" fill="white" opacity="0.9"/>
-                  <path d="M136 139 Q152 131 168 139" stroke="#1c0e07" stroke-width="1.5" fill="none"/>
-                  <path d="M136 145 Q152 151 168 145" stroke="#b07050" stroke-width="1" fill="none" opacity="0.5"/>
-                  <!-- Sobrancelhas -->
-                  <path d="M70 126 Q88 118 106 123" stroke="#1c0e07" stroke-width="4" fill="none" stroke-linecap="round"/>
-                  <path d="M134 123 Q152 118 170 126" stroke="#1c0e07" stroke-width="4" fill="none" stroke-linecap="round"/>
-                  <!-- Nariz -->
-                  <path d="M120 155 Q112 175 108 184 Q120 188 132 184 Q128 175 120 155" fill="#a8683a" opacity="0.65"/>
-                  <ellipse cx="111" cy="185" rx="8" ry="5.5" fill="#9a5e30" opacity="0.7"/>
-                  <ellipse cx="129" cy="185" rx="8" ry="5.5" fill="#9a5e30" opacity="0.7"/>
-                  <!-- Boca -->
-                  <path d="M97 207 Q108 200 120 202 Q132 200 143 207" fill="#b06040"/>
-                  <path d="M97 207 Q120 220 143 207" fill="#c07858"/>
-                  <path d="M97 207 Q120 213 143 207" stroke="#8c3e1c" stroke-width="1.5" fill="none"/>
-                  <!-- Bochecha highlight sutil -->
-                  <ellipse cx="78" cy="168" rx="20" ry="14" fill="#e09070" opacity="0.18"/>
-                  <ellipse cx="162" cy="168" rx="20" ry="14" fill="#e09070" opacity="0.18"/>
-                </svg>
+                <img src="/assets/avatar-selfie.jpg" alt="Selfie capturada" class="cs-viewer__photo-img" />
               </div>
 
             </div>
@@ -541,12 +478,31 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
-.cs-viewer__face-guide svg,
-.cs-viewer__detecting svg {
+.cs-viewer__face-guide svg {
   width: 80%;
   height: 80%;
+}
+
+.cs-viewer__detecting-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  position: absolute;
+  inset: 0;
+  filter: brightness(0.9) saturate(0.8);
+}
+
+.cs-viewer__detecting-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 85, 85, 0.28);
+  mix-blend-mode: multiply;
+  z-index: 2;
 }
 
 .cs-viewer__scan-line {
@@ -555,6 +511,7 @@ onUnmounted(() => {
   height: 2px;
   background: linear-gradient(90deg, transparent 0%, #00d8d8 30%, rgba(0, 216, 216, 0.8) 50%, #00d8d8 70%, transparent 100%);
   z-index: 4;
+  box-shadow: 0 0 8px 2px rgba(0, 216, 216, 0.45);
   animation: scan-sweep 1.6s ease-in-out infinite;
 }
 
@@ -568,11 +525,14 @@ onUnmounted(() => {
 .cs-viewer__photo {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
-.cs-viewer__photo svg {
+.cs-viewer__photo-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
@@ -609,7 +569,7 @@ onUnmounted(() => {
 }
 
 .cs-viewer__status--detecting { color: #063b3e; }
-.cs-viewer__status--captured { color: #063b3e; font-weight: 600; }
+.cs-viewer__status--captured { color: #00d8d8; font-weight: 600; }
 
 .cs-viewer__dot {
   width: 8px;
@@ -744,7 +704,7 @@ onUnmounted(() => {
 /* ── Responsivo ──────────────────────────────────────────────────── */
 @media (min-width: 480px) {
   .cs-viewer { max-width: 300px; }
-  .cs-title { font-size: 30px; }
+  .cs-title { font-size: 28px; }
 }
 
 @media (min-width: 640px) {

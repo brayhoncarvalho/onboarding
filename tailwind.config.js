@@ -56,21 +56,20 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Roboto', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        mono: ['"JetBrains Mono"', '"Fira Code"', '"Cascadia Code"', 'monospace'],
-        roboto: ['Roboto', 'sans-serif'],
-        'red-hat': ['"Red Hat Display"', 'sans-serif'],
+        sans:    ['Instrument Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
+        mono:    ['"JetBrains Mono"', '"Fira Code"', '"Cascadia Code"', 'monospace'],
       },
       fontSize: {
-        'ds-xs':   ['11px', { lineHeight: '1.4' }],
-        'ds-sm':   ['12px', { lineHeight: '1.4' }],
-        'ds-base': ['14px', { lineHeight: '1.6' }],
-        'ds-md':   ['15px', { lineHeight: '1.6' }],
-        'ds-lg':   ['17px', { lineHeight: '1.4' }],
-        'ds-xl':   ['20px', { lineHeight: '1.3' }],
-        'ds-2xl':  ['24px', { lineHeight: '1.2' }],
-        'ds-3xl':  ['30px', { lineHeight: '1.2' }],
-        'ds-4xl':  ['36px', { lineHeight: '1.1' }],
+        'ds-xs':   ['11px', { lineHeight: '1.4' }],  /* captions, step labels mobile */
+        'ds-sm':   ['12px', { lineHeight: '1.4' }],  /* legal, step labels desktop */
+        'ds-base': ['14px', { lineHeight: '1.5' }],  /* body de app, campos */
+        'ds-body': ['16px', { lineHeight: '1.5' }],  /* body marketing, labels primários */
+        'ds-lg':   ['18px', { lineHeight: '1.4' }],  /* lead, step titles */
+        'ds-xl':   ['22px', { lineHeight: '1.3' }],  /* sub-headings, valores numéricos */
+        'ds-2xl':  ['28px', { lineHeight: '1.2' }],  /* headings de tela */
+        'ds-3xl':  ['36px', { lineHeight: '1.2' }],  /* headings de seção */
+        'ds-hero': ['56px', { lineHeight: '1.05' }], /* hero desktop */
       },
       borderRadius: {
         'ds-sm':   'var(--radius-sm)',

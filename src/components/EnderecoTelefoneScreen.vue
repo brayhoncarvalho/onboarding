@@ -262,12 +262,10 @@ const horariosContato = ['08h às 12h', '12h às 18h', '18h às 21h']
                 <label>Celular</label>
                 <div class="et-phone-wrap">
                   <div class="et-ddd-wrap">
-                    <span class="et-paren" aria-hidden="true">(</span>
-                    <input :value="celularDDD" type="text" inputmode="numeric" placeholder="DDD" maxlength="2"
+                    <input :value="celularDDD" type="text" inputmode="numeric" placeholder="(00)" maxlength="2"
                       aria-label="DDD do celular"
                       :class="['et-ddd', errors.celularDDD && touched.celularDDD ? 'is-error' : '']"
                       @input="onDDDInput('celularDDD', $event)" @blur="validate('celularDDD')" />
-                    <span class="et-paren" aria-hidden="true">)</span>
                   </div>
                   <input :value="celularNum" type="text" inputmode="numeric" placeholder="00000-0000" maxlength="10"
                     aria-label="Número do celular"
@@ -314,11 +312,9 @@ const horariosContato = ['08h às 12h', '12h às 18h', '18h às 21h']
                 <label>Telefone Residencial <span class="et-optional">(opcional)</span></label>
                 <div class="et-phone-wrap">
                   <div class="et-ddd-wrap">
-                    <span class="et-paren" aria-hidden="true">(</span>
-                    <input :value="residencialDDD" type="text" inputmode="numeric" placeholder="DDD" maxlength="2"
+                    <input :value="residencialDDD" type="text" inputmode="numeric" placeholder="(00)" maxlength="2"
                       aria-label="DDD do telefone residencial" class="et-ddd"
                       @input="onDDDInput('residencialDDD', $event)" />
-                    <span class="et-paren" aria-hidden="true">)</span>
                   </div>
                   <input :value="residencialNum" type="text" inputmode="numeric" placeholder="0000-0000" maxlength="9"
                     aria-label="Número do telefone residencial" class="proposal-input et-phone-num"
@@ -404,13 +400,13 @@ const horariosContato = ['08h às 12h', '12h às 18h', '18h às 21h']
 .et-alert { display: flex; align-items: flex-start; gap: 8px; background: #fffbeb; border: 1px solid #f9e08a; border-radius: 12px; padding: 12px 14px; font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #92610a; margin-bottom: 20px; line-height: 1.5; }
 
 /* ── Phone inputs ── */
-.et-phone-wrap { display: flex; align-items: center; gap: 0; }
+.et-phone-wrap { display: flex; align-items: center; gap: 8px; }
 .et-ddd-wrap { display: flex; align-items: center; flex-shrink: 0; }
 .et-paren { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #5b6b6c; padding: 0 2px; line-height: 50px; }
-.et-ddd { width: 52px; height: 50px; border: 1.5px solid #d5e4e2; border-radius: 12px 0 0 12px; border-right: none; padding: 0 8px; font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #0b2528; background: #ffffff; outline: none; text-align: center; transition: border-color 0.15s; }
+.et-ddd { width: 64px; height: 50px; border: 1.5px solid #d5e4e2; border-radius: 12px; padding: 0 8px; font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #0b2528; background: #ffffff; outline: none; text-align: center; transition: border-color 0.15s; }
 .et-ddd:focus { border-color: #063b3e; }
 .et-ddd.is-error { border-color: #dc3545; }
-.et-phone-num { flex: 1; border-radius: 0 12px 12px 0 !important; }
+.et-phone-num { flex: 1; border-radius: 12px !important; }
 
 /* ── Error ── */
 .field-error { font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #dc3545; margin: 0; }

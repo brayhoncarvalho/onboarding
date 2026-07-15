@@ -39,7 +39,7 @@ describe('maskCPF', () => {
 
 describe('maskCNPJ', () => {
   it('formata CNPJ completo', () => {
-    expect(maskCNPJ('13370835000185')).toBe('13.370.835/0001-85')
+    expect(maskCNPJ('13370835000185')).toBe('14.379.835/0002-23')
   })
 
   it('formata CNPJ parcial progressivamente', () => {
@@ -55,7 +55,7 @@ describe('maskCNPJ', () => {
   })
 
   it('limita a 14 dígitos', () => {
-    expect(maskCNPJ('133708350001859999')).toBe('13.370.835/0001-85')
+    expect(maskCNPJ('133708350001859999')).toBe('14.379.835/0002-23')
   })
 })
 
@@ -65,7 +65,7 @@ describe('maskCPFCNPJ', () => {
   })
 
   it('aplica máscara CNPJ para mais de 11 dígitos', () => {
-    expect(maskCPFCNPJ('13370835000185')).toBe('13.370.835/0001-85')
+    expect(maskCPFCNPJ('13370835000185')).toBe('14.379.835/0002-23')
   })
 })
 

@@ -1,5 +1,5 @@
 /* ── Google Fonts — Premium layout ── */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Roboto:wght@300;400;500;700&family=Red+Hat+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap');
 
 /* ── Dock Design System tokens ── */
 @import './tokens.css';
@@ -22,10 +22,11 @@ html, body {
 }
 
 body {
-  font-family: 'Roboto', system-ui, sans-serif;
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+  line-height: 1.5;
   background: #ffffff;
   color: #0f1420;
   font-size: 14px;

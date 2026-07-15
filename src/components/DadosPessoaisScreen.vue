@@ -371,8 +371,8 @@ const handleProximo = () => {
                     :class="['proposal-select', touched.tipoConta && errors.tipoConta ? 'is-error' : '']"
                     @blur="validateField('tipoConta')" @change="validateField('tipoConta')">
                     <option value="" disabled>Selecione</option>
-                    <option value="corrente">Conta Corrente</option>
-                    <option value="poupanca">Conta Poupança</option>
+                    <option value="corrente">Conta-corrente</option>
+                    <option value="poupanca">Poupança</option>
                   </select>
                   <svg class="dp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>
@@ -474,7 +474,7 @@ const handleProximo = () => {
 .proposal-steps__item.is-done  .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
 .proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
 .proposal-steps__label {
-  font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 600;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 11px; font-weight: 600;
   color: #607374; text-align: center; line-height: 1.2; letter-spacing: 0.03em;
 }
 .proposal-steps__item.is-active .proposal-steps__label { color: #0b2528; }

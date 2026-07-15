@@ -59,16 +59,12 @@
       <div class="simulador__result-wrap">
         <div class="simulador__result">
           <p class="simulador__result-label">Parcela mensal estimada*</p>
-          <p class="simulador__result-value" aria-live="polite" aria-atomic="true">
-            {{ formatCurrency(parcelaMensal) }}
-          </p>
+          <p class="simulador__result-value" aria-live="polite" aria-atomic="true">{{ formatCurrency(parcelaMensal) }}</p>
         </div>
 
         <div class="simulador__taxa">
           <p class="simulador__taxa-label">Taxa de juros*</p>
-          <p class="simulador__taxa-value" aria-live="polite" aria-atomic="true">
-            {{ taxaMensalFormatada }} / {{ taxaAnualFormatada }}
-          </p>
+          <p class="simulador__taxa-value" aria-live="polite" aria-atomic="true">{{ taxaMensalFormatada }} / {{ taxaAnualFormatada }}</p>
         </div>
       </div>
 
@@ -195,7 +191,7 @@ const decrementar = () => {
 
 .simulador__title {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: #0b2528;
@@ -218,7 +214,7 @@ const decrementar = () => {
 
 .simulador__value-text {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #063b3e;
@@ -239,7 +235,7 @@ const decrementar = () => {
   border: 1px solid #d5e4e2;
   background: #ffffff;
   color: #063b3e;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 600;
   display: flex;
@@ -368,31 +364,43 @@ const decrementar = () => {
 .simulador__result-wrap {
   border-top: 1px dashed #d5e4e2;
   padding-top: 14px;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 8px;
+}
+
+.simulador__result,
+.simulador__taxa {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .simulador__result-label {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   color: #5b6b6c;
-  margin: 0 0 2px;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .simulador__result-value {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   color: #063b3e;
   margin: 0;
+  white-space: nowrap;
 }
 
 .simulador__taxa-label {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   color: #5b6b6c;
-  margin: 0 0 2px;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .simulador__taxa-value {
@@ -401,6 +409,7 @@ const decrementar = () => {
   font-weight: 600;
   color: #0b2528;
   margin: 0;
+  white-space: nowrap;
 }
 
 .simulador__cta {
@@ -444,9 +453,9 @@ const decrementar = () => {
     padding: 28px;
   }
 
-  .simulador__title { font-size: 26px; }
-  .simulador__value-text { font-size: 40px; }
-  .simulador__result-value { font-size: 24px; }
+  .simulador__title { font-size: 28px; }
+  .simulador__value-text { font-size: 36px; }
+  .simulador__result-value { font-size: 22px; }
 }
 
 @media (min-width: 1024px) {

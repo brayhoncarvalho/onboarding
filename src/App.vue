@@ -122,8 +122,12 @@ const goToPropostaPersonalizada = () => {
   setScreen('proposta-personalizada')
 }
 
-const goToDadosPessoais = (offer?: OfertaState) => {
-  if (offer) oferta.value = offer
+const goToDadosPessoais = (offer?: OfertaState & { valor?: number }) => {
+  if (offer) {
+    const { valor, ...ofertaData } = offer
+    oferta.value = ofertaData
+    if (valor !== undefined) simulacao.value.valor = valor
+  }
   setScreen('dados-pessoais')
 }
 

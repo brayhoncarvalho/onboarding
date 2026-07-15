@@ -629,7 +629,7 @@ function handleSubmit() {
   border-radius: 50%;
   background: #dff3f1;
   color: #0fa3a3;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -671,7 +671,7 @@ function handleSubmit() {
   }
 
   .proposal-title {
-    font-size: 34px;
+    font-size: 36px;
   }
 
   .proposal-subtitle {
@@ -691,7 +691,7 @@ function handleSubmit() {
 
   .proposal-submit {
     height: 52px;
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 </style>

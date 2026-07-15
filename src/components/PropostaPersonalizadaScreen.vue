@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 
 const emit = defineEmits<{
   (e: 'voltar'): void
-  (e: 'continuar', offer: { installments: number; amount: number; rate: number }): void
+  (e: 'continuar', offer: { installments: number; amount: number; rate: number; valor: number }): void
 }>()
 
 const props = withDefaults(
@@ -30,6 +30,7 @@ const fmtNoDecimals = (v: number) =>
 
 // Valor editável pelo usuário
 const loanAmount = ref(props.valorSolicitado)
+const pendingAmount = ref(props.valorSolicitado)
 const isEditing = ref(false)
 const inputRef = ref<HTMLInputElement | null>(null)
 
@@ -42,23 +43,37 @@ const loanAmountFormatted = computed(() => fmtNoDecimals(loanAmount.value))
 
 const onFocus = (e: FocusEvent) => {
   isEditing.value = true
+  pendingAmount.value = loanAmount.value
   ;(e.target as HTMLInputElement).value = String(loanAmount.value)
   ;(e.target as HTMLInputElement).select()
 }
 
 const onBlur = (e: FocusEvent) => {
-  isEditing.value = false
+  // Salva o digitado em pendingAmount mas NÃO commita em loanAmount
   const raw = (e.target as HTMLInputElement).value.replace(/\D/g, '')
-  const parsed = parseInt(raw, 10) || 0
+  const parsed = parseInt(raw, 10) || loanAmount.value
   const clamped = Math.min(Math.max(parsed, 250), 200000)
-  loanAmount.value = clamped
+  pendingAmount.value = clamped
+  // Exibe o valor pendente formatado no input enquanto botão Aplicar está visível
   ;(e.target as HTMLInputElement).value = fmtNoDecimals(clamped)
 }
 
+const applyAmount = () => {
+  loanAmount.value = pendingAmount.value
+  isEditing.value = false
+}
+
+const cancelEdit = () => {
+  pendingAmount.value = loanAmount.value
+  isEditing.value = false
+  if (inputRef.value) inputRef.value.value = fmtNoDecimals(loanAmount.value)
+}
+
 const onLoanAmountInput = (e: Event) => {
-  // Permite apenas dígitos durante a digitação
   const input = e.target as HTMLInputElement
   input.value = input.value.replace(/[^\d]/g, '')
+  const parsed = parseInt(input.value, 10) || 0
+  pendingAmount.value = Math.min(Math.max(parsed, 0), 200000)
 }
 
 const INSTALLMENT_OPTIONS = [12, 16, 18, 24, 36]
@@ -89,6 +104,7 @@ const handleContinue = () => {
     installments: selectedInstallments.value,
     amount: calcPmt(loanAmount.value, selectedInstallments.value, selectedRate.value),
     rate: selectedRate.value,
+    valor: loanAmount.value,
   })
 }
 </script>
@@ -161,6 +177,15 @@ const handleContinue = () => {
               @blur="onBlur"
               @input="onLoanAmountInput"
             />
+            <!-- Botão Aplicar — aparece quando há valor pendente diferente do atual -->
+            <div v-if="isEditing" class="pp-summary__apply-row">
+              <button type="button" class="pp-summary__apply-btn" @click="applyAmount" aria-label="Confirmar valor do empréstimo">
+                Aplicar
+              </button>
+              <button type="button" class="pp-summary__cancel-btn" @click="cancelEdit" aria-label="Cancelar edição">
+                Cancelar
+              </button>
+            </div>
             <p class="pp-summary__hint">Limite pré-aprovado: {{ fmtNoDecimals(props.valorSolicitado) }}</p>
           </div>
           <!-- Card branco — taxa de juros -->
@@ -447,13 +472,56 @@ const handleContinue = () => {
   background: rgba(0, 216, 216, 0.2);
 }
 
+.pp-summary__apply-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.pp-summary__apply-btn {
+  flex: 1;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: #00d8d8;
+  color: #042a2c;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.pp-summary__apply-btn:hover {
+  background: #0fc5c5;
+}
+
+.pp-summary__cancel-btn {
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.pp-summary__cancel-btn:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
 .pp-summary__input {
   width: 100%;
   background: transparent;
   border: none;
   border-bottom: 1.5px dashed rgba(0, 216, 216, 0.5);
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -470,7 +538,7 @@ const handleContinue = () => {
 
 .pp-summary__rate {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
   color: #00d8d8;
   margin: 0;
@@ -555,7 +623,7 @@ const handleContinue = () => {
 
 .pp-offer__installments {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   color: #0b2528;
   width: 36px;
@@ -571,7 +639,7 @@ const handleContinue = () => {
 
 .pp-offer__amount {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   color: #063b3e;
   white-space: nowrap;
@@ -652,7 +720,7 @@ const handleContinue = () => {
   }
 
   .pp-title {
-    font-size: 34px;
+    font-size: 36px;
   }
 
   .pp-summary-row {
@@ -669,7 +737,7 @@ const handleContinue = () => {
   }
 
   .pp-options-title {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .pp-offer {
@@ -677,7 +745,7 @@ const handleContinue = () => {
   }
 
   .pp-submit {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 </style>

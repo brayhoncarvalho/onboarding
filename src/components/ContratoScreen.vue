@@ -64,7 +64,7 @@ const parcelas = computed(() =>
               <h2 class="ct-doc__title">CONTRATO DE CRÉDITO PESSOAL</h2>
               <p class="ct-doc__section-title">PARTES CONTRATANTES</p>
               <p class="ct-doc__text">CONTRATANTE: Brayhon Oliveira Carvalho, CPF 412.456.508-90, residente em Palmas – TO.</p>
-              <p class="ct-doc__text">CONTRATADA: Dock Instituição de Pagamentos S.A., CNPJ 13.370.835/0001-85, com sede em São Paulo – SP.</p>
+              <p class="ct-doc__text">CONTRATADA: Dock Tech, CNPJ 14.379.835/0002-23, com sede em São Paulo – SP.</p>
 
               <p class="ct-doc__section-title">CONDIÇÕES FINANCEIRAS</p>
               <table class="ct-doc__table" aria-label="Resumo das condições financeiras">
@@ -139,7 +139,7 @@ const parcelas = computed(() =>
 .ct-viewer { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); overflow: hidden; margin-bottom: 24px; }
 .ct-doc-scroll { max-height: 480px; overflow-y: auto; padding: 24px 24px 16px; }
 .ct-doc-scroll:focus { outline: 2px solid #00d8d8; outline-offset: -2px; }
-.ct-doc__title { font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; font-weight: 700; color: #0b2528; text-align: center; margin: 0 0 20px; }
+.ct-doc__title { font-family: "Bricolage Grotesque", sans-serif; font-size: 22px; font-weight: 700; color: #0b2528; text-align: center; margin: 0 0 20px; }
 .ct-doc__section-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; color: #063b3e; text-transform: uppercase; letter-spacing: 0.07em; margin: 20px 0 8px; }
 .ct-doc__text { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #3a4f50; line-height: 1.6; margin: 0 0 8px; }
 .ct-doc__table { width: 100%; border-collapse: collapse; font-family: "Instrument Sans", sans-serif; font-size: 16px; margin-bottom: 8px; }
@@ -148,7 +148,7 @@ const parcelas = computed(() =>
 .ct-doc__table--full { font-size: 16px; }
 .ct-doc__sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
 .ct-doc__sig-line { height: 1px; background: #b0c4c4; margin-bottom: 8px; }
-.ct-doc__sig p { font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #5b6b6c; margin: 0; }
+.ct-doc__sig p { font-family: "Instrument Sans", sans-serif; font-size: 14px; color: #5b6b6c; margin: 0; }
 .proposal-form { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); padding: 28px 24px; }
 .ct-bottom { display: flex; flex-direction: column; gap: 20px; }
 .ct-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #3a4f50; line-height: 1.5; }

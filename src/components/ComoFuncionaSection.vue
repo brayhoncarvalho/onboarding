@@ -67,7 +67,7 @@
   margin: 0 0 14px;
   color: #0b2528;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -139,11 +139,11 @@
   }
 
   .como-funciona__title { font-size: 44px; }
-  .como-funciona__intro-text { font-size: 17px; }
+  .como-funciona__intro-text { font-size: 18px; }
 
   .como-funciona__step { gap: 28px; padding: 28px 0; }
 
-  .como-funciona__circle { width: 48px; height: 48px; font-size: 20px; }
+  .como-funciona__circle { width: 48px; height: 48px; font-size: 18px; }
   .como-funciona__step-title { font-size: 22px; margin-bottom: 6px; }
   .como-funciona__step-desc { font-size: 16px; max-width: 540px; }
 }

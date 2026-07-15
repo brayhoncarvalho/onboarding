@@ -468,7 +468,7 @@ const handleEnviar = () => {
   border-radius: 50%;
   background: #dff3f1;
   color: #0fa3a3;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -493,7 +493,7 @@ const handleEnviar = () => {
   .proposal-steps { margin-bottom: 48px; gap: 12px; }
   .proposal-steps__mark { width: 30px; height: 30px; }
   .proposal-steps__label { font-size: 13px; }
-  .ad-title { font-size: 34px; }
+  .ad-title { font-size: 36px; }
   .proposal-form { padding: 36px 40px; border-radius: 24px; }
 }
 </style>

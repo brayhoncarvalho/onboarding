@@ -174,7 +174,7 @@ function handleSubmit() {
           </li>
           <li class="proposal-steps__item">
             <span class="proposal-steps__mark" aria-hidden="true">3</span>
-            <span class="proposal-steps__label">DADOS COMPLEMENTARES</span>
+            <span class="proposal-steps__label">CADASTRO</span>
           </li>
           <li class="proposal-steps__item">
             <span class="proposal-steps__mark" aria-hidden="true">4</span>
@@ -188,7 +188,7 @@ function handleSubmit() {
 
         <section class="proposal-content" aria-labelledby="proposal-title">
           <h1 id="proposal-title" class="proposal-title">Solicite uma proposta</h1>
-          <p class="proposal-subtitle">Leva menos de 2 minutos. Sem compromisso e sem afetar o seu score.</p>
+          <p class="proposal-subtitle">Sem compromisso. Leva menos de 2 minutos.</p>
 
           <form @submit.prevent="handleSubmit" class="proposal-form" novalidate>
             <div class="proposal-field proposal-field--full">

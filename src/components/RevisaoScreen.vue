@@ -25,11 +25,17 @@ const props = withDefaults(
   }
 )
 
+const primeiroVencimento = (() => {
+  const d = new Date()
+  d.setDate(d.getDate() + 30)
+  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+})()
+
 const campos = computed(() => [
   { label: 'Valor que será creditado:', value: props.valor },
   { label: 'Prazo de pagamento:', value: props.prazo },
   { label: 'Valor da Parcela:', value: props.parcela },
-  { label: 'Primeiro vencimento:', value: '23/01/2026' },
+  { label: 'Primeiro vencimento:', value: primeiroVencimento },
   { label: 'TAC:', value: 'R$ 0,00' },
   { label: 'Taxa nominal:', value: props.taxaNominal },
   { label: 'Taxa efetiva:', value: props.taxaEfetiva },
@@ -44,7 +50,7 @@ const campos = computed(() => [
         <ol class="proposal-steps" aria-label="Progresso da proposta">
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">DADOS INICIAIS</span></li>
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">PROPOSTA</span></li>
-          <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">DADOS COMPLEMENTARES</span></li>
+          <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">CADASTRO</span></li>
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">DOCUMENTOS</span></li>
           <li class="proposal-steps__item is-active"><span class="proposal-steps__mark">5</span><span class="proposal-steps__label">CONCLUSÃO</span></li>
         </ol>

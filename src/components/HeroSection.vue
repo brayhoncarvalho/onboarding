@@ -2,8 +2,7 @@
   <section class="hero" id="simulador">
     <div class="hero__body">
       <div class="hero__content">
-        <h1 class="hero__title">Feito de pessoas, para pessoas.
-          Empréstimo Online, Rápido e Seguro.</h1>
+        <h1 class="hero__title">Empréstimo Online, Rápido e Seguro.</h1>
         <p class="hero__subtitle">
           Faça sua simulação online e conheça as opções de crédito disponíveis para você.
         </p>

@@ -106,7 +106,7 @@ const handleEnviar = () => {
           </li>
           <li class="proposal-steps__item">
             <span class="proposal-steps__mark" aria-hidden="true">3</span>
-            <span class="proposal-steps__label">DADOS COMPLEMENTARES</span>
+            <span class="proposal-steps__label">CADASTRO</span>
           </li>
           <li class="proposal-steps__item">
             <span class="proposal-steps__mark" aria-hidden="true">4</span>

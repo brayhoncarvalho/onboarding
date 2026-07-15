@@ -65,7 +65,7 @@ onUnmounted(() => {
           </li>
           <li class="proposal-steps__item is-done">
             <span class="proposal-steps__mark" aria-hidden="true">✓</span>
-            <span class="proposal-steps__label">DADOS COMPLEMENTARES</span>
+            <span class="proposal-steps__label">CADASTRO</span>
           </li>
           <li class="proposal-steps__item is-active">
             <span class="proposal-steps__mark" aria-hidden="true">4</span>

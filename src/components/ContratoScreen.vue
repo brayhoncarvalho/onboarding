@@ -27,13 +27,21 @@ const props = withDefaults(
 
 const concordo = ref(false)
 
+const primeiroVencimento = (() => {
+  const d = new Date()
+  d.setDate(d.getDate() + 30)
+  return d
+})()
+
+const primeiroVencimentoFormatado = primeiroVencimento.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+
 const installmentCount = computed(() => props.prazo)
 
 const parcelas = computed(() =>
   Array.from({ length: installmentCount.value }, (_, i) => ({
     n: i + 1,
     vencimento: (() => {
-      const d = new Date(2026, 0, 23)
+      const d = new Date(primeiroVencimento)
       d.setMonth(d.getMonth() + i)
       return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
     })(),
@@ -50,7 +58,7 @@ const parcelas = computed(() =>
         <ol class="proposal-steps" aria-label="Progresso da proposta">
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">DADOS INICIAIS</span></li>
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">PROPOSTA</span></li>
-          <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">DADOS COMPLEMENTARES</span></li>
+          <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">CADASTRO</span></li>
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark">&#x2713;</span><span class="proposal-steps__label">DOCUMENTOS</span></li>
           <li class="proposal-steps__item is-active"><span class="proposal-steps__mark">5</span><span class="proposal-steps__label">CONCLUSÃO</span></li>
         </ol>
@@ -74,7 +82,7 @@ const parcelas = computed(() =>
                   <tr><td>Valor da parcela</td><td>{{ props.parcela }}</td></tr>
                   <tr><td>Taxa nominal mensal</td><td>{{ props.taxaNominalMensal }}</td></tr>
                   <tr><td>Taxa nominal anual</td><td>{{ props.taxaNominalAnual }}</td></tr>
-                  <tr><td>Primeiro vencimento</td><td>23/01/2026</td></tr>
+                  <tr><td>Primeiro vencimento</td><td>{{ primeiroVencimentoFormatado }}</td></tr>
                   <tr><td>TAC</td><td>R$ 0,00</td></tr>
                   <tr><td>IOF</td><td>Incluso nas parcelas</td></tr>
                 </tbody>

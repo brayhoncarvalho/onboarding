@@ -13,8 +13,11 @@ const props = withDefaults(
   { valor: 'R$ 3.500,00', condicoes: '18x de R$ 209,32' }
 )
 
+const hoje = new Date()
+const dataAtual = hoje.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+
 const emprestimo = {
-  dataSolicitacao: '23/12/2025',
+  dataSolicitacao: dataAtual,
   status: 'Análise',
 }
 </script>

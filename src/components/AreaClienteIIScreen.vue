@@ -10,8 +10,10 @@ const emit = defineEmits<{
 
 interface Emprestimo { id: number; valor: string; condicoes: string; data: string; status: string }
 
+const hoje = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+
 const emprestimos: Emprestimo[] = [
-  { id: 1, valor: 'R$ 3.500,00', condicoes: '18x de R$ 209,32', data: '23/12/2025', status: 'Aguardando Assinatura' },
+  { id: 1, valor: 'R$ 3.500,00', condicoes: '18x de R$ 209,32', data: hoje, status: 'Aguardando Assinatura' },
 ]
 </script>
 

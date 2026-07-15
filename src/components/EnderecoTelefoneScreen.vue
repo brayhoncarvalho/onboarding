@@ -140,7 +140,7 @@ const horariosContato = ['08h às 12h', '12h às 18h', '18h às 21h']
           </li>
           <li class="proposal-steps__item is-active">
             <span class="proposal-steps__mark" aria-hidden="true">3</span>
-            <span class="proposal-steps__label">DADOS COMPLEMENTARES</span>
+            <span class="proposal-steps__label">CADASTRO</span>
           </li>
           <li class="proposal-steps__item">
             <span class="proposal-steps__mark" aria-hidden="true">4</span>

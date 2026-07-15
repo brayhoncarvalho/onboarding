@@ -116,7 +116,7 @@ const handleProximo = () => {
           </li>
           <li class="proposal-steps__item is-active">
             <span class="proposal-steps__mark" aria-hidden="true">3</span>
-            <span class="proposal-steps__label">DADOS COMPLEMENTARES</span>
+            <span class="proposal-steps__label">CADASTRO</span>
           </li>
           <li class="proposal-steps__item">
             <span class="proposal-steps__mark" aria-hidden="true">4</span>
@@ -316,12 +316,12 @@ const handleProximo = () => {
 
             <!-- Nota patrimônio -->
             <div class="dp-note">
-              <p class="dp-note__text">1. Informe o valor em R$ de todos os bens e direitos que você possui. Essa informação é requerida pelo Banco Central de todos os bancos que realizem empréstimos a pessoas físicas.</p>
+              <p class="dp-note__text">1. Informe o valor em R$ de todos os bens e direitos que você possui. Essa informação é exigida pelo Banco Central de todos os bancos que realizam empréstimos a pessoas físicas.</p>
               <button type="button" class="dp-note__toggle" @click="patrimonioExpanded = !patrimonioExpanded" :aria-expanded="patrimonioExpanded">
                 {{ patrimonioExpanded ? 'Mostrar menos' : 'Por que preciso informar?' }}
               </button>
               <p v-if="patrimonioExpanded" class="dp-note__expanded">
-                Por força da circular 3.461 do Banco Central do Brasil, essa informação é requerida de todos os bancos que realizem qualquer empréstimo a pessoas físicas. Esse procedimento faz parte do esforço de toda a sociedade para prevenir e combater crimes de lavagem de dinheiro, alinhado com a Convenção Internacional para Supressão do Financiamento do Terrorismo, da ONU.
+                Por força das normas de prevenção do Banco Central do Brasil, essa informação é exigida de todos os bancos que realizam empréstimos a pessoas físicas. Esse procedimento faz parte do esforço de toda a sociedade para prevenir e combater crimes de lavagem de dinheiro, alinhado com a Convenção Internacional para Supressão do Financiamento do Terrorismo, da ONU.
               </p>
             </div>
 
@@ -373,6 +373,7 @@ const handleProximo = () => {
                     <option value="" disabled>Selecione</option>
                     <option value="corrente">Conta-corrente</option>
                     <option value="poupanca">Poupança</option>
+                    <option value="poupanca">Conta de pagamento</option>
                   </select>
                   <svg class="dp-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </div>

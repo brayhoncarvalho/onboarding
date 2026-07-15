@@ -28,7 +28,7 @@ const depositoDate = (() => {
             <svg width="80" height="80" viewBox="0 0 88 88" fill="none"><circle cx="44" cy="44" r="44" fill="#dff3f1"/><circle cx="44" cy="44" r="34" fill="#b5e8e4"/><circle cx="44" cy="44" r="24" fill="#063b3e"/><path d="M33 44.5L40 51.5L55 37" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="20" r="3" fill="#eeff88"/><circle cx="74" cy="20" r="3" fill="#eeff88"/><line x1="14" y1="10" x2="14" y2="16" stroke="#eeff88" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="13" x2="17" y2="13" stroke="#eeff88" stroke-width="2" stroke-linecap="round"/><line x1="74" y1="10" x2="74" y2="16" stroke="#eeff88" stroke-width="2" stroke-linecap="round"/><line x1="71" y1="13" x2="77" y2="13" stroke="#eeff88" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
           <h1 class="cls-title">Parabéns!</h1>
-          <p class="cls-body">Seu pedido de empréstimo foi concluído com sucesso. O valor de <strong>{{ props.valor }}</strong> será depositado em sua conta até o dia <strong>{{ depositoDate }}</strong>.</p>
+          <p class="cls-body">Seu pedido de empréstimo foi concluído com sucesso. O valor de <strong>{{ props.valor }}</strong> será depositado em sua conta em instantes.</p>
         </div>
       </div>
     </main>

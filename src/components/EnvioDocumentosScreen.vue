@@ -102,7 +102,7 @@ const handleProximo = () => {
         <ol class="proposal-steps" aria-label="Progresso da proposta">
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark" aria-hidden="true">✓</span><span class="proposal-steps__label">DADOS INICIAIS</span></li>
           <li class="proposal-steps__item is-done"><span class="proposal-steps__mark" aria-hidden="true">✓</span><span class="proposal-steps__label">PROPOSTA</span></li>
-          <li class="proposal-steps__item is-done"><span class="proposal-steps__mark" aria-hidden="true">✓</span><span class="proposal-steps__label">DADOS COMPLEMENTARES</span></li>
+          <li class="proposal-steps__item is-done"><span class="proposal-steps__mark" aria-hidden="true">✓</span><span class="proposal-steps__label">CADASTRO</span></li>
           <li class="proposal-steps__item is-active"><span class="proposal-steps__mark" aria-hidden="true">4</span><span class="proposal-steps__label">DOCUMENTOS</span></li>
           <li class="proposal-steps__item"><span class="proposal-steps__mark" aria-hidden="true">5</span><span class="proposal-steps__label">CONCLUSÃO</span></li>
         </ol>

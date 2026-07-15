@@ -107,7 +107,7 @@ const valorProximo    = computed(() => valoresDisponiveis[Math.min(valoresDispon
 const parcelasSelecionada = ref(18)
 const parcelas = [6, 12, 16, 18, 24, 36]
 
-// Taxas mensais reais — crédito pessoal não consignado (ref: BACEN 2025)
+// Taxas mensais reais — crédito pessoal não consignado (ref: BACEN 2026)
 const taxaPorPrazo: Record<number, number> = {
    6: 0.0199,
   12: 0.0249,

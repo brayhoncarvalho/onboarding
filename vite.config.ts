@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/onboarding/',
+  base: '/jornadacompleta/',
   resolve: {
     alias: [
       // Subpath deve vir ANTES do pacote geral (ordem importa no Vite)

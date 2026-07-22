@@ -13,8 +13,8 @@
   --color-primary-200: #d2e6ff;
   --color-primary-300: #b3d9ff;
   --color-primary-400: #6dbbfe;
-  --color-primary-500: #1e96fc; /* Marca primária — azul técnico e energético */
-  --color-primary-600: #0b4f9e;
+  --color-primary-500: #00d8d8; /* Marca primária — azul técnico e energético */
+  --color-primary-600: #052c2f;
   --color-primary-700: #0a417f;
   --color-primary-800: #082c66;
   --color-primary-900: #071a52;
@@ -24,7 +24,7 @@
   --color-secondary-300: #70e8e8;
   --color-secondary-400: #1adddd;
   --color-secondary-500: #00d8d8; /* Acento secundário — ciano Dock */
-  --color-secondary-600: #00aeae;
+  --color-secondary-600: #00d8d8;
   --color-secondary-700: #008888;
   --color-secondary-800: #006464;
   --color-secondary-900: #004444;
@@ -37,7 +37,7 @@
   --color-navy-600: #243854;
   --color-navy-700: #1a2e4a;
   --color-navy-800: #0f1e33;
-  --color-navy-900: #0a1628; /* Marca secundária — fundo escuro/texto inverso */
+  --color-navy-900: #052c2f; /* Marca secundária — fundo escuro/texto inverso */
   --color-gray-50: #f7f8fa;
   --color-gray-100: #eef0f4;
   --color-gray-200: #d6dae4;
@@ -47,7 +47,7 @@
   --color-gray-600: #5a6278;
   --color-gray-700: #434b60;
   --color-gray-800: #2c3345;
-  --color-gray-900: #0f1420;
+  --color-gray-900: #00d8d8;
   --color-success-50: #f0fdf8;
   --color-success-100: #ccfaed;
   --color-success-200: #99f5d9;
@@ -80,24 +80,24 @@
   --color-info-50: #f8fafc;
   --color-info-100: #e7f2ff;
   --color-info-200: #b3d9ff;
-  --color-info-500: #1e96fc;
-  --color-info-600: #0b4f9e;
+  --color-info-500: #00d8d8;
+  --color-info-600: #052c2f;
   --color-info-700: #071a52;
   --color-info-bg: #e7f2ff;
-  --color-info-text: #0b4f9e;
+  --color-info-text: #052c2f;
   --color-bg-page: #f7f8fa; /* Fundo de página padrão */
   --color-bg-surface: #ffffff; /* Cards, modais, superfícies elevadas */
   --color-bg-elevated: #ffffff; /* Popovers, dropdowns */
   --color-bg-overlay: rgba(10, 22, 40, 0.5); /* Overlay de modals */
-  --color-text-primary: #0f1420; /* Texto principal */
+  --color-text-primary: #00d8d8; /* Texto principal */
   --color-text-secondary: #5a6278; /* Texto auxiliar */
   --color-text-disabled: #9198a8; /* Estados desabilitados */
   --color-text-inverse: #ffffff; /* Texto sobre fundo escuro */
-  --color-text-brand: #0b4f9e;
+  --color-text-brand: #052c2f;
   --color-border-default: #d6dae4;
   --color-border-subtle: rgba(0, 0, 0, 0.08); /* Divisores discretos */
   --color-border-strong: #9198a8;
-  --color-border-brand: #0b4f9e;
+  --color-border-brand: #052c2f;
   --color-border-success: #00c27a;
   --color-border-danger: #e8335a;
   --color-border-warning: #f59e0b;
@@ -187,9 +187,16 @@
   --size-sidebar-collapsed: 56px; /* Largura quando colapsado */
   --size-max-content: 1280px; /* Container max-width padrão */
   --size-touch-min: 44px; /* WCAG 2.5.5 — alvo de toque mínimo */
-  --focus-ring: 0 0 0 3px rgba(30, 150, 252, 0.25); /* Anel padrão — azul marca */
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #007a7a; /* Anel de foco — WCAG 2.4.11 AA (≥3:1 contra fundo claro) */
   --focus-ring-danger: 0 0 0 3px rgba(232, 51, 90, 0.2);
   --focus-ring-success: 0 0 0 3px rgba(0, 194, 122, 0.2);
+
+  /* ── Tokens semânticos de botão primário ────────────────────────────────
+     Altere apenas aqui para mudar cor de TODOS os botões primários do projeto.
+     ─────────────────────────────────────────────────────────────────────── */
+  --btn-primary-bg:           var(--color-primary-500); /* Fundo normal          */
+  --btn-primary-bg-hover:     var(--color-primary-600); /* Fundo no hover        */
+  --btn-primary-color:        #ffffff;                  /* Texto normal e hover  */
 }
 
 /* DARK MODE DESABILITADO — Landing page é sempre light mode */

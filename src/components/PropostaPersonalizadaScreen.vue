@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { computed, ref } from 'vue'
 
 const emit = defineEmits<{
@@ -248,7 +248,7 @@ const handleContinue = () => {
 /* ── Screen ── */
 .pp-screen {
   min-height: 100vh;
-  background: #fafcfc;
+  background: var(--color-gray-50);
   display: flex;
   flex-direction: column;
 }
@@ -258,8 +258,8 @@ const handleContinue = () => {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #fafcfc;
-  border-bottom: 1px solid #e3edec;
+  background: var(--color-gray-50);
+  border-bottom: 1px solid var(--color-primary-100);
 }
 
 .proposal-header__inner {
@@ -283,10 +283,10 @@ const handleContinue = () => {
   align-items: center;
   gap: 6px;
   padding: 8px 18px;
-  border: 1.5px solid #e3edec;
+  border: 1.5px solid var(--color-primary-100);
   border-radius: 999px;
   background: transparent;
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -295,7 +295,7 @@ const handleContinue = () => {
 }
 
 .proposal-header__back:hover {
-  background: #f0f7f7;
+  background: var(--color-primary-50);
 }
 
 /* ── Main ── */
@@ -335,20 +335,20 @@ const handleContinue = () => {
   left: calc(50% + 18px);
   right: calc(-50% + 18px);
   height: 1.5px;
-  background: #e3edec;
+  background: var(--color-primary-100);
 }
 
 .proposal-steps__item.is-done:not(:last-child)::after {
-  background: #063b3e;
+  background: var(--btn-primary-bg);
 }
 
 .proposal-steps__mark {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   background: #ffffff;
-  color: #607374;
+  color: var(--color-navy-400);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -362,30 +362,30 @@ const handleContinue = () => {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: #9aabac;
+  color: var(--color-gray-400);
   line-height: 1.2;
   text-align: center;
 }
 
 .proposal-steps__item.is-done .proposal-steps__mark {
-  background: #063b3e;
-  border-color: #063b3e;
-  color: #ffffff;
+  background: var(--btn-primary-bg);
+  border-color: var(--color-primary-500);
+  color: var(--btn-primary-color);
 }
 
 .proposal-steps__item.is-done .proposal-steps__label {
-  color: #0fa3a3;
+  color: var(--color-secondary-600);
 }
 
 .proposal-steps__item.is-active .proposal-steps__mark {
   background: #ffffff;
-  border: 1.5px solid #063b3e;
-  color: #063b3e;
-  box-shadow: 0 0 0 3px #dff3f1;
+  border: 1.5px solid var(--color-primary-500);
+  color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
 }
 
 .proposal-steps__item.is-active .proposal-steps__label {
-  color: #063b3e;
+  color: var(--color-primary-500);
 }
 
 /* ── Conteúdo ── */
@@ -394,7 +394,7 @@ const handleContinue = () => {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0 0 8px;
   line-height: 1.1;
 }
@@ -402,7 +402,7 @@ const handleContinue = () => {
 .pp-subtitle {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   margin: 0 0 28px;
   line-height: 1.55;
 }
@@ -424,14 +424,14 @@ const handleContinue = () => {
 }
 
 .pp-summary--dark {
-  background: #063b3e;
+  background: var(--btn-primary-bg);
   flex: 1 1 0;
 }
 
 .pp-summary--light {
   background: #ffffff;
-  border: 1px solid #e3edec;
-  box-shadow: 0 4px 16px rgba(6,59,62,0.06);
+  border: 1px solid var(--color-primary-100);
+  box-shadow: 0 4px 16px rgba(10, 22, 40, 0.06);
   flex: 0 0 auto;
   min-width: 160px;
   justify-content: center;
@@ -441,7 +441,7 @@ const handleContinue = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
   margin: 0 0 8px;
   display: flex;
   align-items: center;
@@ -450,16 +450,16 @@ const handleContinue = () => {
 }
 
 .pp-summary__field-label--light {
-  color: #607374;
+  color: var(--color-navy-400);
   margin-bottom: 8px;
 }
 
 .pp-summary__badge {
   font-size: 16px;
   font-weight: 700;
-  color: #00d8d8;
-  background: rgba(0, 216, 216, 0.1);
-  border: 1px solid rgba(0, 216, 216, 0.35);
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
   padding: 2px 10px;
   cursor: pointer;
@@ -469,7 +469,8 @@ const handleContinue = () => {
 }
 
 .pp-summary__badge:hover {
-  background: rgba(0, 216, 216, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
 .pp-summary__apply-row {
@@ -483,8 +484,8 @@ const handleContinue = () => {
   height: 36px;
   border: none;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -493,7 +494,8 @@ const handleContinue = () => {
 }
 
 .pp-summary__apply-btn:hover {
-  background: #0fc5c5;
+  background: var(--btn-primary-bg-hover);
+  color: #ffffff;
 }
 
 .pp-summary__cancel-btn {
@@ -532,7 +534,7 @@ const handleContinue = () => {
 .pp-summary__hint {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
   margin: 8px 0 0;
 }
 
@@ -540,13 +542,13 @@ const handleContinue = () => {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 22px;
   font-weight: 600;
-  color: #00d8d8;
+  color: var(--color-primary-500);
   margin: 0;
   line-height: 1;
 }
 
 .pp-summary__rate--light {
-  color: #063b3e;
+  color: var(--color-primary-500);
 }
 
 .pp-summary__rate-suffix {
@@ -556,7 +558,7 @@ const handleContinue = () => {
 }
 
 .pp-summary__rate-suffix--light {
-  color: #607374;
+  color: var(--color-navy-400);
 }
 
 /* ── Título das opções ── */
@@ -564,7 +566,7 @@ const handleContinue = () => {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0 0 14px;
 }
 
@@ -586,15 +588,15 @@ const handleContinue = () => {
   align-items: center;
   gap: 14px;
   background: #ffffff;
-  border: 1px solid #e3edec;
+  border: 1px solid var(--color-primary-100);
   border-radius: 14px;
   padding: 16px 20px;
   transition: border-color 0.15s, background 0.15s;
 }
 
 .pp-offer--selected {
-  background: #f4fdfc;
-  border: 2px solid #063b3e;
+  background: var(--color-primary-100);
+  border: 2px solid var(--color-primary-500);
 }
 
 .pp-offer__radio {
@@ -602,7 +604,7 @@ const handleContinue = () => {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid #c8c8c8;
+  border: 2px solid var(--color-gray-300);
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -611,21 +613,21 @@ const handleContinue = () => {
 }
 
 .pp-offer__radio--on {
-  border-color: #063b3e;
+  border-color: var(--color-primary-500);
 }
 
 .pp-offer__radio-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #063b3e;
+  background: var(--btn-primary-bg);
 }
 
 .pp-offer__installments {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
   width: 36px;
   flex-shrink: 0;
 }
@@ -634,21 +636,21 @@ const handleContinue = () => {
   flex: 1;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
 }
 
 .pp-offer__amount {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #063b3e;
+  color: var(--color-primary-500);
   white-space: nowrap;
 }
 
 .pp-offer__amount-suffix {
   font-size: 16px;
   font-weight: 500;
-  color: #607374;
+  color: var(--color-navy-400);
 }
 
 /* ── CTA ── */
@@ -657,8 +659,8 @@ const handleContinue = () => {
   height: 56px;
   border: none;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -667,7 +669,8 @@ const handleContinue = () => {
 }
 
 .pp-submit:hover {
-  background: #0fc5c5;
+  background: var(--btn-primary-bg-hover);
+  color: #ffffff;
 }
 
 /* ── Legal ── */
@@ -675,7 +678,7 @@ const handleContinue = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #607374;
+  color: var(--color-navy-400);
   text-align: center;
   margin: 0;
 }

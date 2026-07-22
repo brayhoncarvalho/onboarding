@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { reactive, ref, nextTick } from 'vue'
 import { maskPhone } from '../utils/masks'
 import { validateEmail, validatePhone } from '../utils/validators'
@@ -74,6 +74,15 @@ const handleEnviar = () => {
     celular: celular.value,
     canal: canal.value === 'email' ? 'email' : 'celular',
   })
+  // Persiste e-mail/celular para o backoffice Mesa
+  try {
+    const existing = JSON.parse(localStorage.getItem('mesa_proposta_pendente') ?? '{}')
+    localStorage.setItem('mesa_proposta_pendente', JSON.stringify({
+      ...existing,
+      email:   email.value.trim(),
+      celular: celular.value,
+    }))
+  } catch { /* ignore */ }
 }
 </script>
 
@@ -200,7 +209,7 @@ const handleEnviar = () => {
 <style scoped>
 .ad-screen {
   min-height: 100vh;
-  background: #fafcfc;
+  background: var(--color-gray-50);
   display: flex;
   flex-direction: column;
 }
@@ -209,8 +218,8 @@ const handleEnviar = () => {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #fafcfc;
-  border-bottom: 1px solid #e3edec;
+  background: var(--color-gray-50);
+  border-bottom: 1px solid var(--color-primary-100);
 }
 
 .proposal-header__inner {
@@ -231,17 +240,17 @@ const handleEnviar = () => {
   gap: 8px;
   height: 40px;
   padding: 0 16px;
-  border: 1.5px solid #e3edec;
+  border: 1.5px solid var(--color-primary-100);
   border-radius: 999px;
   background: #ffffff;
-  color: #3c4c4d;
+  color: var(--color-navy-400);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
 }
 
-.proposal-header__back:hover { background: #f2f8f8; }
+.proposal-header__back:hover { background: var(--color-primary-50); }
 
 .proposal-main {
   flex: 1;
@@ -279,18 +288,18 @@ const handleEnviar = () => {
   left: calc(50% + 18px);
   right: calc(-50% + 18px);
   height: 1.5px;
-  background: #e3edec;
+  background: var(--color-primary-100);
 }
 
-.proposal-steps__item.is-done:not(:last-child)::after { background: #063b3e; }
+.proposal-steps__item.is-done:not(:last-child)::after { background: var(--btn-primary-bg); }
 
 .proposal-steps__mark {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   background: #ffffff;
-  color: #607374;
+  color: var(--color-navy-400);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -304,15 +313,15 @@ const handleEnviar = () => {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: #9aabac;
+  color: var(--color-gray-400);
   line-height: 1.2;
   text-align: center;
 }
 
-.proposal-steps__item.is-done .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
-.proposal-steps__item.is-done .proposal-steps__label { color: #0fa3a3; }
-.proposal-steps__item.is-active .proposal-steps__mark { background: #ffffff; border: 1.5px solid #063b3e; color: #063b3e; box-shadow: 0 0 0 3px #dff3f1; }
-.proposal-steps__item.is-active .proposal-steps__label { color: #063b3e; }
+.proposal-steps__item.is-done .proposal-steps__mark { background: var(--btn-primary-bg); border-color: var(--color-primary-500); color: var(--btn-primary-color); }
+.proposal-steps__item.is-done .proposal-steps__label { color: var(--color-secondary-600); }
+.proposal-steps__item.is-active .proposal-steps__mark { background: #ffffff; border: 1.5px solid var(--color-primary-500); color: var(--color-primary-500); box-shadow: 0 0 0 3px var(--color-primary-100); }
+.proposal-steps__item.is-active .proposal-steps__label { color: var(--color-primary-500); }
 
 /* Títulos */
 .ad-title {
@@ -320,7 +329,7 @@ const handleEnviar = () => {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0 0 8px;
   line-height: 1.1;
 }
@@ -328,7 +337,7 @@ const handleEnviar = () => {
 .ad-subtitle {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   margin: 0 0 28px;
   line-height: 1.55;
 }
@@ -336,10 +345,10 @@ const handleEnviar = () => {
 /* Form card */
 .proposal-form {
   background: #ffffff;
-  border: 1px solid #e3edec;
+  border: 1px solid var(--color-primary-100);
   border-radius: 20px;
   padding: 28px 24px;
-  box-shadow: 0 8px 32px rgba(6,59,62,0.06);
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.06);
 }
 
 .proposal-field {
@@ -353,24 +362,24 @@ const handleEnviar = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
 }
 
 .proposal-input {
   height: 50px;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   border-radius: 12px;
   padding: 0 16px;
   font-size: 16px;
   font-family: 'Instrument Sans', sans-serif;
-  color: #0b2528;
+  color: var(--color-navy-800);
   background: #ffffff;
   outline: none;
   width: 100%;
   box-sizing: border-box;
 }
 
-.proposal-input:focus { border-color: #063b3e; }
+.proposal-input:focus { border-color: var(--color-primary-500); }
 .proposal-input.is-error { border-color: #dc3545; }
 
 .field-error {
@@ -387,7 +396,7 @@ const handleEnviar = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin-bottom: 14px;
   display: block;
 }
@@ -398,20 +407,20 @@ const handleEnviar = () => {
   gap: 12px;
   cursor: pointer;
   padding: 14px 16px;
-  border: 1.5px solid #e3edec;
+  border: 1.5px solid var(--color-primary-100);
   border-radius: 12px;
   margin-bottom: 10px;
   transition: border-color 0.15s, background 0.15s;
 }
 
-.ad-channel-option:has(input:checked) { border-color: #063b3e; background: #f4fdfc; }
+.ad-channel-option:has(input:checked) { border-color: var(--color-primary-500); background: var(--color-primary-100); }
 
 .ad-radio {
   flex-shrink: 0;
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid #c8c8c8;
+  border: 2px solid var(--color-gray-300);
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -419,19 +428,19 @@ const handleEnviar = () => {
   box-sizing: border-box;
 }
 
-.ad-radio--on { border-color: #063b3e; }
+.ad-radio--on { border-color: var(--color-primary-500); }
 
 .ad-radio-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #063b3e;
+  background: var(--btn-primary-bg);
 }
 
 .ad-channel-text {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #3c4c4d;
+  color: var(--color-navy-400);
 }
 
 /* CTA */
@@ -440,8 +449,8 @@ const handleEnviar = () => {
   height: 52px;
   border: none;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -449,7 +458,7 @@ const handleEnviar = () => {
   margin-bottom: 16px;
 }
 
-.proposal-submit:hover { background: #0fc5c5; }
+.proposal-submit:hover { background: var(--btn-primary-bg-hover); color: #ffffff; }
 
 .proposal-safe {
   display: flex;
@@ -458,7 +467,7 @@ const handleEnviar = () => {
   gap: 8px;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #607374;
+  color: var(--color-navy-400);
   margin: 0;
 }
 
@@ -466,8 +475,8 @@ const handleEnviar = () => {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #dff3f1;
-  color: #0fa3a3;
+  background: var(--color-primary-100);
+  color: var(--color-secondary-600);
   font-size: 14px;
   font-weight: 700;
   display: inline-flex;

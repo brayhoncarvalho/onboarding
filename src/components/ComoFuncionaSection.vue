@@ -1,9 +1,9 @@
 ﻿<template>
-  <section class="como-funciona" id="como-funciona">
+  <section class="como-funciona" id="como-funciona" aria-labelledby="como-funciona-title">
     <div class="como-funciona__container">
 
       <div class="como-funciona__intro">
-        <h2 class="como-funciona__title">Contrate seu empréstimo em apenas três passos.</h2>
+        <h2 id="como-funciona-title" class="como-funciona__title">Contrate seu empréstimo em apenas três passos.</h2>
         <p class="como-funciona__intro-text">
           Todo o processo é digital. Você acompanha cada etapa e recebe o dinheiro direto na sua conta.
         </p>
@@ -52,7 +52,7 @@
 <style scoped>
 .como-funciona {
   width: 100%;
-  background: #fafcfc;
+  background: var(--color-gray-50);
 }
 
 .como-funciona__container {
@@ -65,7 +65,7 @@
 
 .como-funciona__title {
   margin: 0 0 14px;
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 36px;
   font-weight: 600;
@@ -78,13 +78,13 @@
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
 }
 
 .como-funciona__grid {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #e3edec;
+  border-bottom: 1px solid var(--color-primary-100);
 }
 
 .como-funciona__step {
@@ -92,7 +92,7 @@
   align-items: flex-start;
   gap: 18px;
   padding: 20px 0;
-  border-top: 1px solid #e3edec;
+  border-top: 1px solid var(--color-primary-100);
 }
 
 .como-funciona__circle {
@@ -100,8 +100,8 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1.5px solid #b9deda;
-  color: #0fa3a3;
+  border: 1.5px solid var(--color-secondary-600);
+  color: var(--color-secondary-600);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -114,14 +114,14 @@
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0 0 4px;
 }
 
 .como-funciona__step-desc {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5c5c5c;
+  color: var(--color-gray-600);
   line-height: 1.55;
   margin: 0;
 }

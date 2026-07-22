@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 const emit = defineEmits<{
   (e: 'gerarContrato'): void
   (e: 'voltar'): void
@@ -237,8 +237,8 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 .gm-avatar-sm {
   width: 34px; height: 34px;
   border-radius: 50%;
-  background: #063b3e;
-  color: #00d8d8;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
@@ -373,8 +373,8 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 
 .gm-email__avatar {
   width: 40px; height: 40px; border-radius: 50%;
-  background: #063b3e;
-  color: #00d8d8;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-size: 16px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -443,7 +443,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
 /* Card de oferta */
 .gm-offer-card {
   background: #f8fffe;
-  border: 1.5px solid #b5e8e4;
+  border: 1.5px solid var(--color-primary-200);
   border-radius: 12px;
   padding: 20px 24px;
   margin: 4px 0 24px;
@@ -454,7 +454,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #607374;
+  color: var(--color-navy-400);
   margin: 0 0 14px;
 }
 
@@ -467,7 +467,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   color: #3c4043;
 }
 
-.gm-offer-card__row strong { color: #063b3e; font-size: 16px; }
+.gm-offer-card__row strong { color: var(--color-primary-500); font-size: 16px; }
 
 .gm-offer-card__divider { height: 1px; background: #e8eaed; }
 
@@ -484,8 +484,8 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   padding: 0 32px;
   border: none;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #063b3e;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -495,7 +495,7 @@ const dataEmail = new Date().toLocaleDateString('pt-BR', {
   box-shadow: 0 2px 8px rgba(0,216,216,0.30);
 }
 
-.gm-email__cta:hover { background: #00c5c5; }
+.gm-email__cta:hover { background: var(--btn-primary-bg-hover); color: #ffffff; }
 
 .gm-email__small {
   font-size: 16px;

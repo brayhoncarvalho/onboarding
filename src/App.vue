@@ -1,8 +1,33 @@
 <script setup lang="ts">
-import { ref, computed, watchEffect } from 'vue'
+import { ref, computed, watchEffect, watch, nextTick } from 'vue'
 
 const menuOpen = ref(false)
 const closeMenu = () => { menuOpen.value = false }
+const menuTriggerRef = ref<HTMLButtonElement | null>(null)
+
+watch(menuOpen, (isOpen) => {
+  nextTick(() => {
+    if (isOpen) {
+      document.querySelector<HTMLElement>('.landing-nav__drawer-links a')?.focus()
+    } else {
+      menuTriggerRef.value?.focus()
+    }
+  })
+})
+
+const trapFocus = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') { closeMenu(); return }
+  if (e.key !== 'Tab') return
+  const focusable = Array.from(
+    document.querySelectorAll<HTMLElement>('.landing-nav__drawer a, .landing-nav__drawer button')
+  )
+  if (!focusable.length) return
+  if (e.shiftKey && document.activeElement === focusable[0]) {
+    e.preventDefault(); focusable[focusable.length - 1].focus()
+  } else if (!e.shiftKey && document.activeElement === focusable[focusable.length - 1]) {
+    e.preventDefault(); focusable[0].focus()
+  }
+}
 import HeroSection from './components/HeroSection.vue'
 import SimuladorSection from './components/SimuladorSection.vue'
 import ComoFuncionaSection from './components/ComoFuncionaSection.vue'
@@ -94,10 +119,42 @@ const updateScreenQuery = (screen: Screen) => {
 
 const currentScreen = ref<Screen>(getScreenFromQuery())
 
+const screenTitles: Record<Screen, string> = {
+  'landing': 'Dock — Empréstimo Online',
+  'proposta': 'Solicitar Proposta — Dock',
+  'dados-acesso': 'Dados de Acesso — Dock',
+  'senha': 'Confirmação de Cadastro — Dock',
+  'proposta-personalizada': 'Proposta Personalizada — Dock',
+  'dados-pessoais': 'Dados Pessoais — Dock',
+  'endereco-telefone': 'Endereço e Telefone — Dock',
+  'captura-selfie': 'Captura de Selfie — Dock',
+  'envio-documentos': 'Envio de Documentos — Dock',
+  'documentos-status': 'Documentos Enviados — Dock',
+  'concluir': 'Em Análise — Dock',
+  'area-cliente': 'Meus Empréstimos — Dock',
+  'area-cliente-2': 'Meus Empréstimos — Dock',
+  'email-simulacao': 'E-mail de Simulação — Dock',
+  'revisao': 'Revisão de Contrato — Dock',
+  'autenticacao-sms': 'Autenticação por SMS — Dock',
+  'codigo-sms': 'Código SMS — Dock',
+  'contrato': 'Contrato de Crédito — Dock',
+  'conclusao': 'Parabéns! — Dock',
+  'meus-dados': 'Meus Dados — Dock',
+  'cadastro': 'Solicitar Proposta — Dock',
+}
+
 const setScreen = (screen: Screen) => {
   currentScreen.value = screen
   updateScreenQuery(screen)
+  document.title = screenTitles[screen]
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  nextTick(() => {
+    const h1 = document.querySelector<HTMLElement>('h1')
+    if (h1) {
+      if (!h1.hasAttribute('tabindex')) h1.setAttribute('tabindex', '-1')
+      h1.focus({ preventScroll: true })
+    }
+  })
 }
 
 const goToProposta = (data?: { valor: number; parcelas: number }) => {
@@ -203,6 +260,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
 
 <template>
   <div class="min-h-screen w-full bg-white">
+    <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
     <template v-if="currentScreen === 'landing'">
       <header class="landing-nav">
         <div class="landing-nav__inner">
@@ -214,14 +272,14 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
             <a href="#footer">Ajuda</a>
           </nav>
           <button class="landing-nav__cta" type="button" @click="goToProposta">Simular grátis</button>
-          <button class="landing-nav__btn" :aria-label="menuOpen ? 'Fechar menu' : 'Abrir menu'" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen">
+          <button ref="menuTriggerRef" class="landing-nav__btn" :aria-label="menuOpen ? 'Fechar menu' : 'Abrir menu'" :aria-expanded="menuOpen" :aria-controls="menuOpen ? 'mobile-menu' : undefined" @click="menuOpen = !menuOpen">
             <span :class="{ 'is-open-top': menuOpen }"></span>
             <span :class="{ 'is-open-mid': menuOpen }"></span>
           </button>
         </div>
 
         <!-- Menu mobile drawer -->
-        <div v-if="menuOpen" class="landing-nav__drawer" role="dialog" aria-label="Menu de navegação">
+        <div v-if="menuOpen" id="mobile-menu" class="landing-nav__drawer" role="dialog" aria-modal="true" aria-label="Menu de navegação" @keydown="trapFocus">
           <nav class="landing-nav__drawer-links" aria-label="Navegação mobile">
             <a href="#simulador" @click="closeMenu">Empréstimo</a>
             <a href="#como-funciona" @click="closeMenu">Como funciona</a>
@@ -232,7 +290,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
         </div>
       </header>
 
-      <div class="landing-above-fold">
+      <div id="main-content" class="landing-above-fold">
         <HeroSection @simular="goToProposta" />
         <SimuladorSection @solicitar="goToProposta" />
       </div>
@@ -400,7 +458,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
 }
 
 .landing-nav__links a:hover {
-  color: #063b3e;
+  color: #00d8d8;
 }
 
 .landing-nav__cta {
@@ -411,7 +469,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
   padding: 0 24px;
   border: none;
   border-radius: 999px;
-  background: #063b3e;
+  background: #00d8d8;
   color: #ffffff;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 15px;
@@ -443,7 +501,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
   height: 2px;
   width: 18px;
   border-radius: 2px;
-  background: #063b3e;
+  background: #00d8d8;
   transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -476,7 +534,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
 }
 
 .landing-nav__drawer-links a:last-child { border-bottom: none; }
-.landing-nav__drawer-links a:active { color: #063b3e; }
+.landing-nav__drawer-links a:active { color: #00d8d8; }
 
 .landing-nav__drawer-cta {
   margin-top: 16px;
@@ -484,7 +542,7 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
   height: 52px;
   border: none;
   border-radius: 999px;
-  background: #063b3e;
+  background: #00d8d8;
   color: #ffffff;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
@@ -588,4 +646,22 @@ const handleAuthNav = (action: 'sair' | 'emprestimos' | 'meus-dados') => {
     gap: 22px;
   }
 }
+
+/* Skip link — visualmente oculto até receber foco (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 8px;
+  z-index: 9999;
+  padding: 10px 16px;
+  background: #052c2f;
+  color: #ffffff;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.1s;
+}
+.skip-link:focus { top: 0; }
 </style>

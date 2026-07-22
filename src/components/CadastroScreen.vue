@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { ref, computed, nextTick } from 'vue'
 import { maskCPF, maskCurrencyBRL, onlyDigits } from '../utils/masks'
 import { validateCPF, validateDate } from '../utils/validators'
@@ -151,7 +151,7 @@ function handleSubmit() {
                 <option value="" disabled>Selecione o motivo</option>
                 <option v-for="opt in motivoOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
               </select>
-              <span class="cad-chevron" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b6b6c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+              <span class="cad-chevron" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2b5080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </div>
             <p v-if="motivoError" id="cad-motivo-err" class="proposal-field-error" role="alert" data-error-testid>{{ motivoError }}</p>
           </div>
@@ -182,32 +182,32 @@ function handleSubmit() {
 </template>
 
 <style scoped>
-.cad-screen { min-height: 100vh; background: #fafcfc; display: flex; flex-direction: column; }
-.proposal-header { position: sticky; top: 0; z-index: 10; background: #fafcfc; border-bottom: 1px solid #e3edec; }
+.cad-screen { min-height: 100vh; background: var(--color-gray-50); display: flex; flex-direction: column; }
+.proposal-header { position: sticky; top: 0; z-index: 10; background: var(--color-gray-50); border-bottom: 1px solid var(--color-primary-100); }
 .proposal-header__inner { max-width: 1024px; margin: 0 auto; padding: 0 20px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
 .proposal-header__logo { height: 24px; width: auto; }
-.proposal-header__back { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border: 1.5px solid #e3edec; border-radius: 999px; background: transparent; color: #0b2528; font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
-.proposal-header__back:hover { background: #f0f7f7; }
+.proposal-header__back { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border: 1.5px solid var(--color-primary-100); border-radius: 999px; background: transparent; color: var(--color-navy-800); font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.15s; }
+.proposal-header__back:hover { background: var(--color-primary-50); }
 .proposal-main { flex: 1; padding: 32px 20px 64px; }
 .proposal-main__inner { max-width: 560px; margin: 0 auto; }
-.cad-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: #0b2528; margin: 0 0 28px; line-height: 1.2; text-align: center; }
-.proposal-form { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; }
+.cad-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: var(--color-navy-800); margin: 0 0 28px; line-height: 1.2; text-align: center; }
+.proposal-form { background: #ffffff; border: 1px solid var(--color-primary-100); border-radius: 20px; box-shadow: 0 8px 32px rgba(10, 22, 40, 0.06); padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; }
 .proposal-field { display: flex; flex-direction: column; gap: 6px; }
-.proposal-field label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; color: #0b2528; }
-.proposal-input { height: 50px; border: 1.5px solid #d5e4e2; border-radius: 12px; padding: 0 14px; font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #0b2528; background: #ffffff; outline: none; transition: border-color 0.15s; width: 100%; min-width: 0; box-sizing: border-box; }
+.proposal-field label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; color: var(--color-navy-800); }
+.proposal-input { height: 50px; border: 1.5px solid var(--color-primary-200); border-radius: 12px; padding: 0 14px; font-family: "Instrument Sans", sans-serif; font-size: 16px; color: var(--color-navy-800); background: #ffffff; outline: none; transition: border-color 0.15s; width: 100%; min-width: 0; box-sizing: border-box; }
 .proposal-input[type="date"] { -webkit-appearance: none; appearance: none; }
-.proposal-input:focus { border-color: #063b3e; }
+.proposal-input:focus { border-color: var(--color-primary-500); }
 .proposal-input.is-error { border-color: #dc3545; }
 .proposal-field-error { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #dc3545; margin: 0; }
 .cad-select-wrap { position: relative; }
 .cad-select { appearance: none; cursor: pointer; }
 .cad-chevron { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; display: flex; align-items: center; }
 .cad-fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.cad-legend { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; color: #0b2528; margin-bottom: 4px; }
-.cad-check-row { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; line-height: 1.4; }
+.cad-legend { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 500; color: var(--color-navy-800); margin-bottom: 4px; }
+.cad-check-row { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-family: "Instrument Sans", sans-serif; font-size: 16px; color: var(--color-navy-500); line-height: 1.4; }
 .cad-check-text { flex: 1; }
-.cad-link { color: #00d8d8; text-decoration: underline; }
-.proposal-submit { width: 100%; height: 52px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.15s; margin-top: 8px; }
-.proposal-submit:hover { background: #0fc5c5; }
+.cad-link { color: var(--color-primary-500); text-decoration: underline; }
+.proposal-submit { width: 100%; height: 52px; border: none; border-radius: 999px; background: var(--btn-primary-bg); color: var(--btn-primary-color); font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.15s; margin-top: 8px; }
+.proposal-submit:hover { background: var(--btn-primary-bg-hover); color: #ffffff; }
 @media (min-width: 640px) { .proposal-header__inner { height: 72px; } .proposal-header__logo { height: 26px; } .proposal-main { padding: 40px 32px 80px; } .cad-title { font-size: 34px; } .proposal-form { padding: 36px 40px; border-radius: 24px; } }
 </style>

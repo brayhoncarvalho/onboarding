@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { ref, reactive, nextTick, withDefaults, defineProps } from 'vue'
 import { maskCPF, maskCurrencyBRL, onlyDigits } from '../utils/masks'
 import { validateCPF, validateDate, validateName } from '../utils/validators'
@@ -145,6 +145,18 @@ function handleSubmit() {
     })
     return
   }
+  // Salva dados para o backoffice Mesa (integração via localStorage)
+  try {
+    localStorage.setItem('mesa_proposta_pendente', JSON.stringify({
+      nome:             nome.value,
+      cpf:              cpf.value,
+      dataNascimento:   dataNascimentoDisplay.value,
+      valorEmprestimo:  valorEmprestimo.value,
+      motivoEmprestimo: motivoEmprestimo.value,
+      rendaBruta:       rendaBruta.value,
+      timestamp:        new Date().toISOString(),
+    }))
+  } catch { /* quota exceeded — não bloquear o fluxo */ }
   emit('continuar')
 }
 </script>
@@ -336,13 +348,13 @@ function handleSubmit() {
 <style scoped>
 .proposal-screen {
   min-height: 100vh;
-  background: #fafcfc;
+  background: var(--color-gray-50);
 }
 
 .proposal-header {
   width: 100%;
-  background: #fafcfc;
-  border-bottom: 1px solid #e3edec;
+  background: var(--color-gray-50);
+  border-bottom: 1px solid var(--color-primary-100);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -368,10 +380,10 @@ function handleSubmit() {
   align-items: center;
   gap: 6px;
   padding: 8px 18px;
-  border: 1.5px solid #e3edec;
+  border: 1.5px solid var(--color-primary-100);
   border-radius: 999px;
   background: transparent;
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -380,7 +392,7 @@ function handleSubmit() {
 }
 
 .proposal-header__back:hover {
-  background: #f0f7f7;
+  background: var(--color-primary-50);
 }
 
 .proposal-main {
@@ -418,21 +430,21 @@ function handleSubmit() {
   left: calc(50% + 18px); /* começa após o círculo */
   right: calc(-50% + 18px); /* termina antes do próximo círculo */
   height: 1.5px;
-  background: #e3edec;
+  background: var(--color-primary-100);
 }
 
 .proposal-steps__item.is-done:not(:last-child)::after,
 .proposal-steps__item.is-active:not(:last-child)::after {
-  background: #063b3e;
+  background: var(--btn-primary-bg);
 }
 
 .proposal-steps__mark {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   background: #ffffff;
-  color: #607374;
+  color: var(--color-navy-400);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -446,23 +458,23 @@ function handleSubmit() {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: #9aabac;
+  color: var(--color-gray-400);
   line-height: 1.2;
 }
 
 .proposal-steps__item.is-active .proposal-steps__mark {
-  background: #063b3e;
-  border-color: #063b3e;
-  color: #ffffff;
+  background: var(--btn-primary-bg);
+  border-color: var(--color-primary-500);
+  color: var(--btn-primary-color);
 }
 
 .proposal-steps__item.is-active .proposal-steps__label {
-  color: #063b3e;
+  color: var(--color-primary-500);
 }
 
 .proposal-title {
   margin: 0 0 8px;
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 32px;
   font-weight: 600;
@@ -472,7 +484,7 @@ function handleSubmit() {
 
 .proposal-subtitle {
   margin: 0 0 24px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.55;
@@ -484,10 +496,10 @@ function handleSubmit() {
 
 .proposal-form {
   background: #ffffff;
-  border: 1px solid #e3edec;
+  border: 1px solid var(--color-primary-100);
   border-radius: 20px;
   padding: 28px 24px;
-  box-shadow: 0 12px 40px rgba(6, 59, 62, 0.06);
+  box-shadow: 0 12px 40px rgba(10, 22, 40, 0.06);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -503,7 +515,7 @@ function handleSubmit() {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
 }
 
 .proposal-field-grid {
@@ -517,20 +529,20 @@ function handleSubmit() {
   min-width: 0;
   box-sizing: border-box;
   height: 50px;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   border-radius: 12px;
   padding: 0 14px;
   outline: none;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #0b2528;
+  color: var(--color-navy-800);
   background: #ffffff;
 }
 
 .proposal-input[type="date"] { -webkit-appearance: none; appearance: none; }
 
 .proposal-input:focus-visible {
-  border-color: #063b3e;
+  border-color: var(--color-primary-500);
 }
 
 .proposal-input.is-error {
@@ -547,7 +559,7 @@ function handleSubmit() {
 
 .proposal-required {
   margin: -4px 0 0;
-  color: #607374;
+  color: var(--color-navy-400);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -574,18 +586,18 @@ function handleSubmit() {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  accent-color: #063b3e;
+  accent-color: var(--color-primary-500);
 }
 
 .proposal-check span {
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.55;
 }
 
 .proposal-check strong {
-  color: #0b2528;
+  color: var(--color-navy-800);
 }
 
 .proposal-submit {
@@ -593,8 +605,8 @@ function handleSubmit() {
   height: 54px;
   border: none;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -603,11 +615,12 @@ function handleSubmit() {
 }
 
 .proposal-submit:hover {
-  background: #0fc5c5;
+  background: var(--btn-primary-bg-hover);
+  color: #ffffff;
 }
 
 .proposal-submit:focus-visible {
-  outline: 2px solid #063b3e;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 3px;
 }
 
@@ -617,7 +630,7 @@ function handleSubmit() {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #607374;
+  color: var(--color-navy-400);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   text-align: center;
@@ -627,8 +640,8 @@ function handleSubmit() {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #dff3f1;
-  color: #0fa3a3;
+  background: var(--color-primary-100);
+  color: var(--color-secondary-600);
   font-size: 14px;
   font-weight: 700;
   display: inline-flex;

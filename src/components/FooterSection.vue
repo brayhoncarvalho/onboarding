@@ -39,7 +39,7 @@
 .landing-footer__body {
   width: 100%;
   background: #ffffff;
-  border-top: 1px solid #e3edec;
+  border-top: 1px solid var(--color-primary-100);
   padding: 40px 20px 24px;
 }
 
@@ -66,12 +66,12 @@
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #607374;
+  color: var(--color-navy-400);
 }
 
 .landing-footer__divider {
   border: none;
-  border-top: 1px solid #e3edec;
+  border-top: 1px solid var(--color-primary-100);
   margin: 32px 0 20px;
 }
 
@@ -91,7 +91,7 @@
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #0b2528;
+  color: var(--color-navy-800);
   letter-spacing: 0.04em;
 }
 
@@ -99,18 +99,18 @@
   text-decoration: none;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
 }
 
 .landing-footer__nav-group a:hover {
-  color: #063b3e;
+  color: var(--color-primary-500);
 }
 
 .landing-footer__copyright {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #607374;
+  color: var(--color-navy-400);
   line-height: 1.7;
   margin: 0;
 }

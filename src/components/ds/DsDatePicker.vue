@@ -524,12 +524,12 @@ const clear = () => emit('update:modelValue', null)
   box-shadow: inset 0 0 0 1px var(--color-primary-300);
 }
 .ds-datepicker__day--selected {
-  background: var(--color-primary-500);
-  color: var(--color-navy-900);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-weight: var(--font-weight-medium);
 }
 .ds-datepicker__day--selected:hover {
-  background: var(--color-primary-600);
+  background: var(--btn-primary-bg-hover);
 }
 .ds-datepicker__day--disabled {
   color: var(--color-text-disabled);

@@ -105,8 +105,8 @@ const emit = defineEmits<{
   gap: var(--spacing-2);
   min-height: var(--size-touch-min);
   padding: 0 var(--spacing-5);
-  background: var(--color-primary-500);
-  color: var(--color-navy-900);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   border: none;
   border-radius: var(--radius-md);
   font-size: var(--font-size-base);
@@ -115,7 +115,8 @@ const emit = defineEmits<{
   transition: background var(--duration-fast);
 }
 .ds-empty-state__cta:hover {
-  background: var(--color-primary-600);
+  background: var(--btn-primary-bg-hover);
+  color: #ffffff;
 }
 .ds-empty-state__cta:focus-visible {
   box-shadow: var(--focus-ring);

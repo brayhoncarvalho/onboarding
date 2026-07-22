@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { ref, onUnmounted } from 'vue'
 
 const emit = defineEmits<{
@@ -172,7 +172,7 @@ onUnmounted(() => {
             <template v-else>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="12" cy="12" r="10" fill="#00d8d8" opacity="0.15"/>
-                <path d="M7 13l3 3 7-7" stroke="#063b3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 13l3 3 7-7" stroke="#00d8d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               Identidade verificada
             </template>
@@ -184,7 +184,7 @@ onUnmounted(() => {
           <li class="cs-checks__item">
             <span class="cs-checks__icon" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                <path d="M7 13l3 3 7-7" stroke="#063b3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 13l3 3 7-7" stroke="#00d8d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
             Iluminação adequada
@@ -192,7 +192,7 @@ onUnmounted(() => {
           <li class="cs-checks__item">
             <span class="cs-checks__icon" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                <path d="M7 13l3 3 7-7" stroke="#063b3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 13l3 3 7-7" stroke="#00d8d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
             Rosto centralizado
@@ -200,7 +200,7 @@ onUnmounted(() => {
           <li class="cs-checks__item">
             <span class="cs-checks__icon" aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                <path d="M7 13l3 3 7-7" stroke="#063b3e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 13l3 3 7-7" stroke="#00d8d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
             Imagem nítida e sem obstruções
@@ -292,7 +292,7 @@ onUnmounted(() => {
 /* ── Layout base ─────────────────────────────────────────────────── */
 .cs-screen {
   min-height: 100vh;
-  background: #fafcfc;
+  background: var(--color-gray-50);
   display: flex;
   flex-direction: column;
 }
@@ -300,9 +300,9 @@ onUnmounted(() => {
 /* ── Form card (padrão das demais telas) ─────────────────────────── */
 .proposal-form {
   background: #ffffff;
-  border: 1px solid #e3edec;
+  border: 1px solid var(--color-primary-100);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(6,59,62,0.06);
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.06);
   padding: 28px 24px;
 }
 
@@ -316,7 +316,7 @@ onUnmounted(() => {
 /* ── Header ──────────────────────────────────────────────────────── */
 .proposal-header {
   position: sticky; top: 0; z-index: 10;
-  background: #fafcfc; border-bottom: 1px solid #e3edec;
+  background: var(--color-gray-50); border-bottom: 1px solid var(--color-primary-100);
 }
 .proposal-header__inner {
   max-width: 1024px; margin: 0 auto; padding: 0 20px;
@@ -325,12 +325,12 @@ onUnmounted(() => {
 .proposal-header__logo { height: 24px; width: auto; }
 .proposal-header__back {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 8px 18px; border: 1.5px solid #e3edec; border-radius: 999px;
-  background: transparent; color: #0b2528;
+  padding: 8px 18px; border: 1.5px solid var(--color-primary-100); border-radius: 999px;
+  background: transparent; color: var(--color-navy-800);
   font-family: 'Instrument Sans', sans-serif; font-size: 16px; font-weight: 500;
   cursor: pointer; transition: background 0.15s;
 }
-.proposal-header__back:hover { background: #f0f7f7; }
+.proposal-header__back:hover { background: var(--color-primary-50); }
 
 /* ── Main ─────────────────────────────────────────────────────────── */
 .proposal-main { flex: 1; padding: 32px 20px 64px; }
@@ -348,40 +348,40 @@ onUnmounted(() => {
 .proposal-steps__item:not(:last-child)::after {
   content: ''; position: absolute; top: 14px;
   left: calc(50% + 18px); right: calc(-50% + 18px);
-  height: 1.5px; background: #e3edec;
+  height: 1.5px; background: var(--color-primary-100);
 }
-.proposal-steps__item.is-done::after { background: #063b3e; }
+.proposal-steps__item.is-done::after { background: var(--btn-primary-bg); }
 .proposal-steps__mark {
   width: 28px; height: 28px; border-radius: 999px;
-  border: 1.5px solid #d5e4e2; background: #ffffff; color: #607374;
+  border: 1.5px solid var(--color-primary-200); background: #ffffff; color: var(--color-navy-400);
   display: inline-flex; align-items: center; justify-content: center;
   font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700;
   position: relative; z-index: 1;
 }
-.proposal-steps__item.is-done  .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
-.proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
+.proposal-steps__item.is-done  .proposal-steps__mark { background: var(--btn-primary-bg); border-color: var(--color-primary-500); color: var(--btn-primary-color); }
+.proposal-steps__item.is-active .proposal-steps__mark { border-color: var(--color-primary-500); color: var(--color-primary-500); background: #ffffff; box-shadow: 0 0 0 3px var(--color-primary-100); }
 .proposal-steps__label {
   font-family: 'Bricolage Grotesque', sans-serif; font-size: 11px; font-weight: 600;
-  color: #607374; text-align: center; line-height: 1.2; letter-spacing: 0.03em;
+  color: var(--color-navy-400); text-align: center; line-height: 1.2; letter-spacing: 0.03em;
 }
-.proposal-steps__item.is-active .proposal-steps__label { color: #0b2528; }
-.proposal-steps__item.is-done  .proposal-steps__label { color: #5b6b6c; }
+.proposal-steps__item.is-active .proposal-steps__label { color: var(--color-navy-800); }
+.proposal-steps__item.is-done  .proposal-steps__label { color: var(--color-navy-500); }
 
 /* ── Submit button ───────────────────────────────────────────────── */
 .proposal-submit {
   width: 100%; height: 52px; border: none; border-radius: 999px;
-  background: #00d8d8; color: #042a2c;
+  background: var(--btn-primary-bg); color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700;
   cursor: pointer; transition: background 0.15s;
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
 }
-.proposal-submit:hover:not(:disabled) { background: #0fc5c5; }
+.proposal-submit:hover:not(:disabled) { background: var(--btn-primary-bg-hover); color: #ffffff; }
 .proposal-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* ── Safe note ───────────────────────────────────────────────────── */
 .proposal-safe {
   display: flex; align-items: center; justify-content: center; gap: 6px;
-  font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: #607374;
+  font-family: 'Instrument Sans', sans-serif; font-size: 16px; color: var(--color-navy-400);
   margin: 16px 0 0;
 }
 
@@ -390,7 +390,7 @@ onUnmounted(() => {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 28px;
   font-weight: 700;
-  color: #0b2528;
+  color: var(--color-navy-800);
   letter-spacing: -0.02em;
   margin: 0 0 8px;
 }
@@ -398,7 +398,7 @@ onUnmounted(() => {
 .cs-subtitle {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #607374;
+  color: var(--color-navy-400);
   margin: 0 0 28px;
   line-height: 1.5;
 }
@@ -414,7 +414,7 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: linear-gradient(160deg, #0e2f32 0%, #0b2528 100%);
+  background: linear-gradient(160deg, var(--color-navy-900) 0%, var(--color-navy-800) 100%);
   border-radius: 24px;
   overflow: hidden;
   display: flex;
@@ -565,17 +565,17 @@ onUnmounted(() => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: #607374;
+  color: var(--color-navy-400);
 }
 
-.cs-viewer__status--detecting { color: #063b3e; }
-.cs-viewer__status--captured { color: #00d8d8; font-weight: 600; }
+.cs-viewer__status--detecting { color: var(--color-primary-500); }
+.cs-viewer__status--captured { color: var(--color-primary-500); font-weight: 600; }
 
 .cs-viewer__dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #00d8d8;
+  background: var(--btn-primary-bg);
   animation: dot-pulse 0.9s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -601,14 +601,14 @@ onUnmounted(() => {
   gap: 10px;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #0b2528;
+  color: var(--color-navy-800);
 }
 
 .cs-checks__icon {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #dff3f1;
+  background: var(--color-primary-100);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -631,7 +631,7 @@ onUnmounted(() => {
   gap: 12px;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #607374;
+  color: var(--color-navy-400);
   line-height: 1.4;
 }
 
@@ -639,12 +639,12 @@ onUnmounted(() => {
   width: 32px;
   height: 32px;
   border-radius: 10px;
-  background: #e3edec;
+  background: var(--color-primary-100);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #063b3e;
+  color: var(--color-primary-500);
 }
 
 /* ── Ações ───────────────────────────────────────────────────────── */
@@ -671,10 +671,10 @@ onUnmounted(() => {
   gap: 8px;
   padding: 0 20px;
   height: 52px;
-  border: 1.5px solid #e3edec;
+  border: 1.5px solid var(--color-primary-100);
   border-radius: 14px;
   background: #fff;
-  color: #607374;
+  color: var(--color-navy-400);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -684,7 +684,7 @@ onUnmounted(() => {
   white-space: nowrap;
 }
 
-.cs-btn-retake:hover { background: #f0f5f5; border-color: #d5e4e2; }
+.cs-btn-retake:hover { background: var(--color-primary-50); border-color: var(--color-primary-200); }
 
 .cs-btn-confirm { flex: 1; }
 

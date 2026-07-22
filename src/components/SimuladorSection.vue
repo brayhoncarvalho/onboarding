@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <section class="simulador" aria-labelledby="simulador-title">
     <div class="simulador__container" id="simulador-card">
       <div class="simulador__header">
@@ -154,15 +154,15 @@ const decrementar = () => {
 <style scoped>
 .simulador {
   width: 100%;
-  background: #fafcfc;
+  background: var(--color-gray-50);
 }
 
 .simulador__container {
   width: 100%;
   background: #ffffff;
-  border: 1px solid #e3edec;
+  border: 1px solid var(--color-primary-100);
   border-radius: 24px;
-  box-shadow: 0 16px 48px rgba(6, 59, 62, 0.1);
+  box-shadow: 0 16px 48px rgba(10, 22, 40, 0.08);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -182,8 +182,8 @@ const decrementar = () => {
   height: 28px;
   padding: 0 12px;
   border-radius: 999px;
-  background: #dff3f1;
-  color: #0a7c7c;
+  background: var(--color-primary-100);
+  color: var(--color-secondary-700);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -194,7 +194,7 @@ const decrementar = () => {
   font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0;
 }
 
@@ -203,7 +203,7 @@ const decrementar = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
 }
 
 .simulador__value-field {
@@ -217,7 +217,7 @@ const decrementar = () => {
   font-size: 36px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #063b3e;
+  color: var(--color-primary-500);
 }
 
 .simulador__slider-row {
@@ -232,9 +232,9 @@ const decrementar = () => {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid #d5e4e2;
+  border: 1px solid var(--color-primary-200);
   background: #ffffff;
-  color: #063b3e;
+  color: var(--color-primary-500);
   font-size: 18px;
   font-family: 'Instrument Sans', sans-serif;
   font-weight: 600;
@@ -247,7 +247,7 @@ const decrementar = () => {
 }
 
 .simulador__ctrl:hover {
-  background: #f3f9f8;
+  background: var(--color-gray-50);
 }
 
 .simulador__ctrl:disabled {
@@ -256,7 +256,7 @@ const decrementar = () => {
 }
 
 .simulador__ctrl:focus-visible {
-  outline: 2px solid #063b3e;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
 }
 
@@ -269,7 +269,7 @@ const decrementar = () => {
 .simulador__range-footer span {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #607374;
+  color: var(--color-navy-400);
 }
 
 .simulador__range {
@@ -278,7 +278,7 @@ const decrementar = () => {
   -webkit-appearance: none;
   appearance: none;
   height: 6px;
-  background: linear-gradient(to right, #063b3e var(--fill), #e3edec var(--fill));
+  background: linear-gradient(to right, var(--color-primary-500) var(--fill), var(--color-primary-100) var(--fill));
   outline: none;
   border-radius: 999px;
   cursor: pointer;
@@ -296,22 +296,22 @@ const decrementar = () => {
   width: 24px;
   height: 24px;
   background: #ffffff;
-  border: 2px solid #063b3e;
+  border: 2px solid var(--color-primary-500);
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(4, 42, 44, 0.2);
+  box-shadow: 0 2px 6px rgba(10, 22, 40, 0.15);
   margin-top: -7px;
 }
 
 .simulador__range::-moz-range-track {
   height: 6px;
-  background: #e3edec;
+  background: var(--color-primary-100);
   border-radius: 999px;
 }
 
 .simulador__range::-moz-range-progress {
   height: 6px;
-  background: #063b3e;
+  background: var(--btn-primary-bg);
   border-radius: 999px;
 }
 
@@ -319,14 +319,14 @@ const decrementar = () => {
   width: 24px;
   height: 24px;
   background: #ffffff;
-  border: 2px solid #063b3e;
+  border: 2px solid var(--color-primary-500);
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(4, 42, 44, 0.2);
+  box-shadow: 0 2px 6px rgba(10, 22, 40, 0.15);
 }
 
 .simulador__range:focus-visible {
-  outline: 2px solid #063b3e;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 3px;
 }
 
@@ -339,10 +339,10 @@ const decrementar = () => {
 
 .simulador__parcela-btn {
   height: 42px;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   border-radius: 999px;
   background: #ffffff;
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -351,18 +351,18 @@ const decrementar = () => {
 }
 
 .simulador__parcela-btn--selected {
-  background: #063b3e;
-  color: #ffffff;
-  border-color: #063b3e;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+  border-color: var(--color-primary-500);
 }
 
 .simulador__parcela-btn:focus-visible {
-  outline: 2px solid #063b3e;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
 }
 
 .simulador__result-wrap {
-  border-top: 1px dashed #d5e4e2;
+  border-top: 1px dashed var(--color-primary-200);
   padding-top: 14px;
   display: flex;
   flex-direction: column;
@@ -381,7 +381,7 @@ const decrementar = () => {
 .simulador__result-label {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   margin: 0;
   white-space: nowrap;
 }
@@ -390,7 +390,7 @@ const decrementar = () => {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 20px;
   font-weight: 600;
-  color: #063b3e;
+  color: var(--color-primary-500);
   margin: 0;
   white-space: nowrap;
 }
@@ -398,7 +398,7 @@ const decrementar = () => {
 .simulador__taxa-label {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   margin: 0;
   white-space: nowrap;
 }
@@ -407,7 +407,7 @@ const decrementar = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0;
   white-space: nowrap;
 }
@@ -416,8 +416,8 @@ const decrementar = () => {
   height: 52px;
   border: none;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -428,11 +428,12 @@ const decrementar = () => {
 }
 
 .simulador__cta:hover {
-  background: #0fc5c5;
+  background: var(--btn-primary-bg-hover);
+  color: #ffffff;
 }
 
 .simulador__cta:focus-visible {
-  outline: 2px solid #063b3e;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 3px;
 }
 
@@ -440,7 +441,7 @@ const decrementar = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #607374;
+  color: var(--color-navy-400);
   text-align: center;
   line-height: 1.5;
   padding: 0;
@@ -467,7 +468,7 @@ const decrementar = () => {
     min-height: var(--landing-column-height, 620px);
     height: 100%;
     padding: 36px;
-    box-shadow: 0 20px 60px rgba(6, 59, 62, 0.1);
+    box-shadow: 0 20px 60px rgba(10, 22, 40, 0.08);
   }
 }
 

@@ -1,9 +1,9 @@
-﻿<template>
-  <section class="beneficios" id="beneficios">
+<template>
+  <section class="beneficios" id="beneficios" aria-labelledby="beneficios-title">
 
     <!-- Cards de benefícios -->
     <div class="beneficios__container">
-      <h2 class="beneficios__title">Por que contratar com a gente</h2>
+      <h2 id="beneficios-title" class="beneficios__title">Por que contratar com a gente</h2>
 
       <div class="beneficios__grid">
 
@@ -159,7 +159,7 @@ const toggleFaq = (id: number) => {
 <style scoped>
 .beneficios {
   width: 100%;
-  background: #fafcfc;
+  background: var(--color-gray-50);
 }
 
 .beneficios__container {
@@ -175,7 +175,7 @@ const toggleFaq = (id: number) => {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 36px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0 0 28px;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -194,7 +194,7 @@ const toggleFaq = (id: number) => {
   justify-content: flex-start;
   min-height: 220px;
   background: #ffffff;
-  border: 1px solid #e3edec;
+  border: 1px solid var(--color-primary-100);
   border-radius: 20px;
   padding: 24px 20px;
 }
@@ -203,7 +203,7 @@ const toggleFaq = (id: number) => {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #dff3f1;
+  background: rgba(0, 136, 136, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,14 +216,14 @@ const toggleFaq = (id: number) => {
   height: 28px;
   object-fit: contain;
   display: block;
-  filter: grayscale(1) brightness(0.45) sepia(0.3) saturate(1.2) hue-rotate(140deg);
+  filter: brightness(0) saturate(100%) invert(35%) sepia(90%) saturate(600%) hue-rotate(150deg) brightness(90%);
 }
 
 .beneficios__card-title {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  color: #0b2528;
+  color: var(--color-navy-800);
   text-align: left;
   line-height: 1.2;
   margin: 0 0 8px;
@@ -233,7 +233,7 @@ const toggleFaq = (id: number) => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   text-align: left;
   line-height: 1.6;
   margin: 0;
@@ -268,7 +268,7 @@ const toggleFaq = (id: number) => {
 
 .beneficios__seguranca {
   width: 100%;
-  background: #063b3e;
+  background: var(--btn-primary-bg);
   padding: 56px 20px;
 }
 
@@ -308,8 +308,8 @@ const toggleFaq = (id: number) => {
   gap: 14px;
   padding: 16px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .beneficios__seguranca-item span {
@@ -317,8 +317,8 @@ const toggleFaq = (id: number) => {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--color-secondary-700);
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -331,14 +331,14 @@ const toggleFaq = (id: number) => {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-navy-800);
 }
 
 .beneficios__seguranca-item small {
   margin: 0;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.66);
+  color: var(--color-navy-600);
 }
 
 .beneficios__faq {
@@ -349,7 +349,7 @@ const toggleFaq = (id: number) => {
 
 .beneficios__faq-intro h3 {
   margin: 0 0 12px;
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 36px;
   font-weight: 600;
@@ -359,18 +359,18 @@ const toggleFaq = (id: number) => {
 
 .beneficios__faq-intro p {
   margin: 0;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
 .beneficios__faq-list {
-  border-top: 1px solid #e3edec;
+  border-top: 1px solid var(--color-primary-100);
 }
 
 .beneficios__faq-item {
-  border-bottom: 1px solid #e3edec;
+  border-bottom: 1px solid var(--color-primary-100);
 }
 
 .beneficios__faq-btn {
@@ -387,7 +387,7 @@ const toggleFaq = (id: number) => {
 }
 
 .beneficios__faq-btn span {
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -396,7 +396,7 @@ const toggleFaq = (id: number) => {
 .beneficios__faq-btn strong {
   width: 28px;
   text-align: center;
-  color: #0fa3a3;
+  color: var(--color-secondary-600);
   font-size: 22px;
   font-weight: 500;
 }
@@ -404,7 +404,7 @@ const toggleFaq = (id: number) => {
 .beneficios__faq-answer {
   margin: 0;
   padding: 0 40px 20px 4px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.65;
@@ -413,7 +413,7 @@ const toggleFaq = (id: number) => {
 .beneficios__cta-final {
   margin-top: 56px;
   margin-bottom: 30px;
-  background: linear-gradient(135deg, #063b3e 0%, #0a5457 100%);
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-navy-800) 100%);
   border-radius: 24px;
   padding: 32px 24px;
   display: grid;
@@ -455,13 +455,19 @@ const toggleFaq = (id: number) => {
   height: 52px;
   padding: 0 30px;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   display: inline-flex;
   align-items: center;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 700;
+  transition: background 0.15s ease;
+}
+
+.beneficios__cta-final a:hover {
+  background: var(--btn-primary-bg-hover);
+  color: var(--btn-primary-color);
 }
 
 @media (min-width: 1024px) {

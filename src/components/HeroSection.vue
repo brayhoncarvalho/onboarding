@@ -1,8 +1,8 @@
-﻿<template>
-  <section class="hero" id="simulador">
+<template>
+  <section class="hero" id="simulador" aria-labelledby="hero-title">
     <div class="hero__body">
       <div class="hero__content">
-        <h1 class="hero__title">Empréstimo Online, Rápido e Seguro.</h1>
+        <h1 id="hero-title" class="hero__title">Empréstimo Online, Rápido e Seguro.</h1>
         <p class="hero__subtitle">
           Faça sua simulação online e conheça as opções de crédito disponíveis para você.
         </p>
@@ -27,7 +27,6 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
 
 .hero__body {
   position: relative;
-  min-height: 520px;
   width: 100%;
   max-width: 680px;
 }
@@ -44,7 +43,7 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.08;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0 0 16px;
 }
 
@@ -53,7 +52,7 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #33484a;
+  color: var(--color-navy-700);
 }
 
 .hero__cta-row {
@@ -72,8 +71,8 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   padding: 0 30px;
   border: none;
   border-radius: 999px;
-  background: #063b3e;
-  color: #ffffff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -81,7 +80,7 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
 }
 
 .hero__cta:hover {
-  background: #052c2f;
+  background: var(--color-navy-900);
 }
 
 .hero__trust {
@@ -92,15 +91,15 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: #2e4446;
+  color: var(--color-navy-800);
 }
 
 .hero__trust span {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #dff3f1;
-  color: #0fa3a3;
+  background: var(--color-primary-100);
+  color: var(--color-secondary-600);
   font-size: 16px;
   font-weight: 700;
   display: inline-flex;

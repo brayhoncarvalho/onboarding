@@ -51,8 +51,8 @@ withDefaults(defineProps<Props>(), { variant: 'ghost', size: 'md', type: 'button
 .ds-icon-button--ghost:hover { background: var(--color-bg-page); }
 .ds-icon-button--default { border-color: var(--color-border-default); background: var(--color-bg-surface); }
 .ds-icon-button--default:hover { border-color: var(--color-border-strong); }
-.ds-icon-button--primary { background: var(--color-primary-500); color: var(--color-navy-900); }
-.ds-icon-button--primary:hover { background: var(--color-primary-600); }
+.ds-icon-button--primary { background: var(--btn-primary-bg); color: var(--btn-primary-color); }
+.ds-icon-button--primary:hover { background: var(--btn-primary-bg-hover); color: #ffffff; }
 .ds-icon-button--danger { color: var(--color-danger-500); }
 .ds-icon-button--danger:hover { background: var(--color-danger-50); }
 

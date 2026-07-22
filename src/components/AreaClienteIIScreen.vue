@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import AuthHeader from './AuthHeader.vue'
 
 const emit = defineEmits<{
@@ -8,12 +8,17 @@ const emit = defineEmits<{
   (e: 'navigate', action: 'sair' | 'emprestimos' | 'meus-dados'): void
 }>()
 
+const props = withDefaults(
+  defineProps<{ valor?: string; condicoes?: string }>(),
+  { valor: 'R$ 3.500,00', condicoes: '18x de R$ 209,32' }
+)
+
 interface Emprestimo { id: number; valor: string; condicoes: string; data: string; status: string }
 
 const hoje = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
 
 const emprestimos: Emprestimo[] = [
-  { id: 1, valor: 'R$ 3.500,00', condicoes: '18x de R$ 209,32', data: hoje, status: 'Aguardando Assinatura' },
+  { id: 1, valor: props.valor, condicoes: props.condicoes, data: hoje, status: 'Aguardando Assinatura' },
 ]
 </script>
 
@@ -53,24 +58,24 @@ const emprestimos: Emprestimo[] = [
 </template>
 
 <style scoped>
-.aii-screen { min-height: 100vh; background: #fafcfc; display: flex; flex-direction: column; }
+.aii-screen { min-height: 100vh; background: var(--color-gray-50); display: flex; flex-direction: column; }
 .proposal-main { flex: 1; padding: 32px 20px 64px; }
 .proposal-main__inner { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
-.aii-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: #00d8d8; margin: 0; }
-.ac-card { background: #ffffff; border: 1px solid #e3edec; border-radius: 20px; box-shadow: 0 8px 32px rgba(6,59,62,0.06); overflow: hidden; }
-.ac-card__topbar { height: 6px; background: #00d8d8; }
+.aii-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: var(--color-primary-500); margin: 0; }
+.ac-card { background: #ffffff; border: 1px solid var(--color-primary-100); border-radius: 20px; box-shadow: 0 8px 32px rgba(10, 22, 40, 0.06); overflow: hidden; }
+.ac-card__topbar { height: 6px; background: var(--btn-primary-bg); }
 .ac-card__body { padding: 20px 24px; display: flex; flex-direction: column; gap: 4px; }
 .ac-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 12px; }
 .ac-row--top { align-items: flex-start; }
-.ac-row__label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 600; color: #00d8d8; flex-shrink: 0; }
-.ac-row__value { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: #5b6b6c; text-align: right; }
-.ac-row__divider { border: none; border-top: 1px solid #e3edec; margin: 0; }
+.ac-row__label { font-family: "Instrument Sans", sans-serif; font-size: 16px; font-weight: 600; color: var(--color-primary-500); flex-shrink: 0; }
+.ac-row__value { font-family: "Instrument Sans", sans-serif; font-size: 16px; color: var(--color-navy-500); text-align: right; }
+.ac-row__divider { border: none; border-top: 1px solid var(--color-primary-100); margin: 0; }
 .ac-actions { padding-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }
 .ac-btn { display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border: none; border-radius: 999px; cursor: pointer; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 600; color: #ffffff; transition: background 0.15s; }
 .ac-btn--dark { background: #444746; }
 .ac-btn--dark:hover { background: #333534; }
 .ac-btn__circle { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%; flex-shrink: 0; }
-.proposal-submit--inline { height: 42px; border: none; border-radius: 999px; background: #00d8d8; color: #042a2c; font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; padding: 0 20px; transition: background 0.15s; }
-.proposal-submit--inline:hover { background: #0fc5c5; }
+.proposal-submit--inline { height: 42px; border: none; border-radius: 999px; background: var(--btn-primary-bg); color: var(--btn-primary-color); font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; padding: 0 20px; transition: background 0.15s; }
+.proposal-submit--inline:hover { background: var(--btn-primary-bg-hover); color: #ffffff; }
 @media (min-width: 640px) { .proposal-main { padding: 40px 32px 80px; } .aii-title { font-size: 32px; } }
 </style>

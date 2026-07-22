@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { computed, ref } from 'vue'
 
 type AccessChannel = 'email' | 'celular'
@@ -167,7 +167,7 @@ const handleResend = () => {
 <style scoped>
 .senha-screen {
   min-height: 100vh;
-  background: #fafcfc;
+  background: var(--color-gray-50);
   display: flex;
   flex-direction: column;
 }
@@ -177,8 +177,8 @@ const handleResend = () => {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #fafcfc;
-  border-bottom: 1px solid #e3edec;
+  background: var(--color-gray-50);
+  border-bottom: 1px solid var(--color-primary-100);
 }
 .proposal-header__inner {
   max-width: 1024px;
@@ -195,17 +195,17 @@ const handleResend = () => {
   align-items: center;
   gap: 6px;
   padding: 8px 18px;
-  border: 1.5px solid #e3edec;
+  border: 1.5px solid var(--color-primary-100);
   border-radius: 999px;
   background: transparent;
-  color: #0b2528;
+  color: var(--color-navy-800);
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   transition: background 0.15s;
 }
-.proposal-header__back:hover { background: #f0f7f7; }
+.proposal-header__back:hover { background: var(--color-primary-50); }
 
 /* ── Main ── */
 .proposal-main {
@@ -241,17 +241,17 @@ const handleResend = () => {
   left: calc(50% + 18px);
   right: calc(-50% + 18px);
   height: 1.5px;
-  background: #e3edec;
+  background: var(--color-primary-100);
 }
-.proposal-steps__item.is-done::after  { background: #063b3e; }
-.proposal-steps__item.is-active::after { background: #e3edec; }
+.proposal-steps__item.is-done::after  { background: var(--btn-primary-bg); }
+.proposal-steps__item.is-active::after { background: var(--color-primary-100); }
 .proposal-steps__mark {
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   background: #ffffff;
-  color: #607374;
+  color: var(--color-navy-400);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -261,32 +261,32 @@ const handleResend = () => {
   position: relative;
   z-index: 1;
 }
-.proposal-steps__item.is-done  .proposal-steps__mark { background: #063b3e; border-color: #063b3e; color: #ffffff; }
-.proposal-steps__item.is-active .proposal-steps__mark { border-color: #063b3e; color: #063b3e; background: #ffffff; box-shadow: 0 0 0 3px #dff3f1; }
+.proposal-steps__item.is-done  .proposal-steps__mark { background: var(--btn-primary-bg); border-color: var(--color-primary-500); color: var(--btn-primary-color); }
+.proposal-steps__item.is-active .proposal-steps__mark { border-color: var(--color-primary-500); color: var(--color-primary-500); background: #ffffff; box-shadow: 0 0 0 3px var(--color-primary-100); }
 .proposal-steps__label {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: #607374;
+  color: var(--color-navy-400);
   text-align: center;
   line-height: 1.2;
   letter-spacing: 0.03em;
 }
-.proposal-steps__item.is-active .proposal-steps__label { color: #0b2528; }
-.proposal-steps__item.is-done  .proposal-steps__label { color: #5b6b6c; }
+.proposal-steps__item.is-active .proposal-steps__label { color: var(--color-navy-800); }
+.proposal-steps__item.is-done  .proposal-steps__label { color: var(--color-navy-500); }
 
 /* ── Page title ── */
 .ss-title {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 28px;
   font-weight: 700;
-  color: #0b2528;
+  color: var(--color-navy-800);
   margin: 0 0 8px;
 }
 .ss-subtitle {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   margin: 0 0 28px;
   line-height: 1.5;
 }
@@ -294,9 +294,9 @@ const handleResend = () => {
 /* ── Form card ── */
 .proposal-form {
   background: #ffffff;
-  border: 1px solid #e3edec;
+  border: 1px solid var(--color-primary-100);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(6,59,62,0.06);
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.06);
   padding: 28px 24px;
 }
 
@@ -311,16 +311,16 @@ const handleResend = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: #0b2528;
+  color: var(--color-navy-800);
 }
 .proposal-input {
   height: 50px;
-  border: 1.5px solid #d5e4e2;
+  border: 1.5px solid var(--color-primary-200);
   border-radius: 12px;
   padding: 0 14px;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #0b2528;
+  color: var(--color-navy-800);
   background: #ffffff;
   outline: none;
   transition: border-color 0.15s;
@@ -331,7 +331,7 @@ const handleResend = () => {
   font-weight: 600;
   letter-spacing: 0.35em;
 }
-.proposal-input:focus { border-color: #063b3e; }
+.proposal-input:focus { border-color: var(--color-primary-500); }
 .proposal-input.is-error { border-color: #dc3545; }
 .field-error {
   font-family: 'Instrument Sans', sans-serif;
@@ -346,8 +346,8 @@ const handleResend = () => {
   height: 52px;
   border: none;
   border-radius: 999px;
-  background: #00d8d8;
-  color: #042a2c;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -356,7 +356,7 @@ const handleResend = () => {
   margin-top: 8px;
   transition: background 0.15s;
 }
-.proposal-submit:hover { background: #0fc5c5; }
+.proposal-submit:hover { background: var(--btn-primary-bg-hover); color: #ffffff; }
 
 /* ── Resend ── */
 .ss-resend {
@@ -373,16 +373,16 @@ const handleResend = () => {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: #0b2528;
+  color: var(--color-navy-800);
   text-decoration: underline;
   text-underline-offset: 2px;
   padding: 0;
 }
-.ss-resend__btn:hover { color: #00d8d8; }
+.ss-resend__btn:hover { color: var(--color-primary-500); }
 .ss-resend__feedback {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #5b6b6c;
+  color: var(--color-navy-500);
   margin: 8px 0 0;
   text-align: center;
 }
@@ -395,7 +395,7 @@ const handleResend = () => {
   gap: 6px;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 16px;
-  color: #607374;
+  color: var(--color-navy-400);
   margin: 0;
 }
 

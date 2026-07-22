@@ -141,7 +141,7 @@ const right = computed(() =>
   top: 50%;
   height: 4px;
   transform: translateY(-50%);
-  background: var(--color-primary-500);
+  background: var(--btn-primary-bg);
   border-radius: var(--radius-full);
   pointer-events: none;
 }

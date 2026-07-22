@@ -129,9 +129,9 @@ const isBelow = computed(
 }
 
 .ds-stepper__item--complete .ds-stepper__indicator {
-  background: var(--color-primary-500);
+  background: var(--btn-primary-bg);
   border-color: var(--color-primary-500);
-  color: var(--color-navy-900);
+  color: var(--btn-primary-color);
 }
 
 .ds-stepper__item--active .ds-stepper__indicator {
@@ -225,7 +225,7 @@ const isBelow = computed(
 }
 
 .ds-stepper--label-below .ds-stepper__item--complete .ds-stepper__separator {
-  background: var(--color-primary-500);
+  background: var(--btn-primary-bg);
 }
 
 /* Dotted: indicador 12px — ajusta posições */
@@ -286,7 +286,7 @@ const isBelow = computed(
 }
 
 .ds-stepper--label-side .ds-stepper__item--complete .ds-stepper__separator {
-  background: var(--color-primary-500);
+  background: var(--btn-primary-bg);
 }
 
 /* Último item sem separador — body pode crescer */
@@ -332,7 +332,7 @@ const isBelow = computed(
 }
 
 .ds-stepper--vertical .ds-stepper__item--complete .ds-stepper__separator {
-  background: var(--color-primary-500);
+  background: var(--btn-primary-bg);
 }
 
 .ds-stepper--vertical.ds-stepper--dotted .ds-stepper__separator {

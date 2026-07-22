@@ -87,7 +87,7 @@ const ariaLabel = computed(() =>
   border-radius: var(--radius-full);
   transition: width var(--duration-slow) var(--easing-default);
 }
-.ds-progress__fill--default { background: var(--color-primary-500); }
+.ds-progress__fill--default { background: var(--btn-primary-bg); }
 .ds-progress__fill--success { background: var(--color-success-500); }
 .ds-progress__fill--danger  { background: var(--color-danger-500); }
 </style>

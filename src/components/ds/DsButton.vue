@@ -64,11 +64,12 @@ const isDisabled = computed(() => props.disabled || props.loading)
 .ds-button--full { width: 100%; }
 
 .ds-button--primary {
-  background: var(--color-primary-500);
-  color: var(--color-navy-900);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
 }
 .ds-button--primary:hover:not(:disabled) {
-  background: var(--color-primary-600);
+  background: var(--btn-primary-bg-hover);
+  color: #ffffff;
 }
 
 .ds-button--secondary {

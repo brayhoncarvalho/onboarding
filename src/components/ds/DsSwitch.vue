@@ -101,7 +101,7 @@ const onKeydown = (e: KeyboardEvent) => {
 }
 
 .ds-switch-track--on {
-  background: var(--color-primary-500);
+  background: var(--btn-primary-bg);
 }
 .ds-switch-track:focus-visible {
   box-shadow: var(--focus-ring);

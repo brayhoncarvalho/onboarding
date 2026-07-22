@@ -149,7 +149,7 @@ const groupId = `ds-radio-${Math.random().toString(36).slice(2, 7)}`
 }
 .ds-radio-dot--checked {
   border-color: var(--color-primary-500);
-  background: var(--color-primary-500);
+  background: var(--btn-primary-bg);
 }
 .ds-radio-dot--checked::after {
   content: '';

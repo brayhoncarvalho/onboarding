@@ -108,7 +108,6 @@ const emit = defineEmits<{ (e: 'simular'): void }>()
 }
 
 @media (min-width: 480px) {
-  .hero__body { min-height: 560px; }
   .hero__content { padding: 28px 24px; }
   .hero__title { font-size: 44px; }
   .hero__subtitle { font-size: 18px; }
